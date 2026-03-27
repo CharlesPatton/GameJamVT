@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dauwq2ms3546s"
-path="res://.godot/imported/Basic FPS Player.png-8f0c3b763ce6b714ab15a61760640df7.ctex"
+uid="uid://5dwxsqld3ba4"
+path="res://.godot/imported/Basic FPS Player.svg-7aa416bb7e9c2ce2ef5be30e3af14df1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Basic-FPS-Player-GODOT-4.0-526baef7d1990dc2c4e2d3de5a3f910c45c4ec55/addons/Basic FPS Player/Assets/Basic FPS Player.png"
-dest_files=["res://.godot/imported/Basic FPS Player.png-8f0c3b763ce6b714ab15a61760640df7.ctex"]
+source_file="res://addons/Basic FPS Player/Assets/Basic FPS Player.svg"
+dest_files=["res://.godot/imported/Basic FPS Player.svg-7aa416bb7e9c2ce2ef5be30e3af14df1.ctex"]
 
 [params]
 
@@ -38,3 +38,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
