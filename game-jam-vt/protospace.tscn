@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://vb00alg04m8l"]
+[gd_scene format=3 uid="uid://gs0xa46n10vf"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_hu2tx"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_qnenh"]
@@ -7,13 +7,20 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r1rbp"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_hu2tx"]
+size = Vector3(26.982544, 8.34787, 18.7948)
+
+[sub_resource type="Environment" id="Environment_hu2tx"]
+
 [node name="Node3D" type="Node3D" unique_id=230119429]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1009155555]
+floor_max_angle = 0.27401668
 script = ExtResource("1_hu2tx")
+HEAD_BOB = false
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
-[node name="Head" type="Node3D" parent="Basic FPS Player" unique_id=682281308 instance=ExtResource("2_qnenh")]
+[node name="Head" parent="Basic FPS Player" unique_id=682281308 instance=ExtResource("2_qnenh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=839990192]
@@ -21,3 +28,39 @@ mesh = SubResource("CapsuleMesh_i50ms")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=1115437578]
 shape = SubResource("CapsuleShape3D_r1rbp")
+
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=2059576112]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1524895845]
+wait_time = 0.5
+one_shot = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1911522718]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2813568, -1.8223894, 0.7925415)
+use_collision = true
+size = Vector3(10.710602, 1, 18.895386)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1487676335]
+transform = Transform3D(0.7465918, 0.66528255, 0, -0.66528255, 0.7465918, 0, 0, 0, 1, 14.454487, -10.992453, 0.7475271)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=324439899]
+transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0.08428383, 3.6739364, -0.09625244)
+shape = SubResource("BoxShape3D_hu2tx")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1681765197]
+transform = Transform3D(0.7465918, 0.66528255, 0, -0.66528255, 0.7465918, 0, 0, 0, 1, 14.454487, -10.992453, 0.7475271)
+use_collision = true
+size = Vector3(27.521107, 1, 18.895386)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1747225978]
+environment = SubResource("Environment_hu2tx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471024610]
+transform = Transform3D(1, 0, 0, 0, 0.81123734, 0.584717, 0, -0.584717, 0.81123734, 0, 0, 0)
+
+[connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
+[connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]

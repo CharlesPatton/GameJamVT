@@ -3,6 +3,10 @@ extends CharacterBody3D
 
 var BasicFPSPlayerScene : PackedScene = preload("basic_player_head.tscn")
 var addedHead = false
+var isDashing = false
+var isJumping = false
+var isSliding = false
+
 
 func _enter_tree():
 	
@@ -43,11 +47,11 @@ func _enter_tree():
 @export var KEY_BIND_MOUSE_SENS := 0.005
 @export var KEY_BIND_MOUSE_ACCEL := 50
 @export_subgroup("Movement")
-@export var KEY_BIND_UP := "ui_up"
-@export var KEY_BIND_LEFT := "ui_left"
-@export var KEY_BIND_RIGHT := "ui_right"
-@export var KEY_BIND_DOWN := "ui_down"
-@export var KEY_BIND_JUMP := "ui_accept"
+@export var KEY_BIND_UP := "foward"
+@export var KEY_BIND_LEFT := "left"
+@export var KEY_BIND_RIGHT := "right"
+@export var KEY_BIND_DOWN := "backward"
+@export var KEY_BIND_JUMP := "jump"
 
 @export_category("Advanced")
 @export var UPDATE_PLAYER_ON_PHYS_STEP := true	# When check player is moved and rotated in _physics_process (fixed fps)
@@ -58,6 +62,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # To keep track of current speed and acceleration
 var speed = SPEED
 var accel = ACCEL
+var dashCard = 3
 
 # Used when lerping rotation to reduce stuttering when moving the mouse
 var rotation_target_player : float
@@ -134,27 +139,56 @@ func rotate_player(delta):
 	
 func move_player(delta):
 	# Check if not on floor
-	if not is_on_floor():
+	if not is_on_floor() and not isDashing:
 		# Reduce speed and accel
 		speed = IN_AIR_SPEED
 		accel = IN_AIR_ACCEL
 		# Add the gravity
 		velocity.y -= gravity * delta
-	else:
-		# Set speed and accel to defualt
+	elif not isDashing:
 		speed = SPEED
 		accel = ACCEL
-
+	else:
+		# Dashing stuff
+		speed = SPEED + 7
+		accel = 10
+	
+	
 	# Handle Jump.
-	if Input.is_action_just_pressed(KEY_BIND_JUMP) and is_on_floor():
+	if Input.is_action_just_pressed(KEY_BIND_JUMP):
+		isJumping = true
 		velocity.y = JUMP_VELOCITY
-
+		$JumpEndTimer.start()
+	
+	if Input.is_action_just_pressed("dash"):
+		if dashCard > 0:
+			isDashing = true
+			$DashEndTimer.wait_time = 0.5
+			$DashEndTimer.start()
+			position.y += 0.0001
+	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector(KEY_BIND_LEFT, KEY_BIND_RIGHT, KEY_BIND_UP, KEY_BIND_DOWN)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	print(input_dir)
 	
-	velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
-	velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
+	if direction:
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	if isDashing == true:
+		direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
+		velocity.x = direction.x * speed
+		velocity.z = direction.z * speed
+	if isJumping == true:
+		if isSliding:
+			speed = SPEED + 20
+			accel = 10
+			direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
+			velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
+			velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
+	if isDashing == false:
+		velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
+		velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
 
 	move_and_slide()
 
@@ -169,3 +203,19 @@ func reset_head_bob(delta):
 	if $Head.position == head_start_pos:
 		pass
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
+	
+
+func _on_dash_end_timer_timeout() -> void:
+	isDashing = false
+
+
+func _on_jump_end_timer_timeout() -> void:
+	isJumping = false
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	isSliding = true
+
+
+func _on_area_3d_body_exited(body: Node3D) -> void:
+	isSliding = false
