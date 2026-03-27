@@ -116,6 +116,9 @@ func _input(event):
 	# Listen for mouse movement and check if mouse is captured
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
+	
+	if Input.is_action_just_pressed("escape"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_rotation_target(mouse_motion : Vector2):
 	# Add player target to the mouse -x input
@@ -161,7 +164,7 @@ func move_player(delta):
 		$JumpEndTimer.start()
 	
 	if Input.is_action_just_pressed("dash"):
-		if dashCard > 0:
+		if dashCard > 0 and isDashing == false:
 			isDashing = true
 			$DashEndTimer.wait_time = 0.5
 			$DashEndTimer.start()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_hu2tx"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_qnenh"]
+[ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="3_qnenh"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i50ms"]
 
@@ -10,7 +11,16 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu2tx"]
 size = Vector3(26.982544, 8.34787, 18.7948)
 
-[sub_resource type="Environment" id="Environment_hu2tx"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qnenh"]
+sky_top_color = Color(0.4872229, 0.60521984, 0.84678996, 1)
+
+[sub_resource type="Sky" id="Sky_i50ms"]
+sky_material = SubResource("ProceduralSkyMaterial_qnenh")
+
+[sub_resource type="Environment" id="Environment_i50ms"]
+background_mode = 2
+background_color = Color(0.65658617, 0.8063022, 0.8991646, 1)
+sky = SubResource("Sky_i50ms")
 
 [node name="Node3D" type="Node3D" unique_id=230119429]
 
@@ -55,10 +65,14 @@ use_collision = true
 size = Vector3(27.521107, 1, 18.895386)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1747225978]
-environment = SubResource("Environment_hu2tx")
+environment = SubResource("Environment_i50ms")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=471024610]
-transform = Transform3D(1, 0, 0, 0, 0.81123734, 0.584717, 0, -0.584717, 0.81123734, 0, 0, 0)
+[node name="treehouse" parent="." unique_id=706194107 instance=ExtResource("3_qnenh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, -5)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=271350511]
+transform = Transform3D(0.37144732, 0.030106544, 0.92796576, -0.59693664, 0.77326113, 0.21385518, -0.7111214, -0.63337255, 0.30519757, 0, 0, 0)
+shadow_enabled = true
 
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
