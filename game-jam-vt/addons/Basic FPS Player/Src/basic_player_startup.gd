@@ -117,8 +117,12 @@ func _input(event):
 	if event is InputEventMouseMotion && Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		set_rotation_target(event.relative)
 	
+	# Lock / Unlock the mouse when escape is pressed
 	if Input.is_action_just_pressed("escape"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func set_rotation_target(mouse_motion : Vector2):
 	# Add player target to the mouse -x input
@@ -149,10 +153,11 @@ func move_player(delta):
 		# Add the gravity
 		velocity.y -= gravity * delta
 	elif not isDashing:
+		# Reset to default speed
 		speed = SPEED
 		accel = ACCEL
 	else:
-		# Dashing stuff
+		# Set to dash speed
 		speed = SPEED + 7
 		accel = 10
 	
@@ -163,8 +168,11 @@ func move_player(delta):
 		velocity.y = JUMP_VELOCITY
 		$JumpEndTimer.start()
 	
+	# Dash input and start DashEndTimer
 	if Input.is_action_just_pressed("dash"):
 		if dashCard > 0 and isDashing == false:
+			$SpeedLines.visible = true
+			change_camera_fov_on_dash()
 			isDashing = true
 			$DashEndTimer.wait_time = 0.5
 			$DashEndTimer.start()
@@ -175,21 +183,21 @@ func move_player(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	print(input_dir)
 	
-	if direction:
+	if direction: # If there's a direction with no dash / jump
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-	if isDashing == true:
+	if isDashing == true: # If dash without direction
 		direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
-	if isJumping == true:
+	if isJumping == true: # If jump without direction
 		if isSliding:
 			speed = SPEED + 20
 			accel = 10
 			direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
 			velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
 			velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
-	if isDashing == false:
+	if isDashing == false: # If not dashing and no direction
 		velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
 		velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
 
@@ -208,8 +216,15 @@ func reset_head_bob(delta):
 	$Head.position = lerp($Head.position, head_start_pos, 2 * (1/HEAD_BOB_FREQUENCY) * delta)
 	
 
+func change_camera_fov_on_dash():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D, "fov", 88, 0.1)
+
 func _on_dash_end_timer_timeout() -> void:
 	isDashing = false
+	$SpeedLines.visible = false
+	var tween = get_tree().create_tween()
+	tween.tween_property($Head/Camera3D, "fov", 75, 0.1)
 
 
 func _on_jump_end_timer_timeout() -> void:
