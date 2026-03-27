@@ -15,7 +15,7 @@ shader_parameter/speedScale = 10.64
 shader_parameter/clipPosition = 0.25
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hu2tx"]
-size = Vector3(26.982544, 8.34787, 18.7948)
+size = Vector3(26.982544, 2.429306, 18.7948)
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_qnenh"]
 sky_top_color = Color(0.4872229, 0.60521984, 0.84678996, 1)
@@ -73,7 +73,7 @@ size = Vector3(10.710602, 1, 18.895386)
 transform = Transform3D(0.7465918, 0.66528255, 0, -0.66528255, 0.7465918, 0, 0, 0, 1, 14.454487, -10.992453, 0.7475271)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=324439899]
-transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0.08428383, 3.6739364, -0.09625244)
+transform = Transform3D(1, 2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0, 1, 0.1208725, 2.5350866, -0.09625244)
 shape = SubResource("BoxShape3D_hu2tx")
 disabled = true
 

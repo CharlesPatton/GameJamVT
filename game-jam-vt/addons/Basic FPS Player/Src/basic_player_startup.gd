@@ -183,7 +183,7 @@ func move_player(delta):
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	print(input_dir)
 	
-	if direction: # If there's a direction with no dash / jump
+	if direction and not isJumping: # If there's a direction with no dash / jump
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	if isDashing == true: # If dash without direction
@@ -193,10 +193,12 @@ func move_player(delta):
 	if isJumping == true: # If jump without direction
 		if isSliding:
 			speed = SPEED + 20
-			accel = 10
+			accel = 20
 			direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
-			velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
-			velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
+			velocity.x = move_toward(velocity.x, direction.x * (speed * 2), accel * delta)
+			velocity.y = move_toward(velocity.y, direction.y + (speed / 2), accel * delta)
+			velocity.z = move_toward(velocity.z, direction.z * (speed * 2), accel * delta)
+	
 	if isDashing == false: # If not dashing and no direction
 		velocity.x = move_toward(velocity.x, direction.x * speed, accel * delta)
 		velocity.z = move_toward(velocity.z, direction.z * speed, accel * delta)
