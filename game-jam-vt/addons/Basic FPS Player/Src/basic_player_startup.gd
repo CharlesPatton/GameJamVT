@@ -7,6 +7,9 @@ var isDashing = false
 var isJumping = false
 var isSliding = false
 
+var dashCards = 0;
+var jumpCards = 0;
+
 
 func _enter_tree():
 	
@@ -62,7 +65,6 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 # To keep track of current speed and acceleration
 var speed = SPEED
 var accel = ACCEL
-var dashCard = 3
 
 # Used when lerping rotation to reduce stuttering when moving the mouse
 var rotation_target_player : float
@@ -77,7 +79,7 @@ var tick = 0
 func _ready():
 	if Engine.is_editor_hint():
 		return
-
+	
 	# Capture mouse if set to true
 	if CAPTURE_ON_START:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -87,6 +89,9 @@ func _ready():
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
+	
+	$Control.dashCardAmount = dashCards
+	$Control.jumpCardAmount = jumpCards
 	
 	# Increment player tick, used in head bob motion
 	tick += 1
@@ -170,18 +175,20 @@ func move_player(delta):
 	
 	# Dash input and start DashEndTimer
 	if Input.is_action_just_pressed("dash"):
-		if dashCard > 0 and isDashing == false:
+		print(dashCards)
+		if dashCards > 0 and isDashing == false:
 			$SpeedLines.visible = true
 			change_camera_fov_on_dash()
 			isDashing = true
 			$DashEndTimer.wait_time = 0.5
 			$DashEndTimer.start()
 			position.y += 0.0001
+			dashCards -= 1
+			print(dashCards)
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector(KEY_BIND_LEFT, KEY_BIND_RIGHT, KEY_BIND_UP, KEY_BIND_DOWN)
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	print(input_dir)
 	
 	if direction and not isJumping: # If there's a direction with no dash / jump
 		velocity.x = direction.x * speed
