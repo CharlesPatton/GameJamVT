@@ -15,6 +15,11 @@ run/main_scene="uid://gs0xa46n10vf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Basic FPS Player/plugin.cfg")
