@@ -35,7 +35,7 @@ albedo_color = Color(0.38039216, 0.7176471, 0.13333334, 1)
 albedo_color = Color(0.38039216, 0.7176471, 0.13333334, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7vrqn"]
-albedo_color = Color(0.67687863, 0.67687863, 0.67687863, 1)
+albedo_color = Color(0.15332785, 0.2930381, 0.65849566, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tvjhf"]
 albedo_color = Color(0, 0, 0, 1)
@@ -136,9 +136,9 @@ size = Vector3(22.422241, 3.8249168, 8.196735)
 material = SubResource("StandardMaterial3D_4t6hg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1686913317]
-transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.5732937, -13.3029375, -19.081673)
+transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.5732937, -13.3029375, -19.539824)
 use_collision = true
-size = Vector3(51.752655, 1.3192062, 14.575525)
+size = Vector3(51.752655, 1.3192062, 16.60075)
 material = SubResource("StandardMaterial3D_7vrqn")
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=240145165]
@@ -2942,7 +2942,7 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.5
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.062739, -13.85165, -39.103096)
 
 [node name="rock70" parent="." unique_id=637980629 instance=ExtResource("14_bsk3x")]
-transform = Transform3D(1.4500067, 0, 0, 0, 2.042735, 0, 0, 0, 1.5073166, -0.6124885, -11.894531, -19.511194)
+transform = Transform3D(2.614443, 0, 0, 0, 2.042735, 0, 0, 0, 2.0479126, -0.6124885, -11.894531, -19.461058)
 
 [node name="rock71" parent="." unique_id=1125003854 instance=ExtResource("13_4hjyh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -10, -24)
