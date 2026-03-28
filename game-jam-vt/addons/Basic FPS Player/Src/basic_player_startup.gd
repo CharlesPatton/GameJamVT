@@ -12,7 +12,6 @@ var isSliding = false
 var dashCards = 0;
 var jumpCards = 0;
 
-
 func _enter_tree():
 	
 	if find_child("Head"):
