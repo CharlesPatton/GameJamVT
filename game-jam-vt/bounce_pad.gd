@@ -1,5 +1,6 @@
-extends Node3D
+extends Area3D
 
+@export var UPSPEED: int = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,6 +12,6 @@ func _process(delta):
 	pass
 
 
-func _on_area_3d_body_entered(body):
+func _on_body_entered(body):
 	if body.name == "Basic FPS Player":
-		body.velocity.y = 50
+		body.velocity.y = UPSPEED

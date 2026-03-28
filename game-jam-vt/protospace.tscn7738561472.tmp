@@ -13,7 +13,8 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_0fv44"]
 font = ExtResource("2_o1wlx")
-font_size = 100
+font_size = 60
+font_color = Color(1, 1, 1, 0)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_i50ms"]
 
@@ -59,8 +60,8 @@ offset_bottom = 405.0
 label_settings = SubResource("LabelSettings_0fv44")
 horizontal_alignment = 1
 
-[node name="start_fading" type="Timer" parent="CanvasLayer" unique_id=350551614]
-wait_time = 2.0
+[node name="Timer" type="Timer" parent="CanvasLayer" unique_id=350551614]
+wait_time = 0.1
 autostart = true
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1009155555]
@@ -100,10 +101,10 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 3.0
-offset_top = -1.0
-offset_right = -1.0
-offset_bottom = -310.0
+offset_left = 223.0
+offset_top = 149.0
+offset_right = -297.0
+offset_bottom = -224.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 8
@@ -168,7 +169,7 @@ shape = SubResource("BoxShape3D_8guo4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=2099521316]
 mesh = SubResource("BoxMesh_tgct4")
 
-[connection signal="timeout" from="CanvasLayer/start_fading" to="CanvasLayer" method="_on_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer" method="_on_timer_timeout"]
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]

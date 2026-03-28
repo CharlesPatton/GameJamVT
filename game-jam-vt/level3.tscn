@@ -5,6 +5,8 @@
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8x87a"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_ci4mn"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_sotx7"]
+[ext_resource type="Script" uid="uid://d0d12hpmoutg8" path="res://level_display.gd" id="6_bmsap"]
+[ext_resource type="FontFile" uid="uid://2b2tt1qnlrv5" path="res://OptimusPrinceps.ttf" id="7_rqrji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_siwpi"]
 
@@ -36,6 +38,10 @@ sky_material = SubResource("PanoramaSkyMaterial_l2pgs")
 background_color = Color(0.48894286, 0.8247316, 0.99999994, 1)
 sky = SubResource("Sky_2272n")
 ambient_light_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8x87a"]
+font = ExtResource("7_rqrji")
+font_size = 100
 
 [node name="Node3D" type="Node3D" unique_id=896552784]
 
@@ -117,6 +123,23 @@ environment = SubResource("Environment_bs5pn")
 transform = Transform3D(0.934503, 0, -0.35595527, 0.13260554, 0.92801845, 0.34813443, 0.33033302, -0.3725343, 0.867236, 0, 0, 0)
 light_color = Color(0.9127334, 0.7737037, 0.5946696, 1)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1717531982]
+script = ExtResource("6_bmsap")
+LEVEL_TEXT = "School"
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1955737110]
+offset_left = 288.0
+offset_top = 106.0
+offset_right = 827.0
+offset_bottom = 405.0
+label_settings = SubResource("LabelSettings_8x87a")
+horizontal_alignment = 1
+
+[node name="start_fading" type="Timer" parent="CanvasLayer" unique_id=187580461]
+wait_time = 2.0
+autostart = true
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="timeout" from="CanvasLayer/start_fading" to="CanvasLayer" method="_on_timer_timeout"]
