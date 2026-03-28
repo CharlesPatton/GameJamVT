@@ -9,9 +9,10 @@ func _on_body_entered(body: Node3D) -> void:
 			$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
 	
 	if body.name == "Basic FPS Player":	
-		self.get_child(3).get_child(0).set_deferred("disabled", false)
-		#emit_signal("show_cards")
-		self.get_child(3).get_child(1).visible = true
+		for i in range(3, self.get_child_count()):
+			self.get_child(i).get_child(0).set_deferred("disabled", false)
+			#emit_signal("show_cards")
+			self.get_child(i).get_child(1).visible = true
 		var deathTransition = body.get_node("DeathTransition")
 		deathTransition.visible = true
 		var tween = get_tree().create_tween()

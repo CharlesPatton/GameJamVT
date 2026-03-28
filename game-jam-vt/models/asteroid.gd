@@ -2,10 +2,10 @@ extends Node3D
 
 const EDGE = -17
 const RESET = 17
-const SPEED = 2.5
+const SPEED = 1.5
 
-const EDGEY = 
-const RESETY
+const EDGEY = 17
+const RESETY = 17
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,10 +14,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	self.position.x -= SPEED * delta
-	if self.position.x <= EDGE:
-		self.position.x = RESET
-		
-	self.position.y += SPEED * delta
-	if self.position.y >= EDGEY:
-		self.position.y = RESETY
+	global_position.move_toward($"../target".global_position, SPEED * delta)
+	
+	
