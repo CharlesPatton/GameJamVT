@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://do6u0umttx6st" path="res://models/rock3.blend" id="15_r8rrl"]
 [ext_resource type="PackedScene" uid="uid://sr7jh21wts80" path="res://models/lvl2platform.blend" id="16_lwvnx"]
 [ext_resource type="PackedScene" uid="uid://c4uy8wrt4ahor" path="res://models/lvl2geyser.blend" id="17_4ou0f"]
+[ext_resource type="AudioStream" uid="uid://bmsh0yhxvu0ca" path="res://audio/Level2BGM.ogg" id="18_4k5bj"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -464,7 +465,7 @@ omni_range = 5.404
 omni_attenuation = -0.492
 
 [node name="OmniLight3D18" type="OmniLight3D" parent="RiverLights4" unique_id=1799175719]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.860559, -10.133808, 118.89343)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.695669, -10.133808, 118.89343)
 light_color = Color(0.3542318, 0.3476854, 0.37048912, 1)
 light_energy = 11.796
 light_volumetric_fog_energy = 0.0
@@ -557,7 +558,7 @@ transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 2.
 script = ExtResource("5_3opl0")
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=213388283]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6544725e-06, 8.322664, -7.666662)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6544725e-06, -13.464005, 27.78251)
 floor_max_angle = 0.27401668
 script = ExtResource("1_r6vdu")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -703,6 +704,9 @@ transform = Transform3D(-0.8660253, 0, 0.50000024, 0, 1, 0, -0.50000024, 0, -0.8
 [node name="lvl2mushroom13" parent="Node3D8" unique_id=1628221341 instance=ExtResource("14_lwvnx")]
 transform = Transform3D(0.67, 0, -1.1714651e-07, 0, 0.67, 0, 1.1714651e-07, 0, 0.67, -10.872998, -14.135383, 38.711464)
 
+[node name="lvl2mushroom15" parent="Node3D8" unique_id=330417063 instance=ExtResource("14_lwvnx")]
+transform = Transform3D(0.3, 0, -5.2453665e-08, 0, 0.3, 0, 5.2453665e-08, 0, 0.3, 11.081112, -11.818367, 79.15033)
+
 [node name="lvl2mushroom14" parent="Node3D8" unique_id=929258840 instance=ExtResource("12_mw4xc")]
 transform = Transform3D(0.53, 0, -9.266814e-08, 0, 0.53, 0, 9.266814e-08, 0, 0.53, -6.4840317, -14.408029, 42.194427)
 
@@ -808,6 +812,18 @@ transform = Transform3D(0.049999982, 0, -0.08660255, 0, 0.1, 0, 0.08660255, 0, 0
 [node name="lvl2mushroom7" parent="small mushroom patch6" unique_id=920071621 instance=ExtResource("14_lwvnx")]
 transform = Transform3D(0.07, 0, -1.2239188e-08, 0, 0.07, 0, 1.2239188e-08, 0, 0.07, -0.45536995, -0.7323313, -0.38554573)
 
+[node name="small mushroom patch7" type="Node3D" parent="." unique_id=337659075]
+transform = Transform3D(-1.1920929e-07, 0, 1, 0, 1, 0, -1, 0, -1.1920929e-07, 10.845947, -11.4162445, 166.20334)
+
+[node name="lvl2mushroom5" parent="small mushroom patch7" unique_id=1596936439 instance=ExtResource("12_mw4xc")]
+transform = Transform3D(0.15000002, 0, -2.2351742e-08, 0, 0.15, 0, 2.2351742e-08, 0, 0.15000002, -0.100860596, -0.77455616, 0.21614456)
+
+[node name="lvl2mushroom6" parent="small mushroom patch7" unique_id=463850564 instance=ExtResource("13_r8rrl")]
+transform = Transform3D(0.049999982, 0, -0.08660255, 0, 0.1, 0, 0.08660255, 0, 0.049999982, 0.6595497, -0.8235588, -0.1351223)
+
+[node name="lvl2mushroom7" parent="small mushroom patch7" unique_id=164298775 instance=ExtResource("14_lwvnx")]
+transform = Transform3D(0.07, 0, -1.2239188e-08, 0, 0.07, 0, 1.2239188e-08, 0, 0.07, -0.45536995, -0.7323313, -0.38554573)
+
 [node name="small mushroom patch3" type="Node3D" parent="." unique_id=1547745767]
 transform = Transform3D(0.7071068, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.7071068, -10.238799, -13.773054, 30.129955)
 
@@ -863,6 +879,11 @@ lifetime = 2.54
 speed_scale = 0.5
 process_material = SubResource("ParticleProcessMaterial_4ou0f")
 draw_pass_1 = SubResource("PlaneMesh_4k5bj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1712105884]
+stream = ExtResource("18_4k5bj")
+autoplay = true
+parameters/looping = true
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
