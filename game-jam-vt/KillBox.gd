@@ -1,4 +1,5 @@
 extends Area3D
+signal show_cards()
 
 func _on_body_entered(body: Node3D) -> void:			
 	$"../Basic FPS Player".dashCards = 0
@@ -9,6 +10,7 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	if body.name == "Basic FPS Player":	
 		self.get_child(3).get_child(0).set_deferred("disabled", false)
+		#emit_signal("show_cards")
 		self.get_child(3).get_child(1).visible = true
 		var deathTransition = body.get_node("DeathTransition")
 		deathTransition.visible = true
@@ -18,3 +20,5 @@ func _on_body_entered(body: Node3D) -> void:
 		$"../Basic FPS Player".position = $RespawnPoint.global_position
 		var tween2 = get_tree().create_tween()
 		tween2.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", -1, 0.5)
+
+	
