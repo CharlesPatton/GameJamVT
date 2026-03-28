@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_hu2tx"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_qnenh"]
-[ext_resource type="Shader" path="res://animespeed.gdshader" id="3_i50ms"]
+[ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_i50ms"]
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="3_qnenh"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_8guo4"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="6_tgct4"]
