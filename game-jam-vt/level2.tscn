@@ -3,14 +3,17 @@
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_r6vdu"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_21xmu"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8i3m3"]
-[ext_resource type="Script" uid="uid://v2ktsdpiwdu6" path="res://logs.gd" id="4_jifot"]
+[ext_resource type="Script" path="res://logs.gd" id="4_jifot"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_rmy57"]
-[ext_resource type="Script" uid="uid://c1jebrdx6yauf" path="res://models/log.gd" id="5_3opl0"]
+[ext_resource type="Script" path="res://models/log.gd" id="5_3opl0"]
 [ext_resource type="PackedScene" uid="uid://c0vtdw8xkrydi" path="res://models/grandpashouse.blend" id="6_21xmu"]
 [ext_resource type="PackedScene" uid="uid://d1y6aq2d2qm1y" path="res://models/rock2.blend" id="7_rmy57"]
 [ext_resource type="PackedScene" uid="uid://8x4q1aom7ep4" path="res://models/rock1.blend" id="8_qulpo"]
 [ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="9_qulpo"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="11_3opl0"]
+[ext_resource type="PackedScene" uid="uid://cphf6fm6v32uu" path="res://models/lvl2mushroom1.blend" id="12_mw4xc"]
+[ext_resource type="PackedScene" uid="uid://b6mlrmj67i58y" path="res://models/lvl2mushroom2.blend" id="13_r8rrl"]
+[ext_resource type="PackedScene" uid="uid://wno3rg4wdyou" path="res://models/lvl2mushroom3.blend" id="14_lwvnx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -211,7 +214,7 @@ use_collision = true
 size = Vector3(5.9831085, 167.45215, 0.48583984)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=1344049380]
-transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, 83.680145, -46.308598, 114.34453)
+transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, 83.611916, -46.682926, 114.21419)
 calculate_tangents = false
 use_collision = true
 size = Vector3(18.03313, 167.45215, 0.48583984)
@@ -221,6 +224,12 @@ transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0
 calculate_tangents = false
 use_collision = true
 size = Vector3(18.03313, 167.45215, 0.48583984)
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="." unique_id=175422285]
+transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, 1.8582373, -46.308598, 223.29555)
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.32113075, 167.45215, 155.6925)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=1625451784]
 transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -0.7789798, 6.1495686, 115.690735)
@@ -251,6 +260,12 @@ size = Vector3(5.964507, 163.43787, 0.48583984)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="." unique_id=785004646]
 transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, 2.546508, -55.80833, 76.51276)
+calculate_tangents = false
+use_collision = true
+size = Vector3(3.8086343, 128.68105, 8.999023)
+
+[node name="CSGBox3D24" type="CSGBox3D" parent="." unique_id=223115146]
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, 2.5465095, -55.80833, 130.02933)
 calculate_tangents = false
 use_collision = true
 size = Vector3(3.8086343, 128.68105, 8.999023)
@@ -591,8 +606,6 @@ script = ExtResource("5_3opl0")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6544725e-06, 8.322664, -7.666662)
 floor_max_angle = 0.27401668
 script = ExtResource("1_r6vdu")
-IN_AIR_SPEED = 3.0
-JUMP_VELOCITY = 4.5
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_21xmu")]
@@ -641,7 +654,7 @@ offset_top = 374.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
-[node name="@Node3D@132284" type="Node3D" parent="Basic FPS Player" unique_id=1173250643 instance=ExtResource("2_21xmu")]
+[node name="@Node3D@132284" parent="Basic FPS Player" unique_id=1173250643 instance=ExtResource("2_21xmu")]
 
 [node name="CardPickup" type="Area3D" parent="." unique_id=773354911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0155802, 1.7958174)
@@ -654,6 +667,33 @@ shape = SubResource("BoxShape3D_dc5vx")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=1230568337]
 mesh = SubResource("BoxMesh_s8oj7")
+
+[node name="lvl2mushroom1" parent="." unique_id=1700529246 instance=ExtResource("12_mw4xc")]
+transform = Transform3D(-0.8660253, 0, 0.50000024, 0, 1, 0, -0.50000024, 0, -0.8660253, 15.442663, -13.659517, 37.29423)
+
+[node name="lvl2mushroom2" parent="." unique_id=1789871634 instance=ExtResource("13_r8rrl")]
+transform = Transform3D(0.2749999, 0, -0.47631407, 0, 0.55, 0, 0.47631407, 0, 0.2749999, -10.506687, -13.663464, 27.525097)
+
+[node name="lvl2mushroom3" parent="." unique_id=1595400741 instance=ExtResource("14_lwvnx")]
+transform = Transform3D(0.86, 0, -1.5036717e-07, 0, 0.86, 0, 1.5036717e-07, 0, 0.86, -15.713988, -13.66184, 27.322367)
+
+[node name="lvl2mushroom4" parent="." unique_id=1925767891 instance=ExtResource("12_mw4xc")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -11.437656, -13.662397, 32.913715)
+
+[node name="rock3" parent="." unique_id=1286418436 instance=ExtResource("7_rmy57")]
+transform = Transform3D(0.86602545, 0, 0.49999985, 0, 1, 0, -0.49999985, 0, 0.86602545, -8.016517, -14.632538, 33.20103)
+
+[node name="rock4" parent="." unique_id=348583296 instance=ExtResource("8_qulpo")]
+transform = Transform3D(1, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 1, -14.317104, -14.597641, 30.717411)
+
+[node name="lvl2mushroom5" parent="." unique_id=974519263 instance=ExtResource("12_mw4xc")]
+transform = Transform3D(0.15, 0, -2.6226834e-08, 0, 0.15, 0, 2.6226834e-08, 0, 0.15, 17.470274, -14.54761, 24.256397)
+
+[node name="lvl2mushroom6" parent="." unique_id=1335518969 instance=ExtResource("13_r8rrl")]
+transform = Transform3D(0.049999982, 0, -0.08660255, 0, 0.1, 0, 0.08660255, 0, 0.049999982, 18.230688, -14.596613, 23.905134)
+
+[node name="lvl2mushroom7" parent="." unique_id=854037867 instance=ExtResource("14_lwvnx")]
+transform = Transform3D(0.07, 0, -1.2239188e-08, 0, 0.07, 0, 1.2239188e-08, 0, 0.07, 17.115768, -14.505385, 23.65471)
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
