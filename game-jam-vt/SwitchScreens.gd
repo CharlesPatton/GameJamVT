@@ -8,4 +8,9 @@ func _on_body_entered(body: Node3D) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", 0.67, 0.5)
 		await get_tree().create_timer(0.75).timeout
-		get_tree().change_scene_to_file("res://level2.tscn")
+		
+		var level = $"../"
+		if level.name == "Tutorial":
+			get_tree().change_scene_to_file("res://level2.tscn")
+		elif level.name == "level2":
+			get_tree().change_scene_to_file("res://level3.tscn")
