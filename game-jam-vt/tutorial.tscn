@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="1_hu44a"]
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_0cr88"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_4t6hg"]
+[ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="3_tfgte"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_7vrqn"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="5_bhfnd"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="7_0cr88"]
@@ -20,6 +21,7 @@
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="18_dudfa"]
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
+[ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="21_5gpbq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
 albedo_color = Color(0.381866, 0.71612316, 0.1338822, 1)
@@ -84,9 +86,11 @@ shader_parameter/height = -1.0
 shader_parameter/disable_pixel = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
-size = Vector3(22.49289, 3.3700466, 18.991114)
+size = Vector3(22.49289, 5.0489936, 18.564909)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g52lx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
 
 [node name="Tutorial" type="Node3D" unique_id=904070440]
 
@@ -130,7 +134,7 @@ size = Vector3(22.422241, 3.8249168, 8.196735)
 material = SubResource("StandardMaterial3D_4t6hg")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1686913317]
-transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.5732937, -13.3029375, -19.728374)
+transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.5732937, -13.3029375, -19.081673)
 use_collision = true
 size = Vector3(51.752655, 1.3192062, 14.575525)
 material = SubResource("StandardMaterial3D_7vrqn")
@@ -220,7 +224,7 @@ size = Vector3(51.752655, 1.3192062, 18.882214)
 material = SubResource("StandardMaterial3D_tvjhf")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=1885492042]
-transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.5732937, -13.3029375, -39.42932)
+transform = Transform3D(0.43445033, 0, 0, 0, 1, 0, 0, 0, 0.45244533, -0.27892685, -13.550464, -39.052116)
 use_collision = true
 size = Vector3(51.752655, 1.3192062, 38.511883)
 material = SubResource("StandardMaterial3D_bhfnd")
@@ -282,8 +286,10 @@ jump_cards = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup3" unique_id=1888376883]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup3" unique_id=1189249145]
-mesh = SubResource("BoxMesh_7vrqn")
+[node name="Sprite3D" type="Sprite3D" parent="CardPickup3" unique_id=1533726600]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("3_tfgte")
 
 [node name="CardPickup4" type="Area3D" parent="." unique_id=782976827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -29.860006)
@@ -2795,7 +2801,7 @@ script = ExtResource("5_bhfnd")
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 0
 offset_left = 68.0
-offset_top = 374.0
+offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
@@ -2815,39 +2821,41 @@ offset_right = 1064.8
 offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1248968979]
+[node name="KILLLBOX1" type="Area3D" parent="." unique_id=1248968979]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
 script = ExtResource("18_0lped")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1166310919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.9396029, -3.5973206)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1166310919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.3909798, -1.5770302)
 shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
 
-[node name="Control" type="Control" parent="Area3D" unique_id=280900019]
+[node name="Control" type="Control" parent="KILLLBOX1" unique_id=280900019]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="RespawnPoint" type="CSGMesh3D" parent="Area3D" unique_id=289855443]
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=289855443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
 mesh = SubResource("BoxMesh_g52lx")
 
-[node name="Area3D2" type="Area3D" parent="." unique_id=105320008]
+[node name="KILLBOX2" type="Area3D" parent="." unique_id=105320008]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
 script = ExtResource("18_0lped")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=922458982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.8287897, 1.9353752)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2" unique_id=922458982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.651598, 0.7312546)
 shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
 
-[node name="Control" type="Control" parent="Area3D2" unique_id=1479613891]
+[node name="Control" type="Control" parent="KILLBOX2" unique_id=1479613891]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="RespawnPoint" type="CSGMesh3D" parent="Area3D2" unique_id=1612380767]
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1612380767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
 mesh = SubResource("BoxMesh_g52lx")
 
@@ -2858,12 +2866,81 @@ script = ExtResource("20_dudfa")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=325419854]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -10.9696045)
 shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
 
 [node name="Control" type="Control" parent="SwitchScreens" unique_id=770277224]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="KILLBOX3" type="Area3D" parent="." unique_id=2091219710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -66.317184)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX3" unique_id=532325172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, 1.9353752)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX3" unique_id=2002111680]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX3" unique_id=879914398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 13.265686)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="KILLBOX4" type="Area3D" parent="." unique_id=2090361565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX4" unique_id=1229967233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, -4.951851)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX4" unique_id=1623504525]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX4" unique_id=306827081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="intrsuctions1" type="Area3D" parent="." unique_id=1411281293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
+script = ExtResource("21_5gpbq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="intrsuctions1" unique_id=1629835740]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, 4.4691763, 74.264336)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="intrsuctions1" unique_id=1863566622]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="intrsuctions1/Control" unique_id=440131488]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 44.0
+offset_right = 760.0
+offset_bottom = 72.0
+text = "Press spacebar to jump when you have a jump card"
+label_settings = SubResource("LabelSettings_5gpbq")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions1" unique_id=1118217953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+mesh = SubResource("BoxMesh_g52lx")
 
 [connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
 [connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
@@ -2872,6 +2949,11 @@ offset_bottom = 40.0
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
-[connection signal="body_entered" from="Area3D2" to="Area3D2" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="CardPickup" method="_on_killbox_2_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX3" to="KILLBOX3" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX4" to="KILLBOX4" method="_on_body_entered"]
+[connection signal="body_entered" from="intrsuctions1" to="intrsuctions1" method="_on_body_entered"]
+[connection signal="body_exited" from="intrsuctions1" to="intrsuctions1" method="_on_body_exited"]
