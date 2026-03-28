@@ -2,9 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="1_hu44a"]
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_0cr88"]
-[ext_resource type="Script" uid="uid://d0d12hpmoutg8" path="res://level_display.gd" id="2_0gmok"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_4t6hg"]
-[ext_resource type="FontFile" uid="uid://2b2tt1qnlrv5" path="res://OptimusPrinceps.ttf" id="3_ns12n"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="3_tfgte"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_7vrqn"]
 [ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="4_53tq2"]
@@ -26,10 +24,6 @@
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
 [ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="21_5gpbq"]
 [ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="24_4ods2"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_nghrg"]
-font = ExtResource("3_ns12n")
-font_size = 100
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
 albedo_color = Color(0.381866, 0.71612316, 0.1338822, 1)
@@ -104,22 +98,6 @@ shader_parameter/disable_pixel = true
 
 [node name="treehouse" parent="." unique_id=1862369027 instance=ExtResource("1_hu44a")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.46672395, -1.6697845, -1.0176692)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1629456890]
-script = ExtResource("2_0gmok")
-LEVEL_TEXT = "Forest"
-
-[node name="Label" type="Label" parent="CanvasLayer" unique_id=606341865]
-offset_left = 288.0
-offset_top = 106.0
-offset_right = 827.0
-offset_bottom = 405.0
-label_settings = SubResource("LabelSettings_nghrg")
-horizontal_alignment = 1
-
-[node name="start_fading" type="Timer" parent="CanvasLayer" unique_id=1642248684]
-wait_time = 2.0
-autostart = true
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=754908838]
 transform = Transform3D(1, 0, 0, 0, 0.93346316, 0, 0, 0, 1, -0.59381104, -12.288354, -2.9045935)
@@ -3014,7 +2992,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.404814, -9.4511385, -80.467
 [node name="grass9" parent="." unique_id=1964588623 instance=ExtResource("4_53tq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0440073, -9.451139, -81.66936)
 
-<<<<<<< Updated upstream
 [node name="intrsuctions2" type="Area3D" parent="." unique_id=1841211141]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.01647)
 script = ExtResource("21_5gpbq")
@@ -3054,13 +3031,6 @@ mesh = SubResource("BoxMesh_53tq2")
 [connection signal="body_entered" from="KILLBOX3/CardPickup" to="KILLBOX3/CardPickup" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX4" to="KILLBOX4" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX4/CardPickup2" to="KILLBOX4/CardPickup2" method="_on_body_entered"]
-=======
-[connection signal="timeout" from="CanvasLayer/start_fading" to="CanvasLayer" method="_on_timer_timeout"]
-[connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
-[connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
-[connection signal="body_entered" from="CardPickup4" to="CardPickup4" method="_on_body_entered"]
-[connection signal="body_entered" from="CardPickup2" to="CardPickup2" method="_on_body_entered"]
->>>>>>> Stashed changes
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
