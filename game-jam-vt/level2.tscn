@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0vtdw8xkrydi" path="res://models/grandpashouse.blend" id="6_21xmu"]
 [ext_resource type="PackedScene" uid="uid://d1y6aq2d2qm1y" path="res://models/rock2.blend" id="7_rmy57"]
 [ext_resource type="PackedScene" uid="uid://8x4q1aom7ep4" path="res://models/rock1.blend" id="8_qulpo"]
+[ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="9_qulpo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -44,16 +45,17 @@ volumetric_fog_emission_energy = 0.4
 volumetric_fog_gi_inject = 1.02
 volumetric_fog_sky_affect = 0.76
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jifot"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qulpo"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_3opl0"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jifot"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dc5vx"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3opl0"]
 shader = ExtResource("3_8i3m3")
 shader_parameter/speedScale = 10.64
 shader_parameter/clipPosition = 0.25
 
 [node name="Node3D" type="Node3D" unique_id=2034603938]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=2142273231]
 transform = Transform3D(4.3851533, 0, 0, 0, 0.6373634, 0, 0, 2.9802322e-08, 1.0712614, 0.016155243, -7.769842, 1.5466601)
@@ -63,10 +65,10 @@ size = Vector3(1, 24.420044, 0.48583984)
 material = SubResource("StandardMaterial3D_ocsrq")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=99959227]
-transform = Transform3D(-5.722162e-07, -6.8956795, -9.691718e-08, 6.1210875e-07, -3.0141973e-07, 1.0712614, -13.090781, 3.014197e-07, 5.0090865e-08, 0.016156433, -16.153706, 67.94029)
+transform = Transform3D(-5.722162e-07, -6.8956795, -9.691718e-08, 6.1210875e-07, -3.0141973e-07, 1.0712614, -13.090781, 3.014197e-07, 5.0090865e-08, 0.016156258, -16.153706, 63.91973)
 calculate_tangents = false
 use_collision = true
-size = Vector3(1.7529297, 24.420044, 0.48583984)
+size = Vector3(1.1386719, 24.420044, 0.48583984)
 material = SubResource("StandardMaterial3D_ocsrq")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=685751607]
@@ -201,6 +203,12 @@ calculate_tangents = false
 use_collision = true
 size = Vector3(0.5323982, 17.635376, 8.613525)
 
+[node name="CSGBox3D19" type="CSGBox3D" parent="." unique_id=1808850054]
+transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 28.986734, -10.084599, 32.66301)
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.5323982, 16.216125, 8.613525)
+
 [node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=480139609]
 transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 23.730938, -10.955126, 13.048108)
 calculate_tangents = false
@@ -215,6 +223,24 @@ size = Vector3(0.5323982, 17.635376, 8.613525)
 
 [node name="CSGBox3D17" type="CSGBox3D" parent="." unique_id=1983487305]
 transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 25.781025, -12.223383, 24.58558)
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.5323982, 17.635376, 8.613525)
+
+[node name="CSGBox3D20" type="CSGBox3D" parent="." unique_id=1179840337]
+transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 30.313442, -10.955126, 36.68639)
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.5323982, 17.635376, 8.613525)
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="." unique_id=2076897063]
+transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 31.824133, -9.632309, 40.794456)
+calculate_tangents = false
+use_collision = true
+size = Vector3(0.5323982, 17.635376, 8.613525)
+
+[node name="CSGBox3D22" type="CSGBox3D" parent="." unique_id=462184596]
+transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 32.798416, -12.124925, 46.001133)
 calculate_tangents = false
 use_collision = true
 size = Vector3(0.5323982, 17.635376, 8.613525)
@@ -252,6 +278,12 @@ calculate_tangents = false
 use_collision = true
 size = Vector3(5.964507, 36, 0.48583984)
 
+[node name="CSGBox3D23" type="CSGBox3D" parent="." unique_id=785004646]
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -2.363523, -17.155018, 76.51276)
+calculate_tangents = false
+use_collision = true
+size = Vector3(13.404945, 7.3897705, 8.999023)
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1223543691]
 transform = Transform3D(4.3851533, 0, 0, 0, 0.55197287, -0.5356307, 0, 0.31868172, 0.92773956, 0.015994072, 7.177343, -11.214201)
 use_collision = true
@@ -274,80 +306,7 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=982688362]
 environment = SubResource("Environment_ocsrq")
 
-[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1289929974]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.5865755, 14.859755, -19.455202)
-floor_max_angle = 0.27401668
-script = ExtResource("1_r6vdu")
-metadata/_custom_type_script = "uid://huc3y4vt8p0e"
-
-[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_21xmu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=157514310]
-mesh = SubResource("CapsuleMesh_jifot")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=452221225]
-shape = SubResource("CapsuleShape3D_3opl0")
-
-[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=199390597]
-wait_time = 0.5
-one_shot = true
-
-[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=588413661]
-wait_time = 0.5
-one_shot = true
-
-[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=610774459]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=838883344]
-modulate = Color(1, 1, 1, 0.4627451)
-self_modulate = Color(1, 1, 1, 0.42745098)
-material = SubResource("ShaderMaterial_dc5vx")
-offset_right = 1172.0
-offset_bottom = 646.0
-
-[node name="Control" type="Control" parent="Basic FPS Player" unique_id=1062576441]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
-script = ExtResource("4_rmy57")
-
-[node name="GridContainer" type="GridContainer" parent="Basic FPS Player/Control" unique_id=459965091]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -1355.5
-offset_top = -1281.0
-offset_right = 1355.5
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.12, 0.12)
-pivot_offset = Vector2(1313.5, 1256)
-columns = 9
-
-[node name="TextureRect" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1685123090]
-layout_mode = 2
-texture = ExtResource("5_qulpo")
-
-[node name="TextureRect2" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1599530689]
-layout_mode = 2
-texture = ExtResource("5_qulpo")
-
-[node name="TextureRect3" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=924205094]
-layout_mode = 2
-texture = ExtResource("5_qulpo")
-
-[node name="@Node3D@318930" type="Node3D" parent="Basic FPS Player" unique_id=1226218674 instance=ExtResource("2_21xmu")]
-
-[node name="grandpashouse" parent="." unique_id=2136718678 instance=ExtResource("6_21xmu")]
+[node name="grandpashouse" parent="." unique_id=2128290207 instance=ExtResource("6_21xmu")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 16.989029, -12.279072, 29.782291)
 
 [node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=501677834]
@@ -361,7 +320,7 @@ light_energy = 7.499
 omni_range = 32.029896
 
 [node name="RiverLights" type="Node3D" parent="." unique_id=1062464054]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.623543)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.95708084)
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="RiverLights" unique_id=1763080610]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -13.413317, 63.53846)
@@ -452,6 +411,88 @@ transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 14
 
 [node name="rock1" parent="." unique_id=1573788505 instance=ExtResource("8_qulpo")]
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 12.009093, -14.643384, 34.247746)
+
+[node name="log" parent="." unique_id=604647931 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.75062, -15.610395, 60.141014)
+
+[node name="log3" parent="." unique_id=500877797 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506194, -15.610395, 68.2265)
+
+[node name="log2" parent="." unique_id=1278649850 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.782022, -15.610395, 64.02525)
+
+[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=118940562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0036757, 0)
+floor_max_angle = 0.27401668
+script = ExtResource("1_r6vdu")
+metadata/_custom_type_script = "uid://huc3y4vt8p0e"
+
+[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_21xmu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=1794698886]
+mesh = SubResource("CapsuleMesh_qulpo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=1761909458]
+shape = SubResource("CapsuleShape3D_jifot")
+
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1521393135]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1324408935]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=107619934]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=348543034]
+modulate = Color(1, 1, 1, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_3opl0")
+offset_right = 1172.0
+offset_bottom = 646.0
+
+[node name="Control" type="Control" parent="Basic FPS Player" unique_id=498545973]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+script = ExtResource("4_rmy57")
+
+[node name="GridContainer" type="GridContainer" parent="Basic FPS Player/Control" unique_id=1675458186]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1355.5
+offset_top = -1281.0
+offset_right = 1355.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.12, 0.12)
+pivot_offset = Vector2(1313.5, 1256)
+columns = 9
+
+[node name="TextureRect" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=892836713]
+layout_mode = 2
+texture = ExtResource("5_qulpo")
+
+[node name="TextureRect2" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=2007135237]
+layout_mode = 2
+texture = ExtResource("5_qulpo")
+
+[node name="TextureRect3" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=494271831]
+layout_mode = 2
+texture = ExtResource("5_qulpo")
+
+[node name="@Node3D@425445" type="Node3D" parent="Basic FPS Player" unique_id=692856497 instance=ExtResource("2_21xmu")]
 
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
