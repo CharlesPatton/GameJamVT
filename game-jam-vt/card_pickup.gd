@@ -5,9 +5,10 @@ extends Area3D
 
 
 func _on_body_entered(body: Node3D) -> void:
-	$CollisionShape3D.set_deferred("disabled", true)
-	self.visible = false
 	if body.name == "Basic FPS Player":
+		$"../CardPickup3/CollisionShape3D".set_deferred("disabled", true)
+		$"../CardPickup3/Sprite3D".visible = false
+		print(self)
 		body.jumpCards += jump_cards
 		body.dashCards += dash_cards
 		body.get_child(6).dashCardAmount = body.dashCards
@@ -18,6 +19,5 @@ func _on_body_entered(body: Node3D) -> void:
 
 func _on_killbox_2_body_entered(body: Node3D) -> void:
 	if body.name == "Basic FPS Player":
-		self.visible = true
-		$CollisionShape3D.set_deferred("disabled", false)
-		self.visible = true
+		$"../CardPickup3/CollisionShape3D".set_deferred("disabled", false)
+		$"../CardPickup3/Sprite3D".visible = true

@@ -22,11 +22,7 @@
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="18_dudfa"]
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
-<<<<<<< Updated upstream
-[ext_resource type="Script" path="res://intrsuctions_1.gd" id="21_5gpbq"]
-=======
 [ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="21_5gpbq"]
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="24_4ods2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
