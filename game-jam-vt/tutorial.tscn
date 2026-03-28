@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cc31wi6mf5u8q" path="res://models/bush1.blend" id="15_k08xv"]
 [ext_resource type="PackedScene" uid="uid://1fbshqeaoyru" path="res://models/bush2.blend" id="16_g52lx"]
 [ext_resource type="PackedScene" uid="uid://bax2wevlup8it" path="res://models/bush3.blend" id="17_0lped"]
+[ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vmw6g"]
 
@@ -349,6 +350,33 @@ transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08
 
 [node name="canopy2" parent="." unique_id=56454479 instance=ExtResource("8_4t6hg")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -1.2045152, 3.348051, -50.067696)
+
+[node name="canopy4" parent="." unique_id=180267337 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -1.2045125, 3.348051, -112.86601)
+
+[node name="canopy5" parent="." unique_id=1674240644 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 55.364513, 3.348051, -8.7017565)
+
+[node name="canopy6" parent="." unique_id=1948380930 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 55.36451, 3.348051, 51.218616)
+
+[node name="canopy7" parent="." unique_id=2122822705 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 55.364517, 3.348051, -50.06769)
+
+[node name="canopy8" parent="." unique_id=1721309525 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, 55.364517, 3.348051, -112.86601)
+
+[node name="canopy9" parent="." unique_id=656657788 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 2.5275632e-17, -1.5, 0, 1.5, 7.165069e-16, 1.5, 1.7763568e-15, -6.556708e-08, -64.11134, 3.348051, -8.701761)
+
+[node name="canopy10" parent="." unique_id=701762845 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 2.5275632e-17, -1.5, 0, 1.5, 7.165069e-16, 1.5, 1.7763568e-15, -6.556708e-08, -64.11135, 3.348051, 51.218613)
+
+[node name="canopy11" parent="." unique_id=674083160 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 2.5275632e-17, -1.5, 0, 1.5, 7.165069e-16, 1.5, 1.7763568e-15, -6.556708e-08, -64.11134, 3.348051, -50.067696)
+
+[node name="canopy12" parent="." unique_id=131994757 instance=ExtResource("8_4t6hg")]
+transform = Transform3D(-6.556708e-08, 2.5275632e-17, -1.5, 0, 1.5, 7.165069e-16, 1.5, 1.7763568e-15, -6.556708e-08, -64.11134, 3.348051, -112.86602)
 
 [node name="tree1" parent="." unique_id=2104897691 instance=ExtResource("9_vmw6g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.693188, -9.828626, -14.086521)
@@ -2746,6 +2774,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.403347, -8.873207, -110.654
 
 [node name="bush6" parent="." unique_id=1504127236 instance=ExtResource("16_g52lx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.985672, -9.790649, -112.66405)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1848394109]
+stream = ExtResource("18_g52lx")
+autoplay = true
+parameters/looping = true
 
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
