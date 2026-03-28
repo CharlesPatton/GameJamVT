@@ -2831,7 +2831,7 @@ script = ExtResource("2_0cr88")
 SPEED = 5.0
 IN_AIR_SPEED = 3.0
 IN_AIR_ACCEL = 5.0
-JUMP_VELOCITY = 4.5
+JUMP_VELOCITY = 4
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_4t6hg")]
@@ -3022,8 +3022,8 @@ visible_ratio = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
 mesh = SubResource("BoxMesh_53tq2")
 
-[connection signal="body_entered" from="KILLBOX2" to="KILLBOX3/CardPickup" method="_on_killbox_2_body_entered"]
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="KILLBOX3/CardPickup" method="_on_killbox_2_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup3" to="KILLBOX2/CardPickup3" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
