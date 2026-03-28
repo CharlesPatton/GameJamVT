@@ -113,19 +113,22 @@ func _on_body_entered(body):
 radius = 2.0815804
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2x2vu"]
-size = Vector3(48.603237, 5.0489936, 18.564909)
+size = Vector3(165.47136, 5.0489936, 25.330887)
 
 [sub_resource type="BoxMesh" id="BoxMesh_f8ci1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k4dh"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_idpoe"]
+size = Vector3(170.73099, 7.026428, 53.375305)
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8ci1"]
-size = Vector3(48.603237, 5.0489936, 44.422665)
+size = Vector3(165.58385, 5.0489936, 44.422665)
 
 [sub_resource type="BoxMesh" id="BoxMesh_2x2vu"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iakae"]
-size = Vector3(48.603237, 5.0489936, 53.095)
+size = Vector3(168.2645, 5.0489936, 95.55179)
 
 [sub_resource type="BoxMesh" id="BoxMesh_7mylh"]
 
@@ -315,7 +318,7 @@ use_collision = true
 size = Vector3(18.03313, 167.45215, 0.48583984)
 
 [node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=2011143483]
-transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, -81.27521, -46.30859, 114.34453)
+transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, -81.10054, -45.78214, 113.8347)
 calculate_tangents = false
 use_collision = true
 size = Vector3(18.03313, 167.45215, 0.48583984)
@@ -623,7 +626,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log5" parent="logs" unique_id=15035796 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -2.3905106, -15.610395, 88.28767)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -2.3905106, -15.610395, 87.6723)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log5" unique_id=430756356]
@@ -632,7 +635,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log6" parent="logs" unique_id=1613445673 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-0.0007576228, 0.005422917, -0.999985, 0.00022907498, 0.9999853, 0.005422745, 0.9999997, -0.00022496222, -0.00075885415, 3.8231401, -15.610395, 92.58013)
+transform = Transform3D(-0.0007576228, 0.005422917, -0.999985, 0.00022907498, 0.9999853, 0.005422745, 0.9999997, -0.00022496222, -0.00075885415, 3.8231404, -15.610395, 91.86369)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log6" unique_id=1006747048]
@@ -641,7 +644,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log7" parent="logs" unique_id=1032592354 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -4.9786267, -15.610395, 96.22947)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -4.9786267, -15.610395, 95.71923)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log7" unique_id=435723965]
@@ -650,7 +653,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log8" parent="logs" unique_id=1441578850 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 21.553814, -15.610395, 105.24028)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 21.553814, -15.610395, 104.11637)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log8" unique_id=410223877]
@@ -659,7 +662,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log9" parent="logs" unique_id=1355175053 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -13.451071, -15.610395, 100.491425)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -13.451071, -15.610395, 99.20731)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log9" unique_id=375485049]
@@ -668,7 +671,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log10" parent="logs" unique_id=576344017 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 20.737566, -15.610395, 109.708694)
+transform = Transform3D(0.0009445521, 0.00064605486, 0.99999934, 0.001247291, 0.9999989, -0.0006472307, -0.9999988, 0.0012479005, 0.00094374677, 20.737566, -15.610395, 108.43708)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log10" unique_id=1287561169]
@@ -677,7 +680,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log11" parent="logs" unique_id=496001947 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 13.849223, -15.610395, 114.3155)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 13.849223, -15.610395, 112.52344)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log11" unique_id=1572682267]
@@ -686,10 +689,19 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log12" parent="logs" unique_id=12356199 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 7.796731, -15.610395, 119.92169)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 6.172185, -15.610395, 121.414505)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log12" unique_id=1687645460]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07952881, 0.19329834, 0.00037002563)
+use_collision = true
+size = Vector3(1.6190186, 1.3865967, 7.2404785)
+
+[node name="log13" parent="logs" unique_id=1755862236 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 11.298792, -16.009342, 116.93781)
+script = ExtResource("5_3opl0")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="logs/log13" unique_id=1653402655]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07952881, 0.19329834, 0.00037002563)
 use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
@@ -1040,7 +1052,7 @@ transform = Transform3D(-0.99999994, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0,
 script = ExtResource("20_gxpff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1248128792]
-transform = Transform3D(0.999985, 0, -3.2116532e-12, 0, 1, 0, 3.2116532e-12, 0, 0.999985, -2.9657586, -1.3909798, -1.5770302)
+transform = Transform3D(0.99991465, 0, -1.8303581e-11, 0, 1, 0, 1.8303581e-11, 0, 0.99991465, -1.5335872, -1.3909798, -4.629055)
 shape = SubResource("BoxShape3D_2x2vu")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -1067,12 +1079,16 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("22_7mylh")
 
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1182239623]
+transform = Transform3D(0.99994403, 0, -1.2022383e-11, 0, 1, 0, 1.2022383e-11, 0, 0.99994403, -0.21246825, -4.9529667, 33.236725)
+shape = SubResource("BoxShape3D_idpoe")
+
 [node name="KILLLBOX2" type="Area3D" parent="." unique_id=1506407482]
 transform = Transform3D(-0.99999994, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -0.99999994, -1.784063e-05, -16.932669, 102.036514)
 script = ExtResource("20_gxpff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2" unique_id=1755087104]
-transform = Transform3D(0.9999653, 0, -7.446488e-12, 0, 1, 0, 7.446488e-12, 0, 0.9999653, -2.965757, -1.3909798, -1.241127)
+transform = Transform3D(0.99994487, 0, -1.1823431e-11, 0, 1, 0, 1.1823431e-11, 0, 0.99994487, -1.4913707, -1.3909798, -1.2411346)
 shape = SubResource("BoxShape3D_f8ci1")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -1105,7 +1121,7 @@ transform = Transform3D(-0.9999998, 0, -8.742276e-08, 0, 1, 0, 8.742276e-08, 0, 
 script = ExtResource("20_gxpff")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX3" unique_id=482389975]
-transform = Transform3D(0.999958, 0, -8.668621e-12, 0, 1, 0, 8.668621e-12, 0, 0.999958, -2.9657567, -1.3909798, 3.0948944)
+transform = Transform3D(0.9998909, 0, -1.9838353e-11, 0, 1, 0, 1.9838353e-11, 0, 0.9998909, 0.30005315, -1.3909798, -9.949173)
 shape = SubResource("BoxShape3D_iakae")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -1122,7 +1138,7 @@ mesh = SubResource("BoxMesh_7mylh")
 [node name="CardPickup3" type="Area3D" parent="KILLLBOX3" unique_id=1128740688]
 transform = Transform3D(0.9999997, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.9999997, -5.9212653e-06, 5.0634947, 30.827621)
 script = ExtResource("11_3opl0")
-jump_cards = 6
+jump_cards = 8
 dash_cards = 3
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX3/CardPickup3" unique_id=2037692620]
@@ -1151,8 +1167,8 @@ offset_bottom = 40.0
 [node name="CardPickup4" type="Area3D" parent="." unique_id=901428604]
 transform = Transform3D(0.9999997, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 0.9999997, -6.2051404e-06, -14.367796, 1.6235702)
 script = ExtResource("11_3opl0")
-jump_cards = 3
-dash_cards = 3
+jump_cards = 100
+dash_cards = 100
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup4" unique_id=1567873262]
 shape = SubResource("BoxShape3D_3k4dh")

@@ -2856,9 +2856,6 @@ parameters/looping = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
 floor_max_angle = 0.27401668
 script = ExtResource("2_0cr88")
-SPEED = 5.0
-IN_AIR_SPEED = 3.0
-IN_AIR_ACCEL = 5.0
 JUMP_VELOCITY = 4
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
