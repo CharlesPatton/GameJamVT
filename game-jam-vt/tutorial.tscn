@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="1_hu44a"]
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_0cr88"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_4t6hg"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="3_ns12n"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="3_tfgte"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_7vrqn"]
 [ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="4_53tq2"]
@@ -93,6 +94,32 @@ shader_parameter/disable_pixel = true
 [sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_53tq2"]
+
+[sub_resource type="GDScript" id="GDScript_4ods2"]
+script/source = "extends CanvasLayer
+
+@export var LEVEL_TEXT = \"\"
+var start_fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = LEVEL_TEXT
+	$Timer.start()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if start_fading:
+		$Label.modulate.a -= 0.005
+	
+
+
+func _on_timer_timeout():
+	start_fading = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_0gmok"]
+font = ExtResource("3_ns12n")
+font_size = 100
 
 [node name="Tutorial" type="Node3D" unique_id=904070440]
 
@@ -3022,6 +3049,20 @@ visible_ratio = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
 mesh = SubResource("BoxMesh_53tq2")
 
+[node name="level_display" type="CanvasLayer" parent="." unique_id=2033520517]
+script = SubResource("GDScript_4ods2")
+LEVEL_TEXT = "Forest"
+
+[node name="Timer" type="Timer" parent="level_display" unique_id=717381503]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="level_display" unique_id=1072180649]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_0gmok")
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX3/CardPickup" method="_on_killbox_2_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup3" to="KILLBOX2/CardPickup3" method="_on_body_entered"]
@@ -3039,3 +3080,4 @@ mesh = SubResource("BoxMesh_53tq2")
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
 [connection signal="body_entered" from="intrsuctions2" to="intrsuctions2" method="_on_body_entered"]
 [connection signal="body_exited" from="intrsuctions2" to="intrsuctions2" method="_on_body_exited"]
+[connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]

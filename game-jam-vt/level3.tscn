@@ -5,6 +5,7 @@
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8x87a"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_ci4mn"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_sotx7"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="7_rqrji"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_siwpi"]
 
@@ -36,6 +37,32 @@ sky_material = SubResource("PanoramaSkyMaterial_l2pgs")
 background_color = Color(0.48894286, 0.8247316, 0.99999994, 1)
 sky = SubResource("Sky_2272n")
 ambient_light_color = Color(0.42365062, 0.42365065, 0.42365062, 1)
+
+[sub_resource type="GDScript" id="GDScript_mu84n"]
+script/source = "extends CanvasLayer
+
+@export var LEVEL_TEXT = \"\"
+var start_fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = LEVEL_TEXT
+	$Timer.start()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if start_fading:
+		$Label.modulate.a -= 0.005
+	
+
+
+func _on_timer_timeout():
+	start_fading = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_bmsap"]
+font = ExtResource("7_rqrji")
+font_size = 100
 
 [node name="Node3D" type="Node3D" unique_id=896552784]
 
@@ -117,6 +144,21 @@ environment = SubResource("Environment_bs5pn")
 transform = Transform3D(0.934503, 0, -0.35595527, 0.13260554, 0.92801845, 0.34813443, 0.33033302, -0.3725343, 0.867236, 0, 0, 0)
 light_color = Color(0.9127334, 0.7737037, 0.5946696, 1)
 
+[node name="level_display" type="CanvasLayer" parent="." unique_id=384327448]
+script = SubResource("GDScript_mu84n")
+LEVEL_TEXT = "School"
+
+[node name="Timer" type="Timer" parent="level_display" unique_id=324699828]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="level_display" unique_id=1477312222]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_bmsap")
+horizontal_alignment = 1
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]

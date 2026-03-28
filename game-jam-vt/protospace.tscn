@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://gs0xa46n10vf"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_hu2tx"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="2_o1wlx"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_qnenh"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_i50ms"]
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="3_qnenh"]
@@ -34,6 +35,53 @@ sky = SubResource("Sky_i50ms")
 [sub_resource type="BoxShape3D" id="BoxShape3D_8guo4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_tgct4"]
+
+[sub_resource type="GDScript" id="GDScript_j5ndx"]
+script/source = "extends CanvasLayer
+
+@export var LEVEL_TEXT = \"\"
+var start_fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = LEVEL_TEXT
+	$Timer.start()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if start_fading:
+		$Label.modulate.a -= 0.005
+	
+
+
+func _on_timer_timeout():
+	start_fading = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_j5ndx"]
+font = ExtResource("2_o1wlx")
+font_size = 100
+
+[sub_resource type="GDScript" id="GDScript_0fv44"]
+script/source = "extends Area3D
+
+@export var UPSPEED: int = 10
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+	
+func _process(delta):
+	pass
+
+
+func _on_body_entered(body):
+	if body.name == \"Basic FPS Player\":
+		body.velocity.y = UPSPEED
+"
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j5ndx"]
+radius = 1.0
 
 [node name="Node3D" type="Node3D" unique_id=230119429]
 
@@ -132,9 +180,32 @@ shape = SubResource("BoxShape3D_8guo4")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=2099521316]
 mesh = SubResource("BoxMesh_tgct4")
 
+[node name="level_display" type="CanvasLayer" parent="." unique_id=955038945]
+script = SubResource("GDScript_j5ndx")
+LEVEL_TEXT = "Protospace"
+
+[node name="Timer" type="Timer" parent="level_display" unique_id=1854977035]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="level_display" unique_id=1640480079]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_j5ndx")
+horizontal_alignment = 1
+
+[node name="bounce_pad" type="Area3D" parent="." unique_id=1757797768]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7)
+script = SubResource("GDScript_0fv44")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bounce_pad" unique_id=1499019851]
+shape = SubResource("SphereShape3D_j5ndx")
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
+[connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
+[connection signal="body_entered" from="bounce_pad" to="bounce_pad" method="_on_body_entered"]
