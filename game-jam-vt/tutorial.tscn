@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_4t6hg"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_7vrqn"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="5_bhfnd"]
-[ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="6_tvjhf"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="7_0cr88"]
 [ext_resource type="PackedScene" uid="uid://bt70dkkdn8fwp" path="res://models/canopy.blend" id="8_4t6hg"]
 [ext_resource type="PackedScene" uid="uid://cuj3mrt1kyvrh" path="res://models/tree1.blend" id="9_vmw6g"]
@@ -18,15 +17,6 @@
 [ext_resource type="PackedScene" uid="uid://1fbshqeaoyru" path="res://models/bush2.blend" id="16_g52lx"]
 [ext_resource type="PackedScene" uid="uid://bax2wevlup8it" path="res://models/bush3.blend" id="17_0lped"]
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_vmw6g"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4hjyh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bsk3x"]
-shader = ExtResource("4_7vrqn")
-shader_parameter/speedScale = 10.64
-shader_parameter/clipPosition = 0.25
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
 albedo_color = Color(0.381866, 0.71612316, 0.1338822, 1)
@@ -73,81 +63,19 @@ volumetric_fog_sky_affect = 0.66
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bsk3x"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_k08xv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g52lx"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0lped"]
+shader = ExtResource("4_7vrqn")
+shader_parameter/speedScale = 10.64
+shader_parameter/clipPosition = 0.25
+
 [node name="Tutorial" type="Node3D" unique_id=904070440]
 
 [node name="treehouse" parent="." unique_id=1862369027 instance=ExtResource("1_hu44a")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -0.46672395, -1.6697845, -1.0176692)
-
-[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1513252755]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5865755, 0.16708541, -0.7821528)
-floor_max_angle = 0.27401668
-script = ExtResource("2_0cr88")
-metadata/_custom_type_script = "uid://huc3y4vt8p0e"
-
-[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_4t6hg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=1709353818]
-mesh = SubResource("CapsuleMesh_vmw6g")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=367182003]
-shape = SubResource("CapsuleShape3D_4hjyh")
-
-[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=480975461]
-wait_time = 0.5
-one_shot = true
-
-[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1414081883]
-wait_time = 0.5
-one_shot = true
-
-[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=1374837682]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=329813736]
-modulate = Color(1, 1, 1, 0.4627451)
-self_modulate = Color(1, 1, 1, 0.42745098)
-material = SubResource("ShaderMaterial_bsk3x")
-offset_right = 1172.0
-offset_bottom = 646.0
-
-[node name="Control" type="Control" parent="Basic FPS Player" unique_id=22909558]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 8
-script = ExtResource("5_bhfnd")
-
-[node name="GridContainer" type="GridContainer" parent="Basic FPS Player/Control" unique_id=1348682379]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -1355.5
-offset_top = -1281.0
-offset_right = 1355.5
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.12, 0.12)
-pivot_offset = Vector2(1313.5, 1256)
-columns = 9
-
-[node name="TextureRect" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=211542433]
-layout_mode = 2
-texture = ExtResource("6_tvjhf")
-
-[node name="TextureRect2" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=453342224]
-layout_mode = 2
-texture = ExtResource("6_tvjhf")
-
-[node name="TextureRect3" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1155280105]
-layout_mode = 2
-texture = ExtResource("6_tvjhf")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=754908838]
 transform = Transform3D(1, 0, 0, 0, 0.93346316, 0, 0, 0, 1, -0.59381104, -12.288354, -2.9045935)
@@ -328,6 +256,28 @@ dash_cards = 3
 shape = SubResource("BoxShape3D_4t6hg")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=241377461]
+mesh = SubResource("BoxMesh_7vrqn")
+
+[node name="CardPickup3" type="Area3D" parent="." unique_id=587871262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -15.157944)
+script = ExtResource("7_0cr88")
+jump_cards = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup3" unique_id=1888376883]
+shape = SubResource("BoxShape3D_4t6hg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup3" unique_id=1189249145]
+mesh = SubResource("BoxMesh_7vrqn")
+
+[node name="CardPickup4" type="Area3D" parent="." unique_id=782976827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -29.860006)
+script = ExtResource("7_0cr88")
+jump_cards = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup4" unique_id=529402678]
+shape = SubResource("BoxShape3D_4t6hg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup4" unique_id=258498997]
 mesh = SubResource("BoxMesh_7vrqn")
 
 [node name="CardPickup2" type="Area3D" parent="." unique_id=4552639]
@@ -2780,7 +2730,64 @@ stream = ExtResource("18_g52lx")
 autoplay = true
 parameters/looping = true
 
+[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=498023799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
+floor_max_angle = 0.27401668
+script = ExtResource("2_0cr88")
+metadata/_custom_type_script = "uid://huc3y4vt8p0e"
+
+[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_4t6hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=1340753465]
+mesh = SubResource("CapsuleMesh_k08xv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=1940584084]
+shape = SubResource("CapsuleShape3D_g52lx")
+
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=2059980060]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=455134635]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=52157186]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=633068276]
+modulate = Color(1, 1, 1, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_0lped")
+offset_right = 1172.0
+offset_bottom = 646.0
+
+[node name="Control" type="Control" parent="Basic FPS Player" unique_id=2023795197]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_vertical = 8
+script = ExtResource("5_bhfnd")
+
+[node name="CardContainer" type="HBoxContainer" parent="Basic FPS Player/Control" unique_id=1881282902]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 374.0
+offset_right = 1068.0
+offset_bottom = 624.0
+
+[node name="@Node3D@447656" type="Node3D" parent="Basic FPS Player" unique_id=1003997293 instance=ExtResource("3_4t6hg")]
+
+[connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup4" to="CardPickup4" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup2" to="CardPickup2" method="_on_body_entered"]
+[connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
-[connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
-[connection signal="body_entered" from="CardPickup2" to="CardPickup2" method="_on_body_entered"]
