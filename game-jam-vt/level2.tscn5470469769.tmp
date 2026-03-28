@@ -47,11 +47,11 @@ volumetric_fog_emission_energy = 0.4
 volumetric_fog_gi_inject = 1.02
 volumetric_fog_sky_affect = 0.76
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_3opl0"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_qulpo"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dc5vx"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jifot"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_s8oj7"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3opl0"]
 shader = ExtResource("3_8i3m3")
 shader_parameter/speedScale = 10.64
 shader_parameter/clipPosition = 0.25
@@ -133,7 +133,7 @@ use_collision = true
 size = Vector3(0.26080322, 46.25992, 0.48583984)
 
 [node name="CSGBox3D11" type="CSGBox3D" parent="Node3D4" unique_id=1152793806]
-transform = Transform3D(1.3735921, 1.4901161e-08, -1.0347589, 4.439518, 0.31868166, 0.24011672, 2.563157, -0.5519729, 0.13863143, 3.015005, 8.218143, -10.908525)
+transform = Transform3D(1.3735921, 1.4901161e-08, -1.0347589, 4.439518, 0.31868166, 0.2401167, 2.563157, -0.5519729, 0.13863143, 3.0176234, 8.221338, -10.910369)
 calculate_tangents = false
 use_collision = true
 size = Vector3(0.26080322, 46.25992, 0.48583984)
@@ -535,119 +535,112 @@ transform = Transform3D(-5.9604645e-08, 0, 1, 0, 1, 0, -1, 0, -5.9604645e-08, 14
 [node name="rock1" parent="." unique_id=1573788505 instance=ExtResource("8_qulpo")]
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 12.009093, -14.643384, 34.247746)
 
+[node name="log" parent="." unique_id=604647931 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.75062, -15.610395, 60.141014)
+script = ExtResource("5_3opl0")
+
 [node name="logs" type="Node3D" parent="." unique_id=609902958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01334, 0, -5.268691e-07)
 script = ExtResource("4_jifot")
 
-[node name="log" parent="logs" unique_id=604647931 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 8.064602, -15.610395, 60.141014)
-script = ExtResource("5_3opl0")
+[node name="log2" parent="logs" unique_id=1278649850 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -9.782022, -15.610395, 64.02525)
 
-[node name="log2" parent="logs" unique_id=460592398 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 2.6022933, -15.61, 64.025)
-script = ExtResource("5_3opl0")
+[node name="log3" parent="logs" unique_id=500877797 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.7506194, -15.610395, 68.2265)
 
-[node name="log3" parent="logs" unique_id=1734169425 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -1.1132703, -15.61, 68.227)
-script = ExtResource("5_3opl0")
+[node name="log4" parent="." unique_id=427027712 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506187, -15.610395, 86.141014)
 
-[node name="log4" parent="logs" unique_id=354520250 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 12.831065, -15.610395, 86.141014)
-script = ExtResource("5_3opl0")
+[node name="log5" parent="." unique_id=1968183001 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506182, -15.610395, 94.2265)
 
-[node name="log5" parent="logs" unique_id=15035796 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 4.242615, -15.610395, 90.02525)
-script = ExtResource("5_3opl0")
+[node name="log6" parent="." unique_id=1047979379 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.7820215, -15.610395, 90.02525)
 
-[node name="log6" parent="logs" unique_id=1613445673 instance=ExtResource("9_qulpo")]
-transform = Transform3D(1.3113419e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113419e-07, 9.011614, -15.610395, 94.2265)
-script = ExtResource("5_3opl0")
+[node name="log7" parent="." unique_id=909873107 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.750618, -15.610395, 100.141014)
 
-[node name="log7" parent="logs" unique_id=1032592354 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.3287188, -15.610395, 100.141014)
-script = ExtResource("5_3opl0")
+[node name="log8" parent="." unique_id=671762351 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506175, -15.610395, 108.2265)
 
-[node name="log8" parent="logs" unique_id=1441578850 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -5.242671, -15.610395, 108.2265)
-script = ExtResource("5_3opl0")
+[node name="log9" parent="." unique_id=1579343111 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.782021, -15.610395, 104.02525)
 
-[node name="log9" parent="logs" unique_id=1355175053 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.429657, -15.610395, 104.02525)
-script = ExtResource("5_3opl0")
+[node name="log10" parent="." unique_id=102971942 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.7506206, -15.610395, 114.141014)
 
-[node name="log10" parent="logs" unique_id=576344017 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 1.359645, -15.610395, 114.141014)
-script = ExtResource("5_3opl0")
+[node name="log11" parent="." unique_id=1240522348 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.7506201, -15.610395, 122.2265)
 
-[node name="log11" parent="logs" unique_id=496001947 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -4.9036636, -15.610395, 118.02525)
-script = ExtResource("5_3opl0")
+[node name="log12" parent="." unique_id=1121044660 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -9.782023, -15.610395, 118.02525)
 
-[node name="log12" parent="logs" unique_id=12356199 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 2.5381072, -15.610395, 122.2265)
-script = ExtResource("5_3opl0")
-
-[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=213388283]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6544725e-06, 8.322664, -7.666662)
+[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=118940562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0036757, 0)
 floor_max_angle = 0.27401668
 script = ExtResource("1_r6vdu")
-IN_AIR_SPEED = 3.0
-JUMP_VELOCITY = 4.5
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_21xmu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=315627537]
-mesh = SubResource("CapsuleMesh_3opl0")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=1794698886]
+mesh = SubResource("CapsuleMesh_qulpo")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=681914957]
-shape = SubResource("CapsuleShape3D_dc5vx")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=1761909458]
+shape = SubResource("CapsuleShape3D_jifot")
 
-[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1475846748]
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1521393135]
 wait_time = 0.5
 one_shot = true
 
-[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=571990531]
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1324408935]
 wait_time = 0.5
 one_shot = true
 
-[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=1073631132]
+[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=107619934]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=143846213]
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=348543034]
 modulate = Color(1, 1, 1, 0.4627451)
 self_modulate = Color(1, 1, 1, 0.42745098)
-material = SubResource("ShaderMaterial_s8oj7")
+material = SubResource("ShaderMaterial_3opl0")
 offset_right = 1172.0
 offset_bottom = 646.0
 
-[node name="Control" type="Control" parent="Basic FPS Player" unique_id=423665026]
+[node name="Control" type="Control" parent="Basic FPS Player" unique_id=498545973]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(576, 324)
 size_flags_vertical = 8
 script = ExtResource("4_rmy57")
 
-[node name="CardContainer" type="HBoxContainer" parent="Basic FPS Player/Control" unique_id=385062324]
-custom_minimum_size = Vector2(1000, 0)
-layout_mode = 0
-offset_left = 68.0
-offset_top = 374.0
-offset_right = 1068.0
-offset_bottom = 624.0
+[node name="CardContainer" type="GridContainer" parent="Basic FPS Player/Control" unique_id=1675458186]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -1355.5
+offset_top = -1281.0
+offset_right = 1355.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.12, 0.12)
+pivot_offset = Vector2(1313.5, 1256)
+columns = 9
 
-[node name="@Node3D@132284" type="Node3D" parent="Basic FPS Player" unique_id=1173250643 instance=ExtResource("2_21xmu")]
+[node name="@Node3D@425445" parent="Basic FPS Player" unique_id=692856497 instance=ExtResource("2_21xmu")]
 
 [node name="CardPickup" type="Area3D" parent="." unique_id=773354911]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0155802, 1.7958174)
 script = ExtResource("11_3opl0")
-jump_cards = 50
-dash_cards = 50
+jump_cards = 13
+dash_cards = 19
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup" unique_id=1571028704]
 shape = SubResource("BoxShape3D_dc5vx")
@@ -655,7 +648,6 @@ shape = SubResource("BoxShape3D_dc5vx")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=1230568337]
 mesh = SubResource("BoxMesh_s8oj7")
 
-[connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
