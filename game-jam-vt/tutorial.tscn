@@ -22,11 +22,7 @@
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="18_dudfa"]
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
-<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://intrsuctions_1.gd" id="21_5gpbq"]
-=======
-[ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="21_5gpbq"]
->>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="24_4ods2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
@@ -70,6 +66,8 @@ volumetric_fog_sky_affect = 0.66
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4t6hg"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_7vrqn"]
+
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bsk3x"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_k08xv"]
@@ -89,22 +87,10 @@ shader_parameter/pixel_size = 0.08
 shader_parameter/height = -1.0
 shader_parameter/disable_pixel = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_53tq2"]
-size = Vector3(28.86711, 5.0489936, 16.889217)
+[sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
+size = Vector3(22.49289, 5.0489936, 18.564909)
 
 [sub_resource type="BoxMesh" id="BoxMesh_g52lx"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_4ods2"]
-size = Vector3(28.86711, 4.851543, 9.763241)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
-size = Vector3(28.86711, 5.0489936, 12.138241)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_0gmok"]
-size = Vector3(28.86711, 5.0489936, 19.449276)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ns12n"]
-size = Vector3(28.86711, 5.0489936, 36.784943)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
 
@@ -261,10 +247,8 @@ dash_cards = 3
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup" unique_id=1383879514]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="CardPickup" unique_id=1464200774]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("3_tfgte")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup" unique_id=241377461]
+mesh = SubResource("BoxMesh_7vrqn")
 
 [node name="CardPickup3" type="Area3D" parent="." unique_id=587871262]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -15.157944)
@@ -279,6 +263,24 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("3_tfgte")
 
+[node name="grass1" parent="CardPickup3" unique_id=1471432962 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0579476, 0.48733234, 1.7825413)
+
+[node name="grass2" parent="CardPickup3" unique_id=1432396916 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.283047, 0.48733234, 4.9844027)
+
+[node name="grass3" parent="CardPickup3" unique_id=154263282 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2813983, 0.4873314, 8.142326)
+
+[node name="grass4" parent="CardPickup3" unique_id=1537212607 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.149682, 0.5895443, -13.689508)
+
+[node name="grass5" parent="CardPickup3" unique_id=1435783745 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.015648, 0.5895443, -8.483463)
+
+[node name="grass6" parent="CardPickup3" unique_id=578777083 instance=ExtResource("4_53tq2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1431413, 0.58954334, -12.115881)
+
 [node name="CardPickup4" type="Area3D" parent="." unique_id=782976827]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -29.860006)
 script = ExtResource("7_0cr88")
@@ -287,10 +289,8 @@ jump_cards = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup4" unique_id=529402678]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="CardPickup4" unique_id=783066384]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("3_tfgte")
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup4" unique_id=258498997]
+mesh = SubResource("BoxMesh_7vrqn")
 
 [node name="CardPickup2" type="Area3D" parent="." unique_id=4552639]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -86.55059)
@@ -301,28 +301,8 @@ dash_cards = 2
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup2" unique_id=985584032]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="CardPickup2" unique_id=1257748900]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("3_tfgte")
-
-[node name="grass10" parent="." unique_id=1471432962 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0579476, -9.5533495, -13.375402)
-
-[node name="grass11" parent="." unique_id=1432396916 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.283047, -9.5533495, -10.173541)
-
-[node name="grass12" parent="." unique_id=154263282 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.2813983, -9.55335, -7.0156174)
-
-[node name="grass13" parent="." unique_id=1537212607 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.149682, -9.451138, -28.847452)
-
-[node name="grass14" parent="." unique_id=1435783745 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.015648, -9.451138, -23.641407)
-
-[node name="grass15" parent="." unique_id=578777083 instance=ExtResource("4_53tq2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.1431413, -9.4511385, -27.273825)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CardPickup2" unique_id=583904931]
+mesh = SubResource("BoxMesh_7vrqn")
 
 [node name="canopy" parent="." unique_id=743272059 instance=ExtResource("8_4t6hg")]
 transform = Transform3D(-6.556708e-08, 0, -1.5, 0, 1.5, 0, 1.5, 0, -6.556708e-08, -1.204517, 3.348051, -8.701759)
@@ -2836,8 +2816,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
 script = ExtResource("18_0lped")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1166310919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.3909798, -1.6915016)
-shape = SubResource("BoxShape3D_53tq2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.3909798, -1.5770302)
+shape = SubResource("BoxShape3D_dudfa")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
 [node name="Control" type="Control" parent="KILLLBOX1" unique_id=280900019]
@@ -2855,8 +2835,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
 script = ExtResource("18_0lped")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2" unique_id=922458982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.6308966, -0.7503233, 0.36195564)
-shape = SubResource("BoxShape3D_4ods2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.651598, 0.7312546)
+shape = SubResource("BoxShape3D_dudfa")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
 [node name="Control" type="Control" parent="KILLBOX2" unique_id=1479613891]
@@ -2874,7 +2854,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -128.9032)
 script = ExtResource("20_dudfa")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=325419854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -13.230621)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -10.9696045)
 shape = SubResource("BoxShape3D_dudfa")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -2889,8 +2869,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -66.317184)
 script = ExtResource("18_0lped")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX3" unique_id=532325172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, 3.3298798)
-shape = SubResource("BoxShape3D_0gmok")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, 1.9353752)
+shape = SubResource("BoxShape3D_dudfa")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
 [node name="Control" type="Control" parent="KILLBOX3" unique_id=2002111680]
@@ -2908,8 +2888,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
 script = ExtResource("18_0lped")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX4" unique_id=1229967233]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, -4.118248)
-shape = SubResource("BoxShape3D_ns12n")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, -4.951851)
+shape = SubResource("BoxShape3D_dudfa")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
 [node name="Control" type="Control" parent="KILLBOX4" unique_id=1623504525]
@@ -3003,36 +2983,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.404814, -9.4511385, -80.467
 [node name="grass9" parent="." unique_id=1964588623 instance=ExtResource("4_53tq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0440073, -9.451139, -81.66936)
 
-[node name="dialogue" type="Area3D" parent="." unique_id=280846334]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
-script = ExtResource("21_5gpbq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="dialogue" unique_id=613565137]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.49022293, 14.180201, 88.79015)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="dialogue" unique_id=824436264]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="dialogue/Control" unique_id=2126159195]
-layout_mode = 0
-offset_left = 356.0
-offset_top = 44.0
-offset_right = 760.0
-offset_bottom = 72.0
-text = "what? isn't this my treehouse. How did I get here. I thought..."
-label_settings = SubResource("LabelSettings_5gpbq")
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="dialogue" unique_id=815388073]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
-mesh = SubResource("BoxMesh_g52lx")
-
 [connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
 [connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
 [connection signal="body_entered" from="CardPickup4" to="CardPickup4" method="_on_body_entered"]
@@ -3048,5 +2998,3 @@ mesh = SubResource("BoxMesh_g52lx")
 [connection signal="body_entered" from="KILLBOX4" to="KILLBOX4" method="_on_body_entered"]
 [connection signal="body_entered" from="intrsuctions1" to="intrsuctions1" method="_on_body_entered"]
 [connection signal="body_exited" from="intrsuctions1" to="intrsuctions1" method="_on_body_exited"]
-[connection signal="body_entered" from="dialogue" to="dialogue" method="_on_body_entered"]
-[connection signal="body_exited" from="dialogue" to="dialogue" method="_on_body_exited"]
