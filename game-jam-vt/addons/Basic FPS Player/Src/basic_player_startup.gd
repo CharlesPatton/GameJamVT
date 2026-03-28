@@ -31,11 +31,11 @@ func _enter_tree():
 
 @export_category("Movement")
 @export_subgroup("Settings")
-@export var SPEED := 12.0
+@export var SPEED := 5.0
 @export var ACCEL := 50.0
-@export var IN_AIR_SPEED := 6.0
-@export var IN_AIR_ACCEL := 6.0
-@export var JUMP_VELOCITY := 20
+@export var IN_AIR_SPEED := 3.0
+@export var IN_AIR_ACCEL := 5.0
+@export var JUMP_VELOCITY := 4.0
 @export_subgroup("Head Bob")
 @export var HEAD_BOB := true
 @export var HEAD_BOB_FREQUENCY := 0.3
