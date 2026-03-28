@@ -4,7 +4,6 @@ extends Area3D
 @export var dash_cards : int = 0
 
 func _on_body_entered(body: Node3D) -> void:
-	if body is CharacterBody3D:
 	if body.name == "Basic FPS Player":
 		body.jumpCards += jump_cards
 		body.dashCards += dash_cards

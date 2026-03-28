@@ -171,9 +171,6 @@ func move_player(delta):
 	
 	# Handle Jump.
 	if Input.is_action_just_pressed(KEY_BIND_JUMP):
-		isJumping = true
-		velocity.y = JUMP_VELOCITY
-		$JumpEndTimer.start()
 		if jumpCards > 0:
 			jumpCards -= 1
 			emit_signal("KillCard", 1)
@@ -183,7 +180,6 @@ func move_player(delta):
 	
 	# Dash input and start DashEndTimer
 	if Input.is_action_just_pressed("dash"):
-		print(dashCards)
 		emit_signal("KillCard", 0)
 		if dashCards > 0 and isDashing == false:
 			$SpeedLines.visible = true
@@ -193,7 +189,6 @@ func move_player(delta):
 			$DashEndTimer.start()
 			position.y += 0.0001
 			dashCards -= 1
-			print(dashCards)
 
 	
 	# Get the input direction and handle the movement/deceleration.
