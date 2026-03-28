@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://wykldebc7dlh"]
+[gd_scene format=3 uid="uid://c6ymqturfkctd"]
 
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="1_hu44a"]
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_0cr88"]
@@ -16,7 +16,10 @@
 [ext_resource type="PackedScene" uid="uid://cc31wi6mf5u8q" path="res://models/bush1.blend" id="15_k08xv"]
 [ext_resource type="PackedScene" uid="uid://1fbshqeaoyru" path="res://models/bush2.blend" id="16_g52lx"]
 [ext_resource type="PackedScene" uid="uid://bax2wevlup8it" path="res://models/bush3.blend" id="17_0lped"]
+[ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="18_0lped"]
+[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="18_dudfa"]
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
+[ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
 albedo_color = Color(0.381866, 0.71612316, 0.1338822, 1)
@@ -71,6 +74,19 @@ volumetric_fog_sky_affect = 0.66
 shader = ExtResource("4_7vrqn")
 shader_parameter/speedScale = 10.64
 shader_parameter/clipPosition = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5gpbq"]
+shader = ExtResource("18_dudfa")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 7.33
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -1.0
+shader_parameter/disable_pixel = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
+size = Vector3(22.49289, 3.3700466, 18.991114)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g52lx"]
 
 [node name="Tutorial" type="Node3D" unique_id=904070440]
 
@@ -2734,6 +2750,7 @@ parameters/looping = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
 floor_max_angle = 0.27401668
 script = ExtResource("2_0cr88")
+SPEED = 5.0
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_4t6hg")]
@@ -2782,7 +2799,71 @@ offset_top = 374.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
-[node name="@Node3D@447656" type="Node3D" parent="Basic FPS Player" unique_id=1003997293 instance=ExtResource("3_4t6hg")]
+[node name="@Node3D@447656" parent="Basic FPS Player" unique_id=1003997293 instance=ExtResource("3_4t6hg")]
+
+[node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=1552787576]
+scale = Vector2(1.25, 1.25)
+transform = Transform2D(1.25, 0, 0, 1.25, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/DeathTransition" unique_id=1341926630]
+modulate = Color(0, 0, 0, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_5gpbq")
+offset_left = -107.2
+offset_top = -62.399998
+offset_right = 1064.8
+offset_bottom = 583.6
+pivot_offset = Vector2(586, 323)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1248968979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1166310919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.9396029, -3.5973206)
+shape = SubResource("BoxShape3D_dudfa")
+
+[node name="Control" type="Control" parent="Area3D" unique_id=280900019]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="Area3D" unique_id=289855443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="Area3D2" type="Area3D" parent="." unique_id=105320008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=922458982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.8287897, 1.9353752)
+shape = SubResource("BoxShape3D_dudfa")
+
+[node name="Control" type="Control" parent="Area3D2" unique_id=1479613891]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="Area3D2" unique_id=1612380767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="SwitchScreens" type="Area3D" parent="." unique_id=1506271647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -128.9032)
+script = ExtResource("20_dudfa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=325419854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -10.9696045)
+shape = SubResource("BoxShape3D_dudfa")
+
+[node name="Control" type="Control" parent="SwitchScreens" unique_id=770277224]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
 [connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
@@ -2791,3 +2872,6 @@ offset_bottom = 624.0
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Area3D2" method="_on_body_entered"]
+[connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
