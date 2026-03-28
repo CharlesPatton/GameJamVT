@@ -1,6 +1,8 @@
 @tool
 extends CharacterBody3D
 
+signal KillCard(card)
+
 var BasicFPSPlayerScene : PackedScene = preload("basic_player_head.tscn")
 var addedHead = false
 var isDashing = false
@@ -172,10 +174,17 @@ func move_player(delta):
 		isJumping = true
 		velocity.y = JUMP_VELOCITY
 		$JumpEndTimer.start()
+		if jumpCards > 0:
+			jumpCards -= 1
+			emit_signal("KillCard", 1)
+			isJumping = true
+			velocity.y = JUMP_VELOCITY
+			$JumpEndTimer.start()
 	
 	# Dash input and start DashEndTimer
 	if Input.is_action_just_pressed("dash"):
 		print(dashCards)
+		emit_signal("KillCard", 0)
 		if dashCards > 0 and isDashing == false:
 			$SpeedLines.visible = true
 			change_camera_fov_on_dash()
@@ -185,6 +194,7 @@ func move_player(delta):
 			position.y += 0.0001
 			dashCards -= 1
 			print(dashCards)
+
 	
 	# Get the input direction and handle the movement/deceleration.
 	var input_dir = Input.get_vector(KEY_BIND_LEFT, KEY_BIND_RIGHT, KEY_BIND_UP, KEY_BIND_DOWN)

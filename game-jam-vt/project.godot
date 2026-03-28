@@ -15,10 +15,15 @@ run/main_scene="uid://gs0xa46n10vf"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+AllTheCards3="*uid://de55lj013exog"
+
 [display]
 
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
+<<<<<<<Updatedupstreamwindow/stretch/mode="viewport"
 
 [editor_plugins]
 

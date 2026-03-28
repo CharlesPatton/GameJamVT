@@ -80,33 +80,6 @@ pivot_offset = Vector2(576, 324)
 size_flags_vertical = 8
 script = ExtResource("4_8guo4")
 
-[node name="GridContainer" type="GridContainer" parent="Basic FPS Player/Control" unique_id=1585287308]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -1355.5
-offset_top = -1281.0
-offset_right = 1355.5
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(0.12, 0.12)
-pivot_offset = Vector2(1313.5, 1256)
-columns = 9
-
-[node name="TextureRect" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1823859303]
-layout_mode = 2
-texture = ExtResource("6_tgct4")
-
-[node name="TextureRect2" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1473231888]
-layout_mode = 2
-texture = ExtResource("6_tgct4")
-
-[node name="TextureRect3" type="TextureRect" parent="Basic FPS Player/Control/GridContainer" unique_id=1492975935]
-layout_mode = 2
-texture = ExtResource("6_tgct4")
 [node name="CardContainer" type="HBoxContainer" parent="Basic FPS Player/Control" unique_id=1211579922]
 custom_minimum_size = Vector2(1000, 0)
 layout_mode = 0
@@ -151,7 +124,6 @@ texture = ExtResource("6_tgct4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.7958174)
 script = ExtResource("7_tgct4")
 jump_cards = 1
-dash_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup" unique_id=1419062543]
 shape = SubResource("BoxShape3D_8guo4")
