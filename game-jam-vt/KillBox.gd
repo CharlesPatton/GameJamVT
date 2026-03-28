@@ -1,6 +1,5 @@
 extends Area3D
 
-
 func _on_body_entered(body: Node3D) -> void:			
 	$"../Basic FPS Player".dashCards = 0
 	$"../Basic FPS Player".jumpCards = 0
@@ -9,6 +8,8 @@ func _on_body_entered(body: Node3D) -> void:
 			$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
 	
 	if body.name == "Basic FPS Player":	
+		self.get_child(3).get_child(0).set_deferred("disabled", false)
+		self.get_child(3).get_child(1).visible = true
 		var deathTransition = body.get_node("DeathTransition")
 		deathTransition.visible = true
 		var tween = get_tree().create_tween()

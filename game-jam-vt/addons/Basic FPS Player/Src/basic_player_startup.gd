@@ -31,11 +31,11 @@ func _enter_tree():
 
 @export_category("Movement")
 @export_subgroup("Settings")
-@export var SPEED := 7.0
+@export var SPEED := 12.0
 @export var ACCEL := 50.0
-@export var IN_AIR_SPEED := 3.0
-@export var IN_AIR_ACCEL := 5.0
-@export var JUMP_VELOCITY := 4.5
+@export var IN_AIR_SPEED := 6.0
+@export var IN_AIR_ACCEL := 6.0
+@export var JUMP_VELOCITY := 20
 @export_subgroup("Head Bob")
 @export var HEAD_BOB := true
 @export var HEAD_BOB_FREQUENCY := 0.3
@@ -62,7 +62,7 @@ func _enter_tree():
 												# Otherwise player is updated in _process (uncapped)
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity") - 2
 # To keep track of current speed and acceleration
 var speed = SPEED
 var accel = ACCEL

@@ -64,11 +64,6 @@ volumetric_fog_anisotropy = 0.15
 volumetric_fog_detail_spread = 1.6245053
 volumetric_fog_sky_affect = 0.66
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
-size = Vector3(22.997421, 5.0489936, 30.447868)
-
-[sub_resource type="BoxMesh" id="BoxMesh_g52lx"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_4t6hg"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_bsk3x"]
@@ -90,9 +85,12 @@ shader_parameter/pixel_size = 0.08
 shader_parameter/height = -1.0
 shader_parameter/disable_pixel = true
 
-[sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_dudfa"]
+size = Vector3(22.49289, 5.0489936, 18.564909)
 
-[sub_resource type="BoxMesh" id="BoxMesh_53tq2"]
+[sub_resource type="BoxMesh" id="BoxMesh_g52lx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
 
 [node name="Tutorial" type="Node3D" unique_id=904070440]
 
@@ -239,131 +237,62 @@ transform = Transform3D(-0.30748665, 0.95014066, -0.051815256, 0.5499855, 0.2218
 light_color = Color(0.74405813, 0.76931226, 0.76315075, 1)
 shadow_enabled = true
 
-[node name="KILLBOX2" type="Area3D" parent="." unique_id=105320008]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
-script = ExtResource("18_0lped")
+[node name="CardPickup" type="Area3D" parent="." unique_id=2114325953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -54.482834)
+script = ExtResource("7_0cr88")
+jump_cards = null
+dash_cards = 3
+cardPick = null
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2" unique_id=922458982]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.651598, 0.7312546)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup" unique_id=1383879514]
+shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Control" type="Control" parent="KILLBOX2" unique_id=1479613891]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Sprite3D" type="Sprite3D" parent="CardPickup" unique_id=235298321]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("3_tfgte")
 
-[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1612380767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
-mesh = SubResource("BoxMesh_g52lx")
-
-[node name="CardPickup3" type="Area3D" parent="KILLBOX2" unique_id=587871262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 4.102806)
+[node name="CardPickup3" type="Area3D" parent="." unique_id=587871262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -15.157944)
 script = ExtResource("7_0cr88")
 jump_cards = 2
+dash_cards = null
+cardPick = "CardPickup3"
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup3" unique_id=1888376883]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup3" unique_id=1888376883]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup3" unique_id=1533726600]
+[node name="Sprite3D" type="Sprite3D" parent="CardPickup3" unique_id=1533726600]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("3_tfgte")
 
-[node name="KILLLBOX1" type="Area3D" parent="." unique_id=1248968979]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
-script = ExtResource("18_0lped")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1166310919]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.3909798, -1.5770302)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="KILLLBOX1" unique_id=280900019]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=289855443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
-mesh = SubResource("BoxMesh_g52lx")
-
-[node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=782976827]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 8.250502)
+[node name="CardPickup4" type="Area3D" parent="." unique_id=782976827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -29.860006)
 script = ExtResource("7_0cr88")
-jump_cards = 5
+jump_cards = 4
+dash_cards = null
+cardPick = null
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup4" unique_id=529402678]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup4" unique_id=529402678]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup4" unique_id=576581460]
+[node name="Sprite3D" type="Sprite3D" parent="CardPickup4" unique_id=576581460]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("3_tfgte")
 
-[node name="KILLBOX3" type="Area3D" parent="." unique_id=2091219710]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -66.317184)
-script = ExtResource("18_0lped")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX3" unique_id=532325172]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, -0.43785095)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="KILLBOX3" unique_id=2002111680]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX3" unique_id=879914398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 13.265686)
-mesh = SubResource("BoxMesh_g52lx")
-
-[node name="CardPickup" type="Area3D" parent="KILLBOX3" unique_id=2114325953]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 11.834351)
-script = ExtResource("7_0cr88")
-dash_cards = 3
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX3/CardPickup" unique_id=1383879514]
-shape = SubResource("BoxShape3D_4t6hg")
-
-[node name="Sprite3D" type="Sprite3D" parent="KILLBOX3/CardPickup" unique_id=235298321]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("3_tfgte")
-
-[node name="KILLBOX4" type="Area3D" parent="." unique_id=2090361565]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
-script = ExtResource("18_0lped")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX4" unique_id=1229967233]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.68543243, -0.5379391, -8.520096)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="KILLBOX4" unique_id=1623504525]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX4" unique_id=306827081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
-mesh = SubResource("BoxMesh_g52lx")
-
-[node name="CardPickup2" type="Area3D" parent="KILLBOX4" unique_id=4552639]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 1.7287064)
+[node name="CardPickup2" type="Area3D" parent="." unique_id=4552639]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10.040682, -86.55059)
 script = ExtResource("7_0cr88")
 jump_cards = 2
 dash_cards = 2
+cardPick = null
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX4/CardPickup2" unique_id=985584032]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup2" unique_id=985584032]
 shape = SubResource("BoxShape3D_4t6hg")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLBOX4/CardPickup2" unique_id=1536087427]
+[node name="Sprite3D" type="Sprite3D" parent="CardPickup2" unique_id=1536087427]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("3_tfgte")
@@ -2829,9 +2758,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
 floor_max_angle = 0.27401668
 script = ExtResource("2_0cr88")
 SPEED = 5.0
-IN_AIR_SPEED = 3.0
-IN_AIR_ACCEL = 5.0
-JUMP_VELOCITY = 4.5
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_4t6hg")]
@@ -2896,6 +2822,97 @@ offset_right = 1064.8
 offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
 
+[node name="KILLLBOX1" type="Area3D" parent="." unique_id=1248968979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1166310919]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -1.3909798, -1.5770302)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLLBOX1" unique_id=280900019]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=289855443]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="KILLBOX2" type="Area3D" parent="." unique_id=105320008]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2" unique_id=922458982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.651598, 0.7312546)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX2" unique_id=1479613891]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1612380767]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="SwitchScreens" type="Area3D" parent="." unique_id=1506271647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -128.9032)
+script = ExtResource("20_dudfa")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=325419854]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -10.9696045)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="SwitchScreens" unique_id=770277224]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KILLBOX3" type="Area3D" parent="." unique_id=2091219710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -66.317184)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX3" unique_id=532325172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, 1.9353752)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX3" unique_id=2002111680]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX3" unique_id=879914398]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 13.265686)
+mesh = SubResource("BoxMesh_g52lx")
+
+[node name="KILLBOX4" type="Area3D" parent="." unique_id=2090361565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
+script = ExtResource("18_0lped")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX4" unique_id=1229967233]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -0.5379391, -4.951851)
+shape = SubResource("BoxShape3D_dudfa")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX4" unique_id=1623504525]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX4" unique_id=306827081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+mesh = SubResource("BoxMesh_g52lx")
+
 [node name="intrsuctions1" type="Area3D" parent="." unique_id=1411281293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
 script = ExtResource("21_5gpbq")
@@ -2926,29 +2943,14 @@ visible_ratio = 0.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
 mesh = SubResource("BoxMesh_g52lx")
 
-[node name="SwitchScreens" type="Area3D" parent="." unique_id=1506271647]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -128.9032)
-script = ExtResource("20_dudfa")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=325419854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, -5.9970474, -10.9696045)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="SwitchScreens" unique_id=770277224]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="log" parent="." unique_id=604647931 instance=ExtResource("24_4ods2")]
-transform = Transform3D(1.28, 0, 0, 0, -5.5950576e-08, 1.28, 0, -1.28, -5.5950576e-08, -0.6439786, -15.25496, -34.183662)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.6439786, -14, -34.183662)
 
 [node name="log3" parent="." unique_id=1523153518 instance=ExtResource("24_4ods2")]
-transform = Transform3D(1.385, 0, 0, 0, -6.054027e-08, 1.385, 0, -1.385, -6.054027e-08, -0.5809026, -15.542732, -44.05652)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.5809026, -13.913316, -44.05652)
 
 [node name="log2" parent="." unique_id=903088801 instance=ExtResource("24_4ods2")]
-transform = Transform3D(1.605, 0, 0, 0, -7.015678e-08, 1.605, 0, -1.605, -7.015678e-08, -3.062739, -16.914669, -39.103096)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -3.062739, -13.85165, -39.103096)
 
 [node name="rock70" parent="." unique_id=637980629 instance=ExtResource("14_bsk3x")]
 transform = Transform3D(2.614443, 0, 0, 0, 2.042735, 0, 0, 0, 2.0479126, -0.6124885, -11.894531, -19.461058)
@@ -2992,50 +2994,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.404814, -9.4511385, -80.467
 [node name="grass9" parent="." unique_id=1964588623 instance=ExtResource("4_53tq2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.0440073, -9.451139, -81.66936)
 
-[node name="intrsuctions2" type="Area3D" parent="." unique_id=1841211141]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.01647)
-script = ExtResource("21_5gpbq")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="intrsuctions2" unique_id=139141735]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, 4.4691763, 25.56504)
-shape = SubResource("BoxShape3D_dudfa")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="intrsuctions2" unique_id=138360065]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="intrsuctions2/Control" unique_id=1226175447]
-layout_mode = 0
-offset_left = 356.0
-offset_top = 44.0
-offset_right = 760.0
-offset_bottom = 72.0
-text = "Press Shift or Right Mouse to dash"
-label_settings = SubResource("LabelSettings_5gpbq")
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions2" unique_id=1984722886]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
-mesh = SubResource("BoxMesh_53tq2")
-
-[connection signal="body_entered" from="KILLBOX2" to="KILLBOX3/CardPickup" method="_on_killbox_2_body_entered"]
-[connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX2/CardPickup3" to="KILLBOX2/CardPickup3" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX3" to="KILLBOX3" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX3/CardPickup" to="KILLBOX3/CardPickup" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX4" to="KILLBOX4" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX4/CardPickup2" to="KILLBOX4/CardPickup2" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup" to="CardPickup" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup3" to="CardPickup3" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup4" to="CardPickup4" method="_on_body_entered"]
+[connection signal="body_entered" from="CardPickup2" to="CardPickup2" method="_on_body_entered"]
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="CardPickup" method="_on_killbox_2_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
+[connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX3" to="KILLBOX3" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX4" to="KILLBOX4" method="_on_body_entered"]
 [connection signal="body_entered" from="intrsuctions1" to="intrsuctions1" method="_on_body_entered"]
 [connection signal="body_exited" from="intrsuctions1" to="intrsuctions1" method="_on_body_exited"]
-[connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
-[connection signal="body_entered" from="intrsuctions2" to="intrsuctions2" method="_on_body_entered"]
-[connection signal="body_exited" from="intrsuctions2" to="intrsuctions2" method="_on_body_exited"]
