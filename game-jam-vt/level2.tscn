@@ -65,10 +65,17 @@ size = Vector3(1, 24.420044, 0.48583984)
 material = SubResource("StandardMaterial3D_ocsrq")
 
 [node name="CSGBox3D13" type="CSGBox3D" parent="." unique_id=99959227]
-transform = Transform3D(-5.722162e-07, -6.8956795, -9.691718e-08, 6.1210875e-07, -3.0141973e-07, 1.0712614, -13.090781, 3.014197e-07, 5.0090865e-08, 0.016156258, -16.153706, 63.91973)
+transform = Transform3D(-5.722163e-07, -6.8956795, -9.691718e-08, 6.1210875e-07, -3.0141973e-07, 1.0712614, -13.090781, 3.0141973e-07, 5.0090865e-08, 2.4523892, -56.15294, 63.91973)
 calculate_tangents = false
 use_collision = true
-size = Vector3(1.1386719, 24.420044, 0.48583984)
+size = Vector3(1.1386719, 6.78846, 75.16272)
+material = SubResource("StandardMaterial3D_ocsrq")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=1148041009]
+transform = Transform3D(-5.722163e-07, -6.8956795, -9.691718e-08, 6.1210875e-07, -3.0141973e-07, 1.0712614, -13.090781, 3.0141973e-07, 5.0090865e-08, 2.452391, -56.15294, 103.931076)
+calculate_tangents = false
+use_collision = true
+size = Vector3(3.6166992, 6.78846, 75.16272)
 material = SubResource("StandardMaterial3D_ocsrq")
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=685751607]
@@ -192,80 +199,38 @@ use_collision = true
 size = Vector3(0.72680664, 35, 0.48583984)
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=391994547]
-transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, 47.54966, -4.098521, 4.768131)
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, 47.54966, -46.308598, 4.768129)
 calculate_tangents = false
 use_collision = true
-size = Vector3(5.9831085, 35, 0.48583984)
+size = Vector3(5.9831085, 167.45215, 0.48583984)
 
-[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=1325495194]
-transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 22.150888, -9.632309, 7.151285)
+[node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=1344049380]
+transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, 83.680145, -46.308598, 114.34453)
 calculate_tangents = false
 use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
+size = Vector3(18.03313, 167.45215, 0.48583984)
 
-[node name="CSGBox3D19" type="CSGBox3D" parent="." unique_id=1808850054]
-transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 28.986734, -10.084599, 32.66301)
+[node name="CSGBox3D14" type="CSGBox3D" parent="." unique_id=2011143483]
+transform = Transform3D(-6.09225e-08, -1.7763568e-15, -1.0712613, -5.7525e-07, 0.6373634, 5.009085e-08, 12.302507, 2.980232e-08, -1.7023993e-08, -81.27521, -46.30859, 114.34453)
 calculate_tangents = false
 use_collision = true
-size = Vector3(0.5323982, 16.216125, 8.613525)
-
-[node name="CSGBox3D15" type="CSGBox3D" parent="." unique_id=480139609]
-transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 23.730938, -10.955126, 13.048108)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D16" type="CSGBox3D" parent="." unique_id=1879855316]
-transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 24.897926, -9.632309, 17.403374)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D17" type="CSGBox3D" parent="." unique_id=1983487305]
-transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 25.781025, -12.223383, 24.58558)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D20" type="CSGBox3D" parent="." unique_id=1179840337]
-transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 30.313442, -10.955126, 36.68639)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D21" type="CSGBox3D" parent="." unique_id=2076897063]
-transform = Transform3D(11.883309, 8.881784e-16, 0.19768344, 1.4888568e-07, 0.6373634, 1.2169233e-09, -3.1841238, 2.9802322e-08, 0.7377646, 31.824133, -9.632309, 40.794456)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D22" type="CSGBox3D" parent="." unique_id=462184596]
-transform = Transform3D(11.883309, 0, -0.19768342, -1.4888563e-07, 0.6373634, 1.2169243e-09, 3.1841226, 2.9802322e-08, 0.7377646, 32.798416, -12.124925, 46.001133)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
-
-[node name="CSGBox3D18" type="CSGBox3D" parent="." unique_id=875604912]
-transform = Transform3D(12.302507, 0, 1.4901161e-08, 2.3536728e-14, 0.6373634, 3.8857806e-15, -7.1525574e-07, 2.9802322e-08, 0.7637901, 27.798592, -9.632309, 29.1566)
-calculate_tangents = false
-use_collision = true
-size = Vector3(0.5323982, 17.635376, 8.613525)
+size = Vector3(18.03313, 167.45215, 0.48583984)
 
 [node name="CSGBox3D10" type="CSGBox3D" parent="." unique_id=1625451784]
-transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -0.7789812, 6.1495686, 66.11692)
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -0.7789798, 6.1495686, 115.690735)
 calculate_tangents = false
 use_collision = true
-size = Vector3(13.836353, 1.3214111, 113.629234)
+size = Vector3(13.836353, 1.3214111, 206.18147)
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=567746480]
-transform = Transform3D(12.302507, 0.00010607173, -5.6837007e-06, -0.002047438, 0.6373491, -0.045855418, -3.6326967e-06, 0.0042592036, 6.861873, -0.44004446, -16.961143, 24.047583)
+transform = Transform3D(12.302507, 0.00010607173, -5.6837007e-06, -0.002047438, 0.6373491, -0.045855418, -3.6326965e-06, 0.0042592036, 6.861873, 2.3971188, -55.02791, 23.793198)
 calculate_tangents = false
 use_collision = true
-size = Vector3(14.127369, 7.3713684, 9.628586)
+size = Vector3(3.8273575, 126.82331, 9.628586)
 material = SubResource("StandardMaterial3D_8tcn8")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="CSGBox3D8" unique_id=840333273]
-transform = Transform3D(0.67564666, -4.9461864e-06, -1.996422e-07, 0.0021703942, 0.5736541, 0.09072008, -9.894874e-07, -0.0003560704, 1.2609273, 0.01692144, 4.524206, -1.5875859)
+transform = Transform3D(0.67564666, -4.946186e-06, -1.9964219e-07, 0.0021703942, 0.5736541, 0.09072009, -9.894874e-07, -0.0003560704, 1.2609273, -0.21421017, 64.250175, -1.5875862)
 operation = 2
 calculate_tangents = false
 radius = 1.4179688
@@ -273,16 +238,16 @@ height = 10.615234
 smooth_faces = false
 
 [node name="CSGBox3D7" type="CSGBox3D" parent="." unique_id=1790525217]
-transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -48.131546, -3.7798398, 4.7681346)
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -48.131546, -44.391953, 4.7681327)
 calculate_tangents = false
 use_collision = true
-size = Vector3(5.964507, 36, 0.48583984)
+size = Vector3(5.964507, 163.43787, 0.48583984)
 
 [node name="CSGBox3D23" type="CSGBox3D" parent="." unique_id=785004646]
-transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, -2.363523, -17.155018, 76.51276)
+transform = Transform3D(12.302507, 8.881784e-16, 2.9802322e-08, 1.0658141e-14, 0.6373634, 2.6645353e-15, -4.7683716e-07, 2.9802322e-08, 1.0712613, 2.546508, -55.80833, 76.51276)
 calculate_tangents = false
 use_collision = true
-size = Vector3(13.404945, 7.3897705, 8.999023)
+size = Vector3(3.8086343, 128.68105, 8.999023)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1223543691]
 transform = Transform3D(4.3851533, 0, 0, 0, 0.55197287, -0.5356307, 0, 0.31868172, 0.92773956, 0.015994072, 7.177343, -11.214201)
@@ -309,10 +274,6 @@ environment = SubResource("Environment_ocsrq")
 [node name="grandpashouse" parent="." unique_id=2128290207 instance=ExtResource("6_21xmu")]
 transform = Transform3D(-0.50000006, 0, -0.8660254, 0, 1, 0, 0.8660254, 0, -0.50000006, 16.989029, -12.279072, 29.782291)
 
-[node name="CSGBox3D12" type="CSGBox3D" parent="." unique_id=501677834]
-transform = Transform3D(1, 0, 0, 0, 0.99648833, 0.08373001, 0, -0.08373001, 0.99648833, -0.7787833, -15.45355, 17.779839)
-size = Vector3(18.588867, 0.31982422, 15.636932)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=1069000409]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -11.376902, 12.646273)
 light_color = Color(0, 0.8235294, 0.8627451, 1)
@@ -331,27 +292,6 @@ omni_range = 32.029896
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="RiverLights" unique_id=764178496]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -13.413317, 63.53846)
-light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
-light_energy = 5.905
-light_volumetric_fog_energy = 1.92
-omni_range = 32.029896
-
-[node name="OmniLight3D6" type="OmniLight3D" parent="RiverLights" unique_id=1874814423]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45, -13.413317, 63.53846)
-light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
-light_energy = 5.905
-light_volumetric_fog_energy = 1.92
-omni_range = 32.029896
-
-[node name="OmniLight3D7" type="OmniLight3D" parent="RiverLights" unique_id=49134027]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 60, -13.413317, 63.53846)
-light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
-light_energy = 5.905
-light_volumetric_fog_energy = 1.92
-omni_range = 32.029896
-
-[node name="OmniLight3D8" type="OmniLight3D" parent="RiverLights" unique_id=2064726979]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 75, -13.413317, 63.53846)
 light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
 light_energy = 5.905
 light_volumetric_fog_energy = 1.92
@@ -399,6 +339,183 @@ light_energy = 5.905
 light_volumetric_fog_energy = 1.92
 omni_range = 32.029896
 
+[node name="RiverLights2" type="Node3D" parent="." unique_id=233243181]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24.079746)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="RiverLights2" unique_id=1579604834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="RiverLights2" unique_id=1058531389]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="RiverLights2" unique_id=383947897]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="RiverLights2" unique_id=1956226305]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="RiverLights2" unique_id=1882340461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="RiverLights2" unique_id=891182058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="RiverLights2" unique_id=113957057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="RiverLights2" unique_id=2002714113]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="RiverLights3" type="Node3D" parent="." unique_id=694061291]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35.670856)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="RiverLights3" unique_id=1055392726]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="RiverLights3" unique_id=539809564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="RiverLights3" unique_id=1838109549]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="RiverLights3" unique_id=983873973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="RiverLights3" unique_id=762450382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="RiverLights3" unique_id=1473812040]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="RiverLights3" unique_id=406056436]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="RiverLights3" unique_id=349875063]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="RiverLights4" type="Node3D" parent="." unique_id=1057136134]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 47.988445)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="RiverLights4" unique_id=1694630556]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D5" type="OmniLight3D" parent="RiverLights4" unique_id=1836859956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D9" type="OmniLight3D" parent="RiverLights4" unique_id=1618446717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D10" type="OmniLight3D" parent="RiverLights4" unique_id=1271161734]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D11" type="OmniLight3D" parent="RiverLights4" unique_id=1916674446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D12" type="OmniLight3D" parent="RiverLights4" unique_id=1782366976]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D14" type="OmniLight3D" parent="RiverLights4" unique_id=1278936356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
+[node name="OmniLight3D13" type="OmniLight3D" parent="RiverLights4" unique_id=171982489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, -13.413317, 63.53846)
+light_color = Color(2.2140146e-06, 0.75969493, 0.79606116, 1)
+light_energy = 5.905
+light_volumetric_fog_energy = 1.92
+omni_range = 32.029896
+
 [node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=2090666393]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.898934, -11.815027, 26.990757)
 light_color = Color(0.8800549, 0.6970895, 0.26816073, 1)
@@ -420,6 +537,33 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7
 
 [node name="log2" parent="." unique_id=1278649850 instance=ExtResource("9_qulpo")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.782022, -15.610395, 64.02525)
+
+[node name="log4" parent="." unique_id=427027712 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506187, -15.610395, 86.141014)
+
+[node name="log5" parent="." unique_id=1968183001 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506182, -15.610395, 94.2265)
+
+[node name="log6" parent="." unique_id=1047979379 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.7820215, -15.610395, 90.02525)
+
+[node name="log7" parent="." unique_id=909873107 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.750618, -15.610395, 100.141014)
+
+[node name="log8" parent="." unique_id=671762351 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.7506175, -15.610395, 108.2265)
+
+[node name="log9" parent="." unique_id=1579343111 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -9.782021, -15.610395, 104.02525)
+
+[node name="log10" parent="." unique_id=102971942 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.7506206, -15.610395, 114.141014)
+
+[node name="log11" parent="." unique_id=1240522348 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -3.7506201, -15.610395, 122.2265)
+
+[node name="log12" parent="." unique_id=1121044660 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -9.782023, -15.610395, 118.02525)
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=118940562]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0036757, 0)
