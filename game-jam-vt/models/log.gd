@@ -25,9 +25,6 @@ func _on_area_3d_body_entered(body):
 	if body.name == "Basic FPS Player":
 		player = body
 		ON_LOG = true
-		#while ON_LOG:
-			#body.position.x += 0.15
-			#await get_tree().create_timer(0.1).timeout
 
 
 func _on_area_3d_body_exited(body):

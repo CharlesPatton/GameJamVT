@@ -14,3 +14,5 @@ func _on_body_entered(body: Node3D) -> void:
 			get_tree().change_scene_to_file("res://level2.tscn")
 		elif level.name == "level2":
 			get_tree().change_scene_to_file("res://level3.tscn")
+		elif level.name == "level3":
+			get_tree().change_scene_to_file("res://level4.tscn")
