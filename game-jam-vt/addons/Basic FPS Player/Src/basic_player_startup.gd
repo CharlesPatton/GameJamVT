@@ -198,9 +198,9 @@ func move_player(delta):
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
 	if isDashing == true: # If dash without direction
-		direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
-		velocity.x = direction.x * speed
-		velocity.z = direction.z * speed
+		var horizontal_direction = (transform.basis * Vector3(0, 0, -1.0)).normalized()
+		velocity.x = (horizontal_direction.x * speed) + ((speed / 2) * direction.x)
+		velocity.z = (horizontal_direction.z * speed) + ((speed / 2) * direction.z)
 	if isJumping == true: # If jump without direction
 		if isSliding:
 			speed = SPEED + 20
