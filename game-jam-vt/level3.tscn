@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_rqrji"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8x87a"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_ci4mn"]
-[ext_resource type="Shader" path="res://Death.gdshader" id="5_sotx7"]
+[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_sotx7"]
 [ext_resource type="PackedScene" uid="uid://ykfsrhmy7yby" path="res://models/school.blend" id="6_mu84n"]
 [ext_resource type="PackedScene" uid="uid://codafhq4kykw6" path="res://models/cloud1.blend" id="7_7oc4e"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="7_rqrji"]
@@ -23,7 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://dyh45tky7gf0i" path="res://models/lvl3holedterrain.blend" id="19_2272n"]
 [ext_resource type="PackedScene" uid="uid://c1vu3jweqaldk" path="res://models/lvl3flatterrain.blend" id="20_bs5pn"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="21_gaofk"]
-[ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="22_itrrf"]
+[ext_resource type="Script" path="res://models/hurricane.gd" id="22_itrrf"]
 [ext_resource type="PackedScene" uid="uid://cfm73wgc8xdf7" path="res://models/teacher'sdesk.blend" id="24_mr4ff"]
 [ext_resource type="PackedScene" uid="uid://ow1wp00mgaa3" path="res://models/tree3.blend" id="26_7s766"]
 [ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="27_dev55"]
@@ -130,7 +130,7 @@ size = Vector3(11.35325, 1.4672852, 3.7576904)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gaofk"]
 albedo_color = Color(0, 0, 0, 1)
 
-[node name="Node3D" type="Node3D" unique_id=896552784]
+[node name="Node3D2" type="Node3D" unique_id=896552784]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1672809803]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35007858, -0.36441898, 0.1967454)
@@ -7414,11 +7414,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49431, -11.535369, -106.19
 [connection signal="body_entered" from="KILLLBOX2/CardPickup21" to="KILLLBOX2/CardPickup21" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup22" to="KILLLBOX2/CardPickup22" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup23" to="KILLLBOX2/CardPickup23" method="_on_body_entered"]
-[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
 [connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]

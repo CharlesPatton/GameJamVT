@@ -7,7 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="3_qnenh"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_8guo4"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_0fv44"]
+[ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="6_k2rm6"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="6_tgct4"]
+[ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="7_k2rm6"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="7_tgct4"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="8_o1wlx"]
 
@@ -166,7 +168,13 @@ offset_right = 1064.8
 offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
 
-[node name="@Node3D@379906" type="Node3D" parent="Basic FPS Player" unique_id=2053341446 instance=ExtResource("2_qnenh")]
+[node name="@Node3D@379906" parent="Basic FPS Player" unique_id=2053341446 instance=ExtResource("2_qnenh")]
+
+[node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=413636830]
+stream = ExtResource("6_k2rm6")
+
+[node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=1594686085]
+stream = ExtResource("7_k2rm6")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1911522718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2813568, -1.8223894, 0.7925415)

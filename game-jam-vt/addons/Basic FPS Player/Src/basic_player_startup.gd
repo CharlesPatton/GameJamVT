@@ -171,6 +171,7 @@ func move_player(delta):
 	# Handle Jump.
 	if Input.is_action_just_pressed(KEY_BIND_JUMP):
 		if jumpCards > 0:
+			$jump_sound_effect.play(0) #DELETE/COMMENT OUT FOR SOUND
 			jumpCards -= 1
 			emit_signal("KillCard", 1)
 			isJumping = true
@@ -179,15 +180,17 @@ func move_player(delta):
 	
 	# Dash input and start DashEndTimer
 	if Input.is_action_just_pressed("dash"):
-		emit_signal("KillCard", 0)
 		if dashCards > 0 and isDashing == false:
+			$dash_sound_effect.play(0) #DELETE/COMMENT OUT FOR SOUND
+			dashCards -= 1
+			emit_signal("KillCard", 0)
 			$SpeedLines.visible = true
 			change_camera_fov_on_dash()
 			isDashing = true
 			$DashEndTimer.wait_time = 0.5
 			$DashEndTimer.start()
 			position.y += 0.0001
-			dashCards -= 1
+			
 
 	
 	# Get the input direction and handle the movement/deceleration.
