@@ -10,5 +10,5 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	self.global_position = get_tree().current_scene.get_node("Basic FPS Player").global_position
 	global_position.x -= 100
-	global_position.y += 0
+	global_position.y -= 70
 	global_position.z -= 100
