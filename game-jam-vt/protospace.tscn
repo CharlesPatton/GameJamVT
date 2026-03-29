@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="7_k2rm6"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="7_tgct4"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="8_o1wlx"]
+[ext_resource type="AudioStream" uid="uid://dr4qkijpfdn6" path="res://dragon-studio-thud-sound-effect-405470.mp3" id="11_fk0vh"]
 [ext_resource type="AudioStream" uid="uid://ch4c1ckl46l8l" path="res://linhmitto-bubblepop-254773.mp3" id="12_bjmnb"]
 [ext_resource type="AudioStream" uid="uid://dts8qrmoyckau" path="res://stu9-shrt-bass-357133.mp3" id="13_uawf2"]
 
@@ -95,7 +96,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == \"Basic FPS Player\":
 		body.velocity.y = UPSPEED
-		#$bounce_sound_effect.play() #DELETE/COMMENT OUT FOR SOUND
+		$bounce_sound_effect.play() #DELETE/COMMENT OUT FOR SOUND
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j5ndx"]
@@ -231,6 +232,9 @@ offset_bottom = 40.0
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX" unique_id=348721367]
 transform = Transform3D(-1, 8.742278e-08, 0, -8.742278e-08, -1, 0, 0, 0, 1, -0.2797389, 12.311045, -4.401392)
 mesh = SubResource("BoxMesh_k2rm6")
+
+[node name="death_sound_effect" type="AudioStreamPlayer" parent="KILLBOX" unique_id=1066363575]
+stream = ExtResource("11_fk0vh")
 
 [node name="CardPickup" type="Area3D" parent="KILLBOX" unique_id=795993109]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5340364, 12.164168, 4.821869)

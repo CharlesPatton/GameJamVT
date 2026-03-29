@@ -10,6 +10,7 @@
 [ext_resource type="Shader" path="res://spacesky.gdshader" id="5_p2trt"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="6_b4lsh"]
 [ext_resource type="PackedScene" uid="uid://cp5owiiu7uewa" path="res://models/asteroid_decoration.blend" id="6_d0b6t"]
+[ext_resource type="AudioStream" uid="uid://dts8qrmoyckau" path="res://stu9-shrt-bass-357133.mp3" id="6_vc8vp"]
 [ext_resource type="PackedScene" uid="uid://d4cp1dhoojhqv" path="res://models/asteroid_platform.blend" id="7_0bk12"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="7_yxclo"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="8_b4lsh"]
@@ -18,12 +19,15 @@
 [ext_resource type="PackedScene" uid="uid://cewe2fsefhdk0" path="res://models/planet.blend" id="12_7lf1v"]
 [ext_resource type="Script" uid="uid://bemo3ukr4pt40" path="res://models/planet.gd" id="13_dguho"]
 [ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="15_n01hv"]
+[ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="16_r0a5s"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="17_0buyf"]
+[ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="17_2byqe"]
 [ext_resource type="Script" path="res://models/hurricane.gd" id="18_d0b6t"]
 [ext_resource type="PackedScene" uid="uid://bwb2y2s4a36my" path="res://models/space_platform.blend" id="21_x8n7k"]
 [ext_resource type="AudioStream" uid="uid://7o6rvoqley0r" path="res://audio/level4BGM.ogg" id="22_pbbpa"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="23_vy5se"]
 [ext_resource type="PackedScene" uid="uid://dp01wiu4miseo" path="res://models/sparkthehedgehog.blend" id="24_r0a5s"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="28_vc8vp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fx4lf"]
 size = Vector3(676.67926, 0.001, 485.8316)
@@ -54,6 +58,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == \"Basic FPS Player\":
 		body.velocity.y = UPSPEED
+		$bounce_sound_effect.play()
 "
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxclo"]
@@ -117,6 +122,32 @@ shader_parameter/disable_pixel = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_uggel"]
 size = Vector3(28.295761, 0.83231676, 34.7658)
+
+[sub_resource type="GDScript" id="GDScript_0fpet"]
+script/source = "extends CanvasLayer
+
+@export var LEVEL_TEXT = \"\"
+var start_fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = LEVEL_TEXT
+	$Timer.start()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if start_fading:
+		$Label.modulate.a -= 0.005
+	
+
+
+func _on_timer_timeout():
+	start_fading = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_tbmqs"]
+font = ExtResource("28_vc8vp")
+font_size = 100
 
 [node name="level4" type="Node3D" unique_id=1073592421]
 
@@ -578,6 +609,9 @@ script = SubResource("GDScript_b4lsh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043273926, 0, 0.013122559)
 shape = SubResource("BoxShape3D_yxclo")
 
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="CSGBox3D3/bounce_pad" unique_id=1728532803]
+stream = ExtResource("6_vc8vp")
+
 [node name="specialbouncepad" parent="CSGBox3D3" unique_id=548778852 instance=ExtResource("5_7odde")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0.07745361, 0.79629374, -0.076943845)
 
@@ -598,6 +632,9 @@ script = SubResource("GDScript_b4lsh")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043273926, 0, 0.013122559)
 shape = SubResource("BoxShape3D_yxclo")
 
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="CSGBox3D7/bounce_pad" unique_id=1181492759]
+stream = ExtResource("6_vc8vp")
+
 [node name="specialbouncepad" parent="CSGBox3D7" unique_id=936543611 instance=ExtResource("5_7odde")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0.07745361, 0.79629374, -0.076943845)
 
@@ -617,6 +654,9 @@ script = SubResource("GDScript_b4lsh")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CSGBox3D9/bounce_pad" unique_id=814619293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043273926, 0, 0.013122559)
 shape = SubResource("BoxShape3D_yxclo")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="CSGBox3D9/bounce_pad" unique_id=378394976]
+stream = ExtResource("6_vc8vp")
 
 [node name="specialbouncepad" parent="CSGBox3D9" unique_id=1421818449 instance=ExtResource("5_7odde")]
 transform = Transform3D(0.06, 0, 0, 0, 0.06, 0, 0, 0, 0.06, 0.07745361, 0.79629374, -0.076943845)
@@ -742,6 +782,14 @@ pivot_offset = Vector2(586, 323)
 
 [node name="@Node3D@343556" parent="Basic FPS Player" unique_id=2123544831 instance=ExtResource("2_pklw6")]
 
+[node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=1105546250]
+stream = ExtResource("16_r0a5s")
+volume_db = -15.0
+
+[node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=1389186896]
+stream = ExtResource("17_2byqe")
+volume_db = -15.0
+
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=842774971]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.37292, 3.7612774, -60.81919)
 use_collision = true
@@ -790,6 +838,20 @@ billboard = 1
 text = "THIS IS MY PRACTICE TRACK FOR RUNNING, BUT I CAN LEND IT TO YOU! GOOD LUCK ON YOUR JOURNEY!"
 font_size = 60
 
+[node name="level_display" type="CanvasLayer" parent="." unique_id=1601222194]
+script = SubResource("GDScript_0fpet")
+LEVEL_TEXT = "Space"
+
+[node name="Timer" type="Timer" parent="level_display" unique_id=2095332670]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="level_display" unique_id=1802647252]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_tbmqs")
+horizontal_alignment = 1
+
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup8" to="KILLBOX2/CardPickup8" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup9" to="KILLBOX2/CardPickup9" method="_on_body_entered"]
@@ -834,3 +896,4 @@ font_size = 60
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
+[connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]

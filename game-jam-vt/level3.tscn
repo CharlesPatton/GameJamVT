@@ -6,13 +6,16 @@
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_ci4mn"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_sotx7"]
 [ext_resource type="PackedScene" uid="uid://ykfsrhmy7yby" path="res://models/school.blend" id="6_mu84n"]
+[ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="6_s3kti"]
 [ext_resource type="PackedScene" uid="uid://codafhq4kykw6" path="res://models/cloud1.blend" id="7_7oc4e"]
+[ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="7_gfiq0"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="7_rqrji"]
 [ext_resource type="PackedScene" uid="uid://dag5rhd6iqrha" path="res://models/lvl3cliff.blend" id="8_ci4mn"]
 [ext_resource type="PackedScene" uid="uid://de2r7i56rqb27" path="res://models/flower1.blend" id="9_8x87a"]
 [ext_resource type="PackedScene" uid="uid://carmqopf57y36" path="res://models/tree2.blend" id="9_sotx7"]
 [ext_resource type="PackedScene" uid="uid://cuj3mrt1kyvrh" path="res://models/tree1.blend" id="10_ymh28"]
 [ext_resource type="PackedScene" uid="uid://dwfrko1t4ih2o" path="res://models/lvl3slide.blend" id="13_7oc4e"]
+[ext_resource type="AudioStream" uid="uid://dts8qrmoyckau" path="res://stu9-shrt-bass-357133.mp3" id="14_qbfqj"]
 [ext_resource type="PackedScene" uid="uid://cv7nrgydqg4cm" path="res://models/arrow.blend" id="14_siwpi"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="15_i6w5t"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="16_l2pgs"]
@@ -116,6 +119,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == \"Basic FPS Player\":
 		body.velocity.y = UPSPEED
+		$bounce_sound_effect.play()
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_0m7xm"]
@@ -208,6 +212,14 @@ offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
 
 [node name="@Node3D@144066" parent="Basic FPS Player" unique_id=949329374 instance=ExtResource("2_rqrji")]
+
+[node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=777003262]
+stream = ExtResource("6_s3kti")
+volume_db = -15.0
+
+[node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=248242395]
+stream = ExtResource("7_gfiq0")
+volume_db = -15.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1498343065]
 environment = SubResource("Environment_bs5pn")
@@ -353,6 +365,9 @@ script = SubResource("GDScript_siwpi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower1/bounce_pad" unique_id=160465291]
 shape = SubResource("SphereShape3D_0m7xm")
 
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower1/bounce_pad" unique_id=623829455]
+stream = ExtResource("14_qbfqj")
+
 [node name="flower2" parent="." unique_id=1300266452 instance=ExtResource("9_8x87a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -13.393295, -94.68559)
 
@@ -362,6 +377,9 @@ script = SubResource("GDScript_siwpi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower2/bounce_pad" unique_id=326397150]
 shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower2/bounce_pad" unique_id=1975981694]
+stream = ExtResource("14_qbfqj")
 
 [node name="flower3" parent="." unique_id=995989564 instance=ExtResource("9_8x87a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -15.393295, -115.690025)
@@ -373,6 +391,9 @@ script = SubResource("GDScript_siwpi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower3/bounce_pad" unique_id=399676000]
 shape = SubResource("SphereShape3D_0m7xm")
 
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower3/bounce_pad" unique_id=347434764]
+stream = ExtResource("14_qbfqj")
+
 [node name="flower4" parent="." unique_id=1446736535 instance=ExtResource("9_8x87a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.880083, -11.3394985, -125.93361)
 
@@ -383,6 +404,9 @@ script = SubResource("GDScript_siwpi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower4/bounce_pad" unique_id=2104833181]
 shape = SubResource("SphereShape3D_0m7xm")
 
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower4/bounce_pad" unique_id=885940456]
+stream = ExtResource("14_qbfqj")
+
 [node name="flower5" parent="." unique_id=615568449 instance=ExtResource("9_8x87a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6738214, -6.3924465, -137.20073)
 
@@ -392,6 +416,9 @@ script = SubResource("GDScript_siwpi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower5/bounce_pad" unique_id=452946500]
 shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower5/bounce_pad" unique_id=412085974]
+stream = ExtResource("14_qbfqj")
 
 [node name="lvl3slide" parent="." unique_id=360477348 instance=ExtResource("13_7oc4e")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -7.9686985, -5.6908665, -44.712635)
