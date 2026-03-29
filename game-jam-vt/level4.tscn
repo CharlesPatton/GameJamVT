@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bl3iienggjmhq"]
+[gd_scene format=3 uid="uid://bqdetdtxxfatv"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_g1tnb"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_pklw6"]
@@ -17,7 +17,7 @@
 [ext_resource type="Script" uid="uid://b52fce0xxts1l" path="res://asertoid_2.gd" id="10_fx4lf"]
 [ext_resource type="Script" uid="uid://crxgwohh4x6tt" path="res://models/asteroid.gd" id="10_sx4db"]
 [ext_resource type="PackedScene" uid="uid://cewe2fsefhdk0" path="res://models/planet.blend" id="12_7lf1v"]
-[ext_resource type="Script" uid="uid://bemo3ukr4pt40" path="res://models/planet.gd" id="13_dguho"]
+[ext_resource type="Script" path="res://models/planet.gd" id="13_dguho"]
 [ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="15_n01hv"]
 [ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="16_r0a5s"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="17_0buyf"]
@@ -711,7 +711,7 @@ transform = Transform3D(0.11177032, 0, 3.4076638, 0, 2.38, 0, -3.017931, 0, 0.12
 shape = SubResource("CylinderShape3D_pbbpa")
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=570940739]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 55.348595, 0)
 floor_max_angle = 0.27401668
 script = ExtResource("1_g1tnb")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -795,13 +795,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -183.37292, 3.7612774, -60.81
 use_collision = true
 size = Vector3(31.10278, 1, 23.985199)
 
+[node name="hurricane" parent="." unique_id=598247397 instance=ExtResource("17_0buyf")]
+transform = Transform3D(-1.004461, -0.6153475, 0.22892338, 0.6396208, -1.0115528, 0.08744133, 0.14813441, 0.19521287, 1.1747116, 2.5196228, 60.40579, 1.5294952)
+script = ExtResource("18_d0b6t")
+
 [node name="planet" parent="." unique_id=1729836681 instance=ExtResource("12_7lf1v")]
 transform = Transform3D(38.152245, 12.0169115, 0, -11.95093, 37.942757, -4.185997, -1.2575687, 3.9926295, 39.780357, -70.03101, 0, -94.56091)
 script = ExtResource("13_dguho")
-
-[node name="hurricane" parent="planet" unique_id=598247397 instance=ExtResource("17_0buyf")]
-transform = Transform3D(-0.028845495, -0.007270867, 0.0038822845, 0.007993689, -0.028122665, 0.0067243166, 0.0020096186, 0.0074999994, 0.02897777, 4.0149894, 8.30359, 0.68458307)
-script = ExtResource("18_d0b6t")
 
 [node name="spaceship" parent="." unique_id=1501371199 instance=ExtResource("15_n01hv")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -182.80223, 14.602006, -61.051575)
