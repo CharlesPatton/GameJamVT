@@ -829,7 +829,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="sparkthehedgehog" parent="." unique_id=726614132 instance=ExtResource("24_r0a5s")]
+[node name="sparkthehedgehog" parent="." unique_id=2060792132 instance=ExtResource("24_r0a5s")]
 transform = Transform3D(-0.228937, 0, -0.44450855, 0, 0.5, 0, 0.44450855, 0, -0.228937, -7.79858, 1.5469172, -5.546676)
 
 [node name="Label3D" type="Label3D" parent="sparkthehedgehog" unique_id=1747673694]

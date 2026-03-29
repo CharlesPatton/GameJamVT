@@ -18,3 +18,8 @@ func _on_body_entered(body: Node3D) -> void:
 			get_tree().change_scene_to_file("res://level4.tscn")
 		elif level.name == "level4":
 			get_tree().change_scene_to_file("res://level5.tscn")
+		elif level.name == "level5":
+			get_tree().change_scene_to_file("res://thefinale.tscn")
+		elif level.name == "finale":
+			get_tree().change_scene_to_file("res://ending_screen.tscn")
+			

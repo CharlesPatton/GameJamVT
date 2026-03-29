@@ -5,7 +5,9 @@
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8at3q"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_87x5k"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_yfwe1"]
+[ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="6_hdi8k"]
 [ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="6_x2odi"]
+[ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="7_wy08v"]
 [ext_resource type="Script" path="res://lightEffect.gd" id="7_yfwe1"]
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="8_87x5k"]
 [ext_resource type="PackedScene" uid="uid://c0vtdw8xkrydi" path="res://models/grandpashouse.blend" id="9_p3j2p"]
@@ -16,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="14_hdi8k"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="15_wy08v"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="16_48tf0"]
+[ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="19_s65k4"]
 
 [sub_resource type="Environment" id="Environment_mpwkm"]
 background_mode = 1
@@ -336,7 +339,10 @@ func _on_timer_timeout():
 font = ExtResource("16_48tf0")
 font_size = 100
 
-[node name="Node3D2" type="Node3D" unique_id=2062716588]
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cgwd"]
+size = Vector3(28.295761, 0.83231676, 34.7658)
+
+[node name="level5" type="Node3D" unique_id=2062716588]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=176861643]
 environment = SubResource("Environment_mpwkm")
@@ -417,6 +423,14 @@ pivot_offset = Vector2(586, 323)
 [node name="_Node3D_144066" parent="Basic FPS Player" unique_id=613965501 instance=ExtResource("2_x2odi")]
 
 [node name="@Node3D@76810" parent="Basic FPS Player" unique_id=1378958260 instance=ExtResource("2_x2odi")]
+
+[node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=419849943]
+stream = ExtResource("6_hdi8k")
+volume_db = -15.0
+
+[node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=187575387]
+stream = ExtResource("7_wy08v")
+volume_db = -15.0
 
 [node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=719381126]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.471166, -19.537167)
@@ -2577,6 +2591,21 @@ offset_bottom = 346.0
 label_settings = SubResource("LabelSettings_wy08v")
 horizontal_alignment = 1
 
+[node name="SwitchScreens" type="Area3D" parent="." unique_id=968397578]
+transform = Transform3D(-4.3711367e-08, 0, 0.9999995, 0, 1, 0, -0.9999995, 0, -4.3711367e-08, 1.1298065, -17.43344, -239.4476)
+script = ExtResource("19_s65k4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=1919284145]
+transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -46.106834, 20.796846, -0.7098141)
+shape = SubResource("BoxShape3D_8cgwd")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="SwitchScreens" unique_id=1787559595]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
@@ -2618,5 +2647,6 @@ horizontal_alignment = 1
 [connection signal="body_entered" from="KILLBOX2/CardPickup29" to="KILLBOX2/CardPickup29" method="_on_body_entered"]
 [connection signal="body_entered" from="FinalCollision" to="floor" method="_on_area_3d_body_entered2"]
 [connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
+[connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
 
 [editable path="Basic FPS Player/Head"]

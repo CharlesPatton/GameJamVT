@@ -1,11 +1,11 @@
-[gd_scene format=3 uid="uid://co8ukc6mpu15h"]
+[gd_scene format=3 uid="uid://h2fst7f77g5a"]
 
 [ext_resource type="PackedScene" uid="uid://d4imlhnb00iuy" path="res://models/hospital.blend" id="1_gl0x1"]
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_udc8c"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_tx4la"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_nytxh"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="5_6u2jm"]
-[ext_resource type="Shader" path="res://Death.gdshader" id="6_qnegq"]
+[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="6_qnegq"]
 [ext_resource type="PackedScene" uid="uid://dmx4fjjwbput6" path="res://models/hospitalbed.blend" id="7_udc8c"]
 [ext_resource type="PackedScene" uid="uid://b4pxh2wf61410" path="res://models/ivdrip.blend" id="8_6u2jm"]
 [ext_resource type="PackedScene" uid="uid://dh40tptsbo0re" path="res://models/heartmonitor.blend" id="9_qnegq"]
@@ -18,7 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://b05wa6wvgwe41" path="res://models/teddybear.blend" id="16_m3i2x"]
 [ext_resource type="AudioStream" uid="uid://bok82u7k5jitk" path="res://audio/ThefinalMemory.ogg" id="17_cpcf4"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="18_q7k67"]
-[ext_resource type="Script" uid="uid://d4cr4vgbceu77" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
+[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
+[ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_uda47"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_foswp"]
 
@@ -77,7 +78,10 @@ height = 0.1
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m3i2x"]
 
-[node name="Node3D" type="Node3D" unique_id=1071818278]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ftohl"]
+size = Vector3(28.295761, 0.83231676, 34.7658)
+
+[node name="finale" type="Node3D" unique_id=1071818278]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1130804798]
 transform = Transform3D(1, 0, 0, 0, 0.91747713, 0.39778844, 0, -0.39778844, 0.91747713, 0, 2.490923, 1.2351453)
@@ -156,7 +160,7 @@ pivot_offset = Vector2(586, 323)
 
 [node name="_Node3D_76810" parent="Basic FPS Player" unique_id=1474561916 instance=ExtResource("3_tx4la")]
 
-[node name="@Node3D@27116" type="Node3D" parent="Basic FPS Player" unique_id=1864757664 instance=ExtResource("3_tx4la")]
+[node name="@Node3D@27116" parent="Basic FPS Player" unique_id=1864757664 instance=ExtResource("3_tx4la")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1227092206]
 environment = SubResource("Environment_m3i2x")
@@ -449,6 +453,22 @@ billboard = 1
 text = "It’s been a long time, grandson. Good luck on your journey!"
 font_size = 60
 
+[node name="SwitchScreens" type="Area3D" parent="." unique_id=1595652887]
+transform = Transform3D(-4.3711367e-08, 0, 0.9999995, 0, 1, 0, -0.9999995, 0, -4.3711367e-08, -9.00045, -17.43344, -57.618683)
+script = ExtResource("20_uda47")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=662006916]
+transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -46.106834, 20.796846, -0.7098141)
+shape = SubResource("BoxShape3D_ftohl")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="SwitchScreens" unique_id=533667602]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
+[connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
