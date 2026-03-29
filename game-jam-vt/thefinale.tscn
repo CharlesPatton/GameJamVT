@@ -1,0 +1,356 @@
+[gd_scene format=3 uid="uid://co8ukc6mpu15h"]
+
+[ext_resource type="PackedScene" uid="uid://d4imlhnb00iuy" path="res://models/hospital.blend" id="1_gl0x1"]
+[ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="2_udc8c"]
+[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="3_tx4la"]
+[ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="4_nytxh"]
+[ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="5_6u2jm"]
+[ext_resource type="Shader" path="res://Death.gdshader" id="6_qnegq"]
+[ext_resource type="PackedScene" uid="uid://dmx4fjjwbput6" path="res://models/hospitalbed.blend" id="7_udc8c"]
+[ext_resource type="PackedScene" uid="uid://b4pxh2wf61410" path="res://models/ivdrip.blend" id="8_6u2jm"]
+[ext_resource type="PackedScene" uid="uid://dh40tptsbo0re" path="res://models/heartmonitor.blend" id="9_qnegq"]
+[ext_resource type="PackedScene" uid="uid://m8nx4hk2jj15" path="res://models/curatins.blend" id="10_foswp"]
+[ext_resource type="PackedScene" uid="uid://dtp5cdf2418im" path="res://models/hospitalchair.blend" id="11_qnegq"]
+[ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="12_b6alr"]
+[ext_resource type="PackedScene" uid="uid://cc31wi6mf5u8q" path="res://models/bush1.blend" id="13_m3i2x"]
+[ext_resource type="PackedScene" uid="uid://b8cdavaj6wljp" path="res://models/flowerbed.blend" id="14_cpcf4"]
+[ext_resource type="PackedScene" uid="uid://d1y6aq2d2qm1y" path="res://models/rock2.blend" id="15_mg6dv"]
+[ext_resource type="PackedScene" uid="uid://b05wa6wvgwe41" path="res://models/teddybear.blend" id="16_m3i2x"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_foswp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_0s8kr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_362os"]
+shader = ExtResource("4_nytxh")
+shader_parameter/speedScale = 10.64
+shader_parameter/clipPosition = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b6alr"]
+shader = ExtResource("6_qnegq")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 7.33
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -1.0
+shader_parameter/disable_pixel = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cpcf4"]
+albedo_color = Color(1, 1, 0.5411765, 0)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mg6dv"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.33333334)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="Environment" id="Environment_m3i2x"]
+background_mode = 1
+background_color = Color(0.8560673, 0.8560673, 0.856067, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1226
+volumetric_fog_albedo = Color(0.73959696, 0.72412616, 0.7318136, 1)
+volumetric_fog_emission = Color(0.27022207, 0.27022186, 0.27022186, 1)
+volumetric_fog_emission_energy = 6.31
+volumetric_fog_ambient_inject = 0.55
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_q7k67"]
+emission_shape_scale = Vector3(50, 50, 50)
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 3, 0)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uda47"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.29803923)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ftohl"]
+material = SubResource("StandardMaterial3D_uda47")
+radius = 0.05
+height = 0.1
+
+[node name="Node3D" type="Node3D" unique_id=1071818278]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1130804798]
+transform = Transform3D(1, 0, 0, 0, 0.91747713, 0.39778844, 0, -0.39778844, 0.91747713, 0, 2.490923, 1.2351453)
+light_color = Color(0.21181759, 0.40507552, 0.5903785, 1)
+light_volumetric_fog_energy = 14.452
+
+[node name="hospital" parent="." unique_id=1160253489 instance=ExtResource("1_gl0x1")]
+transform = Transform3D(-6.556708e-08, 0, 1.5, 0, 1.5, 0, -1.5, 0, -6.556708e-08, 3.3908553, 0.012736797, 0.032428265)
+
+[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=2120920025]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.4581358, 1.4667907, 6.878256)
+floor_max_angle = 0.27401668
+script = ExtResource("2_udc8c")
+metadata/_custom_type_script = "uid://huc3y4vt8p0e"
+
+[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("3_tx4la")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=471559164]
+mesh = SubResource("CapsuleMesh_foswp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=38498575]
+shape = SubResource("CapsuleShape3D_0s8kr")
+
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1774674787]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=1662343760]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=1721396387]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=1140995967]
+modulate = Color(1, 1, 1, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_362os")
+offset_right = 1172.0
+offset_bottom = 646.0
+
+[node name="Control" type="Control" parent="Basic FPS Player" unique_id=701733070]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_vertical = 8
+script = ExtResource("5_6u2jm")
+
+[node name="CardContainer" type="HBoxContainer" parent="Basic FPS Player/Control" unique_id=1642070020]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 491.0
+offset_right = 1068.0
+offset_bottom = 624.0
+
+[node name="_Node3D_447656" parent="Basic FPS Player" unique_id=257812201 instance=ExtResource("3_tx4la")]
+
+[node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=90191588]
+scale = Vector2(1.25, 1.25)
+transform = Transform2D(1.25, 0, 0, 1.25, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/DeathTransition" unique_id=971870087]
+modulate = Color(0, 0, 0, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_b6alr")
+offset_left = -107.2
+offset_top = -62.399998
+offset_right = 1064.8
+offset_bottom = 583.6
+pivot_offset = Vector2(586, 323)
+
+[node name="_Node3D_144066" parent="Basic FPS Player" unique_id=2118040761 instance=ExtResource("3_tx4la")]
+
+[node name="_Node3D_76810" parent="Basic FPS Player" unique_id=1474561916 instance=ExtResource("3_tx4la")]
+
+[node name="@Node3D@27116" type="Node3D" parent="Basic FPS Player" unique_id=1864757664 instance=ExtResource("3_tx4la")]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1034511811]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.268771, 0, 3.3858082)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Node3D" unique_id=612017949]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.4543562, 2.8921819, -2.9418683)
+size = Vector3(0.2557373, 3.4534912, 3.2547607)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D10" type="CSGBox3D" parent="Node3D" unique_id=221006767]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 1.4245846, 1.5472695, -2.1937819)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D13" type="CSGBox3D" parent="Node3D" unique_id=859297609]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 4.7454386, 1.5472695, -2.193782)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D14" type="CSGBox3D" parent="Node3D" unique_id=255344485]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 8.030214, 1.5472695, -2.1937823)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D15" type="CSGBox3D" parent="Node3D" unique_id=1746594960]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 11.331098, 1.5472695, -2.1937826)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D16" type="CSGBox3D" parent="Node3D" unique_id=2021725105]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 14.627476, 1.5472695, -2.1937828)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D18" type="CSGBox3D" parent="Node3D" unique_id=2095338292]
+transform = Transform3D(2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, -0.5, 0, 0.5, 0.8660254, -3.9366146e-08, 13.847794, 1.5871917, 14.184914)
+size = Vector3(5.54253, 1.9469757, 9.087826)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D17" type="CSGBox3D" parent="Node3D" unique_id=2140351619]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, 17.925573, 1.5472695, -2.193783)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Node3D" unique_id=908052021]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.0079644, 2.8921819, -2.941868)
+size = Vector3(0.2557373, 3.4534912, 2.8666382)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Node3D" unique_id=1638410620]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5.2112803, 2.8921819, -2.9418678)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Node3D" unique_id=1747722467]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.7428827, 2.8921819, -2.9418683)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Node3D" unique_id=1115778315]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.010666, 2.8921819, -2.9418685)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Node3D" unique_id=2026103477]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.357677, 2.8921819, -2.9418688)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Node3D" unique_id=593128308]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.8496895, 2.8921819, 14.843221)
+size = Vector3(0.2557373, 3.4534912, 8.149765)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Node3D" unique_id=747520603]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 14.660861, 2.8921819, -2.941869)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Node3D" unique_id=889852297]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.920425, 2.8921819, -2.9418693)
+size = Vector3(0.2557373, 3.4534912, 3.165741)
+material = SubResource("StandardMaterial3D_cpcf4")
+
+[node name="CSGBox3D11" type="CSGBox3D" parent="Node3D" unique_id=1086207110]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, -1.8683252, 1.5472695, -2.1937816)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="CSGBox3D12" type="CSGBox3D" parent="Node3D" unique_id=699236213]
+transform = Transform3D(-2.1855694e-08, 3.7855173e-08, 0.90059245, 0.8660254, 0.5, 0, -0.5, 0.8660254, -3.9366146e-08, -5.168303, 1.5472695, -2.1937814)
+size = Vector3(5.54253, 1.9469757, 3.3060913)
+material = SubResource("StandardMaterial3D_mg6dv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1227092206]
+environment = SubResource("Environment_m3i2x")
+
+[node name="hospitalbed" parent="." unique_id=774072611 instance=ExtResource("7_udc8c")]
+transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, 12.905123, 1.1513915, -14.62401)
+
+[node name="ivdrip" parent="." unique_id=926691480 instance=ExtResource("8_6u2jm")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 14.36923, 2.3272035, -15.223989)
+
+[node name="heartmonitor" parent="." unique_id=1990551711 instance=ExtResource("9_qnegq")]
+transform = Transform3D(-1.13649605e-08, 0, -0.26, 0, 0.26, 0, 0.26, 0, -1.13649605e-08, 11.310886, 2.0197604, -16.334019)
+
+[node name="curatins" parent="." unique_id=219506635 instance=ExtResource("10_foswp")]
+transform = Transform3D(-1.7484556e-08, 0, -0.4, 0, 0.4, 0, 0.4, 0, -1.7484556e-08, 10.298302, 5.7131476, -13.580092)
+
+[node name="curatins2" parent="." unique_id=1195590350 instance=ExtResource("10_foswp")]
+transform = Transform3D(5.2154064e-08, 0, 0.4, 0, 0.4, 0, -0.4, 0, 5.2154064e-08, 10.298302, 5.7131476, -5.777013)
+
+[node name="hospitalchair" parent="." unique_id=234885171 instance=ExtResource("11_qnegq")]
+transform = Transform3D(-0.25980768, 0, -0.14999995, 0, 0.3, 0, 0.14999995, 0, -0.25980768, 16.848461, 1.1960685, -13.35941)
+
+[node name="hospitalchair2" parent="." unique_id=1512953712 instance=ExtResource("11_qnegq")]
+transform = Transform3D(-0.2598076, 0, 0.15000007, 0, 0.3, 0, -0.15000007, 0, -0.2598076, 16.849499, 1.1887903, -11.543444)
+
+[node name="grass1" parent="." unique_id=1471432962 instance=ExtResource("12_b6alr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.298249, 1.2132972, 6.409416)
+
+[node name="grass2" parent="." unique_id=1837664780 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 1.8180652, 1.3648514, 3.9069452)
+
+[node name="bush1" parent="." unique_id=1641772753 instance=ExtResource("13_m3i2x")]
+transform = Transform3D(0.49497473, 0, 0.49497473, 0, 0.7, 0, -0.49497473, 0, 0.49497473, 5.619517, 0.35708547, 0.3082838)
+
+[node name="Node3D2" type="Node3D" parent="." unique_id=1468394716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.29095268)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Node3D2" unique_id=626224139]
+transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, 13.0290785, 1.2258447, -14.731183)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_q7k67")
+draw_pass_1 = SubResource("SphereMesh_ftohl")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Node3D2" unique_id=1586380336]
+transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, 4.3247247, -0.38144636, -5.666305)
+amount = 75
+process_material = SubResource("ParticleProcessMaterial_q7k67")
+draw_pass_1 = SubResource("SphereMesh_ftohl")
+
+[node name="flowerbed" parent="Node3D2" unique_id=2096469779 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.28284273, 0, -0.28284273, 0, 0.4, 0, 0.28284273, 0, 0.28284273, 13.149149, 0.7070621, -13.118653)
+
+[node name="flowerbed2" parent="Node3D2" unique_id=585716419 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 14.068648, 0.72729623, -14.363243)
+
+[node name="flowerbed7" parent="Node3D2" unique_id=2072275069 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 13.943774, 0.72729623, -15.451444)
+
+[node name="flowerbed5" parent="Node3D2" unique_id=1904538644 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 11.863092, 0.727296, -13.307527)
+
+[node name="flowerbed3" parent="Node3D2" unique_id=799985471 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 11.624103, 0.727296, -14.467997)
+
+[node name="flowerbed6" parent="Node3D2" unique_id=1446449695 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 11.721501, 0.727296, -15.592816)
+
+[node name="flowerbed4" parent="Node3D2" unique_id=723116319 instance=ExtResource("14_cpcf4")]
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, 14.337171, 0.72729623, -13.184525)
+
+[node name="grass3" parent="." unique_id=463714482 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 12.243068, 0.7621678, -8.310212)
+
+[node name="grass9" parent="." unique_id=1929152619 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 14.791165, 0.7621678, -7.250938)
+
+[node name="grass4" parent="." unique_id=1055623822 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.163227, 0.7621678, -6.175993)
+
+[node name="grass5" parent="." unique_id=962411465 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.663227, 0.7621678, -5.175993)
+
+[node name="grass6" parent="." unique_id=1754309141 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.668684, 0.7621678, -5.8843374)
+
+[node name="grass7" parent="." unique_id=348696857 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 11.777766, 0.7621678, -11.786358)
+
+[node name="grass8" parent="." unique_id=1417342345 instance=ExtResource("12_b6alr")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.408129, 0.7621678, -13.338224)
+
+[node name="rock2" parent="." unique_id=278510838 instance=ExtResource("15_mg6dv")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 14.898739, 0.36395073, -5.0068064)
+
+[node name="rock3" parent="." unique_id=2053032834 instance=ExtResource("15_mg6dv")]
+transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 12.638718, 0.36395073, -9.577616)
+
+[node name="rock4" parent="." unique_id=873358021 instance=ExtResource("15_mg6dv")]
+transform = Transform3D(-0.7071067, 0, -0.7071068, 0, 1, 0, 0.7071068, 0, -0.7071067, 15.016477, 0.36395073, -11.950561)
+
+[node name="teddybear" parent="." unique_id=667673769 instance=ExtResource("16_m3i2x")]
+transform = Transform3D(-3.496911e-09, 0, -0.08, 0, 0.08, 0, 0.08, 0, -3.496911e-09, 12.928427, 1.6320802, -13.463897)
+
+[connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
+[connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
+[connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
