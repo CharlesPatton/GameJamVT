@@ -25,7 +25,9 @@
 [ext_resource type="AudioStream" uid="uid://biyy621plekyy" path="res://audio/tutorialBGM.ogg" id="18_g52lx"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_dudfa"]
 [ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="21_5gpbq"]
+[ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="23_nghrg"]
 [ext_resource type="PackedScene" uid="uid://qtq2l0lk77eb" path="res://models/log.blend" id="24_4ods2"]
+[ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="24_qs7l5"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hu44a"]
 albedo_color = Color(0.381866, 0.71612316, 0.1338822, 1)
@@ -3048,6 +3050,14 @@ offset_top = -62.399998
 offset_right = 1064.8
 offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
+
+[node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=1317154134]
+stream = ExtResource("23_nghrg")
+volume_db = -15.0
+
+[node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=877172960]
+stream = ExtResource("24_qs7l5")
+volume_db = -15.0
 
 [node name="intrsuctions1" type="Area3D" parent="." unique_id=1411281293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)

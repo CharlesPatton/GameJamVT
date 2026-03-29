@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cy8o6d53r7uut"]
+
+[ext_resource type="Script" uid="uid://dwnghwxukkmb5" path="res://ending_screen.gd" id="1_6ywx6"]
+[ext_resource type="Texture2D" uid="uid://fh3yptrcdu8n" path="res://imgs/gradient_end.png" id="1_ua8nl"]
+[ext_resource type="Texture2D" uid="uid://cuqkkg8hnyi2w" path="res://imgs/falsehope_logo_white.png" id="2_xdao8"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="3_vwu8u"]
+
+[node name="ending_screen" type="Node2D" unique_id=54886286]
+script = ExtResource("1_6ywx6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=794988460]
+
+[node name="gradient_background" type="Sprite2D" parent="CanvasLayer" unique_id=1265032410]
+position = Vector2(576, 324)
+texture = ExtResource("1_ua8nl")
+
+[node name="FalsehopeLogo" type="Sprite2D" parent="CanvasLayer" unique_id=678848014]
+position = Vector2(576, 290)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xdao8")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=512876704]
+offset_left = 453.5
+offset_top = 507.0
+offset_right = 702.5
+offset_bottom = 570.0
+theme_override_fonts/font = ExtResource("3_vwu8u")
+theme_override_font_sizes/font_size = 40
+text = "Back To Title"
+
+[node name="thanks" type="Label" parent="CanvasLayer" unique_id=1315717421]
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 1006.0
+offset_bottom = 159.0
+theme_override_fonts/font = ExtResource("3_vwu8u")
+theme_override_font_sizes/font_size = 80
+text = "Thank You For Playing"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

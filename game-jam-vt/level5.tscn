@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://6aimxgii5aw1"]
+[gd_scene format=4 uid="uid://cke5nffstt6ea"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_qmr0j"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_x2odi"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="13_48tf0"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="14_hdi8k"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="15_wy08v"]
+[ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="16_48tf0"]
 
 [sub_resource type="Environment" id="Environment_mpwkm"]
 background_mode = 1
@@ -308,6 +309,32 @@ tags = {
 "title": ""
 }
 loop = true
+
+[sub_resource type="GDScript" id="GDScript_hdi8k"]
+script/source = "extends CanvasLayer
+
+@export var LEVEL_TEXT = \"\"
+var start_fading = false
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Label.text = LEVEL_TEXT
+	$Timer.start()
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if start_fading:
+		$Label.modulate.a -= 0.005
+	
+
+
+func _on_timer_timeout():
+	start_fading = true
+"
+
+[sub_resource type="LabelSettings" id="LabelSettings_wy08v"]
+font = ExtResource("16_48tf0")
+font_size = 100
 
 [node name="Node3D2" type="Node3D" unique_id=2062716588]
 
@@ -2536,6 +2563,20 @@ volume_db = 0.575
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=120822839]
 stream = SubResource("AudioStreamOggVorbis_48tf0")
 
+[node name="level_display" type="CanvasLayer" parent="." unique_id=2029584673]
+script = SubResource("GDScript_hdi8k")
+LEVEL_TEXT = "???"
+
+[node name="Timer" type="Timer" parent="level_display" unique_id=1401183495]
+wait_time = 2.0
+
+[node name="Label" type="Label" parent="level_display" unique_id=1005185288]
+offset_top = 44.0
+offset_right = 1152.0
+offset_bottom = 346.0
+label_settings = SubResource("LabelSettings_wy08v")
+horizontal_alignment = 1
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
@@ -2576,5 +2617,6 @@ stream = SubResource("AudioStreamOggVorbis_48tf0")
 [connection signal="body_entered" from="KILLBOX2/CardPickup26" to="KILLBOX2/CardPickup26" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup29" to="KILLBOX2/CardPickup29" method="_on_body_entered"]
 [connection signal="body_entered" from="FinalCollision" to="floor" method="_on_area_3d_body_entered2"]
+[connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
 
 [editable path="Basic FPS Player/Head"]
