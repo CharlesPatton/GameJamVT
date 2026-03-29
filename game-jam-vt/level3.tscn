@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_rqrji"]
 [ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8x87a"]
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_ci4mn"]
-[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_sotx7"]
+[ext_resource type="Shader" path="res://Death.gdshader" id="5_sotx7"]
 [ext_resource type="PackedScene" uid="uid://ykfsrhmy7yby" path="res://models/school.blend" id="6_mu84n"]
 [ext_resource type="PackedScene" uid="uid://codafhq4kykw6" path="res://models/cloud1.blend" id="7_7oc4e"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="7_rqrji"]
@@ -24,15 +24,14 @@
 [ext_resource type="PackedScene" uid="uid://dyh45tky7gf0i" path="res://models/lvl3holedterrain.blend" id="19_2272n"]
 [ext_resource type="PackedScene" uid="uid://c1vu3jweqaldk" path="res://models/lvl3flatterrain.blend" id="20_bs5pn"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="21_gaofk"]
-[ext_resource type="Script" path="res://models/hurricane.gd" id="22_itrrf"]
+[ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="22_itrrf"]
 [ext_resource type="PackedScene" uid="uid://cfm73wgc8xdf7" path="res://models/teacher'sdesk.blend" id="24_mr4ff"]
 [ext_resource type="PackedScene" uid="uid://ow1wp00mgaa3" path="res://models/tree3.blend" id="26_7s766"]
 [ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="27_dev55"]
 [ext_resource type="PackedScene" uid="uid://d1y6aq2d2qm1y" path="res://models/rock2.blend" id="28_h74q7"]
 [ext_resource type="PackedScene" uid="uid://8x4q1aom7ep4" path="res://models/rock1.blend" id="29_tqa8r"]
 [ext_resource type="PackedScene" uid="uid://cc31wi6mf5u8q" path="res://models/bush1.blend" id="30_kgaxw"]
-[ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="31_kgaxw"]
-[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="32_o421a"]
+[ext_resource type="PackedScene" uid="uid://0srg7hrgpw7a" path="res://models/kidsstanding.blend" id="32_o421a"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="34_j2bfk"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_siwpi"]
@@ -7391,14 +7390,14 @@ transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25
 [node name="rock3" parent="." unique_id=1863670921 instance=ExtResource("28_h74q7")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.49431, -11.535369, -106.19902)
 
-[node name="grandpa_rocking_chair" parent="." unique_id=1272346678 instance=ExtResource("31_kgaxw")]
-transform = Transform3D(-0.15404043, 0, -0.36914977, 0, 0.39999998, 0, 0.36914977, 0, -0.15404043, -2.9338698, 0.9401977, -14.9435425)
-script = ExtResource("32_o421a")
+[node name="kidsstanding" parent="." unique_id=6677028 instance=ExtResource("32_o421a")]
+transform = Transform3D(-0.105166055, 0, -0.78296876, 0, 0.79, 0, 0.78296876, 0, -0.105166055, -3.4083633, 1.278949, -15.104881)
 
-[node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=1684726259]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
+[node name="Label3D" type="Label3D" parent="kidsstanding" unique_id=1684726259]
+transform = Transform3D(-0.43849397, 0, 0.2531646, 0, 0.50632906, 0, -0.2531646, 0, -0.43849397, 0.19340897, 0.28294873, -0.43080878)
 billboard = 1
-text = "I haven’t seen you at school in a while. Where have you been?"
+text = "Hey! Did you see that Sparky 06 is coming out soon?!
+I'm so excited!!!"
 font_size = 60
 
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1287336165]
@@ -7446,12 +7445,12 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLLBOX2/CardPickup21" to="KILLLBOX2/CardPickup21" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup22" to="KILLLBOX2/CardPickup22" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup23" to="KILLLBOX2/CardPickup23" method="_on_body_entered"]
-[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
 [connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
-[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
+[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
