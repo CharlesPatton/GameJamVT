@@ -1629,7 +1629,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.931001, 12.24607, -1.83047
 mesh = SubResource("BoxMesh_utqry")
 
 [node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=1114916778]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 9.446488, -25.437466)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 7.6137857, -25.437466)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
