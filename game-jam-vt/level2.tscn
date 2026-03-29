@@ -17,15 +17,15 @@
 [ext_resource type="PackedScene" uid="uid://sr7jh21wts80" path="res://models/lvl2platform.blend" id="16_lwvnx"]
 [ext_resource type="PackedScene" uid="uid://c4uy8wrt4ahor" path="res://models/lvl2geyser.blend" id="17_4ou0f"]
 [ext_resource type="AudioStream" uid="uid://bmsh0yhxvu0ca" path="res://audio/Level2BGM.ogg" id="18_4k5bj"]
-[ext_resource type="Script" path="res://models/lvl_2_geyser.gd" id="18_hp87d"]
-[ext_resource type="Shader" path="res://Death.gdshader" id="20_2x2vu"]
+[ext_resource type="Script" uid="uid://cwo6diiijj7t4" path="res://models/lvl_2_geyser.gd" id="18_hp87d"]
+[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="20_2x2vu"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="20_gxpff"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="22_3k4dh"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="22_7mylh"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="22_f8ci1"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="24_3k4dh"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="25_idpoe"]
-[ext_resource type="Script" uid="uid://d4cr4vgbceu77" path="res://models/grandpa_rocking_chair.gd" id="26_ggudo"]
+[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="26_ggudo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -1193,7 +1193,7 @@ texture = ExtResource("22_7mylh")
 [node name="CardPickup4" type="Area3D" parent="KILLLBOX2" unique_id=850961708]
 transform = Transform3D(0.9999998, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 0.9999998, 3.0113306, 2.9451256, 21.599464)
 script = ExtResource("11_3opl0")
-dash_cards = 1
+jump_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup4" unique_id=1980342160]
 shape = SubResource("BoxShape3D_3k4dh")
@@ -1201,12 +1201,12 @@ shape = SubResource("BoxShape3D_3k4dh")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup4" unique_id=1803245204]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("22_3k4dh")
+texture = ExtResource("22_7mylh")
 
 [node name="CardPickup5" type="Area3D" parent="KILLLBOX2" unique_id=847500145]
 transform = Transform3D(0.9999998, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 0.9999998, 4.012937, 2.9451256, 21.599464)
 script = ExtResource("11_3opl0")
-dash_cards = 1
+jump_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup5" unique_id=568938363]
 shape = SubResource("BoxShape3D_3k4dh")
@@ -1214,7 +1214,7 @@ shape = SubResource("BoxShape3D_3k4dh")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup5" unique_id=1290846016]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("22_3k4dh")
+texture = ExtResource("22_7mylh")
 
 [node name="log4" parent="KILLLBOX2" unique_id=850980501 instance=ExtResource("9_qulpo")]
 transform = Transform3D(-4.371128e-08, 0, 0.9999994, 0, 1, 0, -0.9999994, 0, -4.371128e-08, 1.439579, 1.4108448, 18.425377)
@@ -1385,9 +1385,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15930176, 0.65403366, -0.00
 shape = SubResource("BoxShape3D_idpoe")
 
 [node name="CardPickup6" type="Area3D" parent="KILLLBOX2" unique_id=479476460]
-transform = Transform3D(0.9999998, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 0.9999998, -3.8128765e-06, 2.9451256, 22.788551)
+transform = Transform3D(0.9999997, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.9999997, 1.1355449, 2.9451256, 22.788551)
 script = ExtResource("11_3opl0")
-jump_cards = 1
+dash_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup6" unique_id=2060606319]
 shape = SubResource("BoxShape3D_3k4dh")
@@ -1395,12 +1395,12 @@ shape = SubResource("BoxShape3D_3k4dh")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup6" unique_id=772843205]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("22_7mylh")
+texture = ExtResource("22_3k4dh")
 
 [node name="CardPickup7" type="Area3D" parent="KILLLBOX2" unique_id=1076502716]
-transform = Transform3D(0.99999976, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.99999976, 1.02882, 2.9451256, 22.788551)
+transform = Transform3D(0.99999964, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 0.99999964, 2.1643684, 2.9451256, 22.788551)
 script = ExtResource("11_3opl0")
-jump_cards = 1
+dash_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup7" unique_id=768641952]
 shape = SubResource("BoxShape3D_3k4dh")
@@ -1408,43 +1408,17 @@ shape = SubResource("BoxShape3D_3k4dh")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup7" unique_id=199247395]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("22_7mylh")
+texture = ExtResource("22_3k4dh")
 
 [node name="CardPickup8" type="Area3D" parent="KILLLBOX2" unique_id=1420955647]
-transform = Transform3D(0.99999976, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.99999976, 2.0151284, 2.9451256, 22.788551)
+transform = Transform3D(0.99999964, 0, -8.526513e-14, 0, 1, 0, 8.526513e-14, 0, 0.99999964, 3.1506767, 2.9451256, 22.788551)
 script = ExtResource("11_3opl0")
-jump_cards = 1
+dash_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup8" unique_id=1147441705]
 shape = SubResource("BoxShape3D_3k4dh")
 
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup8" unique_id=2113717842]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("22_7mylh")
-
-[node name="CardPickup9" type="Area3D" parent="KILLLBOX2" unique_id=689352129]
-transform = Transform3D(0.99999976, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.99999976, 3.0113301, 2.9451256, 22.788551)
-script = ExtResource("11_3opl0")
-dash_cards = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup9" unique_id=629570832]
-shape = SubResource("BoxShape3D_3k4dh")
-
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup9" unique_id=844771381]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("22_3k4dh")
-
-[node name="CardPickup10" type="Area3D" parent="KILLLBOX2" unique_id=710196235]
-transform = Transform3D(0.99999976, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.99999976, 4.0129366, 2.9451256, 22.788544)
-script = ExtResource("11_3opl0")
-dash_cards = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup10" unique_id=1984482951]
-shape = SubResource("BoxShape3D_3k4dh")
-
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup10" unique_id=278489764]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("22_3k4dh")
@@ -1727,8 +1701,6 @@ script = ExtResource("26_ggudo")
 [connection signal="body_entered" from="KILLLBOX2/CardPickup6" to="KILLLBOX2/CardPickup6" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup7" to="KILLLBOX2/CardPickup7" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup8" to="KILLLBOX2/CardPickup8" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLLBOX2/CardPickup9" to="KILLLBOX2/CardPickup9" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLLBOX2/CardPickup10" to="KILLLBOX2/CardPickup10" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX3" to="KILLLBOX3" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX3/CardPickup1" to="KILLLBOX3/CardPickup1" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX3/CardPickup2" to="KILLLBOX3/CardPickup2" method="_on_body_entered"]
