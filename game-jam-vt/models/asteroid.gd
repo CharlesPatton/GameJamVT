@@ -31,7 +31,6 @@ func _on_asteroid_area_body_entered(body):
 	if body.name == "Basic FPS Player":
 		player = body
 		ON_AS = true
-		
 
 
 func _on_asteroid_area_body_exited(body):

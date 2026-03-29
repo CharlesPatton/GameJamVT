@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d4cp1dhoojhqv" path="res://models/asteroid_platform.blend" id="7_0bk12"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="7_yxclo"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="8_b4lsh"]
-[ext_resource type="Script" path="res://asertoid_2.gd" id="10_fx4lf"]
+[ext_resource type="Script" uid="uid://b52fce0xxts1l" path="res://asertoid_2.gd" id="10_fx4lf"]
 [ext_resource type="Script" uid="uid://crxgwohh4x6tt" path="res://models/asteroid.gd" id="10_sx4db"]
 [ext_resource type="PackedScene" uid="uid://cewe2fsefhdk0" path="res://models/planet.blend" id="12_7lf1v"]
 [ext_resource type="Script" uid="uid://bemo3ukr4pt40" path="res://models/planet.gd" id="13_dguho"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bwb2y2s4a36my" path="res://models/space_platform.blend" id="21_x8n7k"]
 [ext_resource type="AudioStream" uid="uid://7o6rvoqley0r" path="res://audio/level4BGM.ogg" id="22_pbbpa"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="23_vy5se"]
+[ext_resource type="PackedScene" uid="uid://dp01wiu4miseo" path="res://models/sparkthehedgehog.blend" id="24_r0a5s"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fx4lf"]
 size = Vector3(676.67926, 0.001, 485.8316)
@@ -235,7 +236,7 @@ billboard = 1
 texture = ExtResource("4_sx4db")
 
 [node name="CardPickup15" type="Area3D" parent="KILLBOX2" unique_id=1921716025]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -60.589127, 17.582434, 21.010696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.419487, 16.598091, 21.010696)
 script = ExtResource("6_b4lsh")
 dash_cards = 1
 
@@ -249,12 +250,12 @@ billboard = 1
 texture = ExtResource("4_sx4db")
 
 [node name="CardPickup16" type="Area3D" parent="KILLBOX2" unique_id=2008531035]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -68.909615, 16.232065, 21.010696)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -67.3166, 15.387589, 21.010696)
 script = ExtResource("6_b4lsh")
 dash_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup16" unique_id=359258049]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 1.3170433, 0)
 shape = SubResource("BoxShape3D_7lf1v")
 
 [node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup16" unique_id=632917985]
@@ -263,7 +264,7 @@ billboard = 1
 texture = ExtResource("4_sx4db")
 
 [node name="CardPickup17" type="Area3D" parent="KILLBOX2" unique_id=1418455982]
-transform = Transform3D(0.0018325597, 0, -0.99999833, 0, 1, 0, 0.99999833, 0, 0.0018325597, -100.20952, 14.703541, 41.83189)
+transform = Transform3D(0.0018325597, 0, -0.99999833, 0, 1, 0, 0.99999833, 0, 0.0018325597, -102.44291, 14.372257, 34.245296)
 script = ExtResource("6_b4lsh")
 jump_cards = 1
 
@@ -287,20 +288,6 @@ shape = SubResource("BoxShape3D_7lf1v")
 
 [node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup19" unique_id=1280740881]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
-billboard = 1
-texture = ExtResource("7_yxclo")
-
-[node name="CardPickup20" type="Area3D" parent="KILLBOX2" unique_id=1343279498]
-transform = Transform3D(0.0018325597, 0, -0.99999833, 0, 1, 0, 0.99999833, 0, 0.0018325597, -102.03102, 14.787828, 41.721355)
-script = ExtResource("6_b4lsh")
-jump_cards = 1
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup20" unique_id=1998873654]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
-shape = SubResource("BoxShape3D_7lf1v")
-
-[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup20" unique_id=1529367154]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.11983919, 0)
 billboard = 1
 texture = ExtResource("7_yxclo")
 
@@ -541,7 +528,7 @@ billboard = 1
 texture = ExtResource("4_sx4db")
 
 [node name="CardPickup26" type="Area3D" parent="KILLBOX2" unique_id=1381765131]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.45756, 14.656969, 26.787306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -88.45756, 14.80822, 26.787306)
 script = ExtResource("6_b4lsh")
 dash_cards = 1
 
@@ -551,6 +538,19 @@ shape = SubResource("BoxShape3D_7lf1v")
 
 [node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup26" unique_id=1659747866]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("4_sx4db")
+
+[node name="CardPickup29" type="Area3D" parent="KILLBOX2" unique_id=1825829334]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.60396, 14.027426, 19.266058)
+script = ExtResource("6_b4lsh")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup29" unique_id=807907346]
+shape = SubResource("BoxShape3D_7lf1v")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup29" unique_id=1283338755]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("4_sx4db")
 
@@ -565,7 +565,7 @@ use_collision = true
 size = Vector3(41.591427, 1, 5.450592)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=38179510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72.11878, -3.988589, 2.0680404)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.44136, -3.988589, 2.0680404)
 use_collision = true
 size = Vector3(2.4882813, 1, 3.8284912)
 material = SubResource("StandardMaterial3D_x8n7k")
@@ -665,6 +665,11 @@ script = ExtResource("10_fx4lf")
 [node name="asteroid_platform" parent="asertoid2" unique_id=2036266495 instance=ExtResource("7_0bk12")]
 transform = Transform3D(0.11177032, 0, 3.4076638, 0, 2.38, 0, -3.017931, 0, 0.12620424, 0.03197825, -2.2322989, 0.2336731)
 
+[node name="asteroid_area" type="Area3D" parent="asertoid2" unique_id=806965273]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="asertoid2/asteroid_area" unique_id=1390086356]
+shape = SubResource("CylinderShape3D_pbbpa")
+
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=570940739]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
 floor_max_angle = 0.27401668
@@ -754,7 +759,7 @@ script = ExtResource("18_d0b6t")
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -182.80223, 14.602006, -61.051575)
 
 [node name="space_platform" parent="." unique_id=861163299 instance=ExtResource("21_x8n7k")]
-transform = Transform3D(0.67995167, 0, 0.008105815, 0, 0.68, 0, -0.008105815, 0, 0.67995167, -94.03278, -0.5428512, 2.0829782)
+transform = Transform3D(0.67995167, 0, 0.008105815, 0, 0.68, 0, -0.008105815, 0, 0.67995167, -89.32829, -0.8364847, 2.0829782)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2019740424]
 stream = ExtResource("22_pbbpa")
@@ -776,6 +781,15 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="sparkthehedgehog" parent="." unique_id=726614132 instance=ExtResource("24_r0a5s")]
+transform = Transform3D(-0.228937, 0, -0.44450855, 0, 0.5, 0, 0.44450855, 0, -0.228937, -7.79858, 1.5469172, -5.546676)
+
+[node name="Label3D" type="Label3D" parent="sparkthehedgehog" unique_id=1747673694]
+transform = Transform3D(-0.7996781, 0, 0.02270022, 0, 0.7999999, 0, -0.02270022, 0, -0.7996781, 0, 1.9368954, 0)
+billboard = 1
+text = "THIS IS MY PRACTICE TRACK FOR RUNNING, BUT I CAN LEND IT TO YOU! GOOD LUCK ON YOUR JOURNEY!"
+font_size = 60
+
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup8" to="KILLBOX2/CardPickup8" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup9" to="KILLBOX2/CardPickup9" method="_on_body_entered"]
@@ -788,7 +802,6 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLBOX2/CardPickup16" to="KILLBOX2/CardPickup16" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup17" to="KILLBOX2/CardPickup17" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup19" to="KILLBOX2/CardPickup19" method="_on_body_entered"]
-[connection signal="body_entered" from="KILLBOX2/CardPickup20" to="KILLBOX2/CardPickup20" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup21" to="KILLBOX2/CardPickup21" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup22" to="KILLBOX2/CardPickup22" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup23" to="KILLBOX2/CardPickup23" method="_on_body_entered"]
@@ -807,6 +820,7 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLBOX2/CardPickup37" to="KILLBOX2/CardPickup37" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup38" to="KILLBOX2/CardPickup38" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup26" to="KILLBOX2/CardPickup26" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup29" to="KILLBOX2/CardPickup29" method="_on_body_entered"]
 [connection signal="body_entered" from="CSGBox3D3/bounce_pad" to="CSGBox3D3/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="CSGBox3D7/bounce_pad" to="CSGBox3D7/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="CSGBox3D9/bounce_pad" to="CSGBox3D9/bounce_pad" method="_on_body_entered"]
@@ -814,6 +828,8 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="target/Area3D" to="asertoid2" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="asertoid/asteroid_area" to="asertoid" method="_on_asteroid_area_body_entered"]
 [connection signal="body_exited" from="asertoid/asteroid_area" to="asertoid" method="_on_asteroid_area_body_exited"]
+[connection signal="body_entered" from="asertoid2/asteroid_area" to="asertoid2" method="_on_asteroid_area_body_entered"]
+[connection signal="body_exited" from="asertoid2/asteroid_area" to="asertoid2" method="_on_asteroid_area_body_exited"]
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]

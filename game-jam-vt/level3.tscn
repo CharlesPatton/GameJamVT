@@ -7398,7 +7398,7 @@ script = ExtResource("32_o421a")
 [node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=1684726259]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
 billboard = 1
-text = "It’s been a long time, grandson. Good luck on your journey!"
+text = "I haven’t seen you at school in a while. Where have you been?"
 font_size = 60
 
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1287336165]
