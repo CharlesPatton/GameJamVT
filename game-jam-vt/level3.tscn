@@ -17,11 +17,14 @@
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="15_i6w5t"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="16_l2pgs"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="17_2272n"]
+[ext_resource type="PackedScene" uid="uid://foay84bmsljq" path="res://models/schooldesk.blend" id="18_itrrf"]
 [ext_resource type="AudioStream" uid="uid://dpmi1tbvmtdam" path="res://audio/Level3BGM.ogg" id="18_l2pgs"]
+[ext_resource type="PackedScene" uid="uid://d30i5chbvxwqd" path="res://models/raiinbow.blend" id="19_0bsag"]
 [ext_resource type="PackedScene" uid="uid://dyh45tky7gf0i" path="res://models/lvl3holedterrain.blend" id="19_2272n"]
 [ext_resource type="PackedScene" uid="uid://c1vu3jweqaldk" path="res://models/lvl3flatterrain.blend" id="20_bs5pn"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="21_gaofk"]
 [ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="22_itrrf"]
+[ext_resource type="PackedScene" uid="uid://cfm73wgc8xdf7" path="res://models/teacher'sdesk.blend" id="24_mr4ff"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_siwpi"]
 
@@ -125,7 +128,7 @@ albedo_color = Color(0, 0, 0, 1)
 [node name="Node3D" type="Node3D" unique_id=896552784]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1672809803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1208849, 0.616025, 0.429924)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35007858, -0.36441898, 0.1967454)
 floor_max_angle = 0.27401668
 script = ExtResource("1_bmsap")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -1680,6 +1683,42 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
+[node name="schooldesk" parent="KILLLBOX1" unique_id=1403603034 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -6.4156446, 11.947996, 33.449165)
+
+[node name="schooldesk2" parent="KILLLBOX1" unique_id=292785015 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -10.015645, 11.947996, 33.449165)
+
+[node name="schooldesk3" parent="KILLLBOX1" unique_id=1863025415 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -13.615645, 11.947996, 33.449165)
+
+[node name="schooldesk4" parent="KILLLBOX1" unique_id=1399490958 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -6.4156446, 11.947996, 29.399166)
+
+[node name="schooldesk5" parent="KILLLBOX1" unique_id=599836718 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -10.015645, 11.947996, 29.399166)
+
+[node name="schooldesk6" parent="KILLLBOX1" unique_id=886853327 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -13.615645, 11.947996, 29.399166)
+
+[node name="schooldesk7" parent="KILLLBOX1" unique_id=633645194 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -6.4156446, 11.947996, 24.449165)
+
+[node name="schooldesk8" parent="KILLLBOX1" unique_id=1696067533 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -10.015645, 11.947996, 24.449165)
+
+[node name="schooldesk9" parent="KILLLBOX1" unique_id=18968327 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -13.615645, 11.947996, 24.449165)
+
+[node name="schooldesk10" parent="KILLLBOX1" unique_id=1808715520 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -6.4156446, 11.947996, 19.949165)
+
+[node name="schooldesk11" parent="KILLLBOX1" unique_id=2115426160 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -10.015645, 11.947996, 19.949165)
+
+[node name="schooldesk12" parent="KILLLBOX1" unique_id=1744431360 instance=ExtResource("18_itrrf")]
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, -13.615645, 11.947996, 19.949165)
+
 [node name="KILLLBOX2" type="Area3D" parent="." unique_id=1397093833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -131.51044)
 script = ExtResource("15_i6w5t")
@@ -1740,7 +1779,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup12" type="Area3D" parent="KILLLBOX2" unique_id=355498058]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.379116, -15.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.471821, -15.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1753,7 +1792,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup13" type="Area3D" parent="KILLLBOX2" unique_id=1007861016]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.379116, -17.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.471821, -17.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1766,7 +1805,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup14" type="Area3D" parent="KILLLBOX2" unique_id=1305599439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.379116, -25.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 15.471821, -25.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1779,7 +1818,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup15" type="Area3D" parent="KILLLBOX2" unique_id=569407555]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.379116, -27.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 15.471821, -27.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1792,7 +1831,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup16" type="Area3D" parent="KILLLBOX2" unique_id=1050447550]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 18.379116, -35.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 17.47182, -35.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1805,7 +1844,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup17" type="Area3D" parent="KILLLBOX2" unique_id=630776706]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 18.379116, -37.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 17.47182, -37.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1818,7 +1857,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup18" type="Area3D" parent="KILLLBOX2" unique_id=1961248359]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 20.379116, -45.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.47182, -45.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1831,7 +1870,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup19" type="Area3D" parent="KILLLBOX2" unique_id=1353061435]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 20.379116, -47.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.47182, -47.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1844,7 +1883,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup20" type="Area3D" parent="KILLLBOX2" unique_id=300639217]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 22.379116, -55.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 21.47182, -55.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1857,7 +1896,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup21" type="Area3D" parent="KILLLBOX2" unique_id=1291507242]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 22.379116, -57.955658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 21.47182, -57.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1870,7 +1909,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup22" type="Area3D" parent="KILLLBOX2" unique_id=645208989]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 24.379116, -66.95566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 23.47182, -66.95566)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1883,7 +1922,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup23" type="Area3D" parent="KILLLBOX2" unique_id=1534234403]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 24.379116, -68.95566)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 23.47182, -68.95566)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
@@ -1899,6 +1938,9 @@ texture = ExtResource("17_2272n")
 stream = ExtResource("18_l2pgs")
 autoplay = true
 parameters/looping = true
+
+[node name="raiinbow" parent="." unique_id=192465906 instance=ExtResource("19_0bsag")]
+transform = Transform3D(3.4999995, 0, 6.0621777, 0, 7, 0, -6.0621777, 0, 3.4999995, -8.46641, -18.501083, -101.418045)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1364648930]
 transform = Transform3D(-0.0070347935, -0.041585818, 0.9991103, -0.5503576, 0.83435905, 0.030853296, -0.83489954, -0.5496509, -0.028756607, -7.6187468, -2.2395399, -43.66136)
@@ -1928,6 +1970,9 @@ script = ExtResource("22_itrrf")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4665527, -20.022709, -223.73721)
 size = Vector3(30.03955, 1, 36.60852)
 material = SubResource("StandardMaterial3D_gaofk")
+
+[node name="teacher\'sdesk" parent="." unique_id=2100360809 instance=ExtResource("24_mr4ff")]
+transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, -9.909824, -0.85495543, -20.15753)
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
