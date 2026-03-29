@@ -10,6 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="8_87x5k"]
 [ext_resource type="PackedScene" uid="uid://c0vtdw8xkrydi" path="res://models/grandpashouse.blend" id="9_p3j2p"]
 [ext_resource type="PackedScene" uid="uid://ykfsrhmy7yby" path="res://models/school.blend" id="10_mpwkm"]
+[ext_resource type="Script" uid="uid://csv4x3wl0i26k" path="res://floor.gd" id="11_mpwkm"]
+[ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="12_vueak"]
+[ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="13_48tf0"]
+[ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="14_hdi8k"]
+[ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="15_wy08v"]
 
 [sub_resource type="Environment" id="Environment_mpwkm"]
 background_mode = 1
@@ -247,6 +252,15 @@ emission_energy_multiplier = 34.3
 ao_enabled = true
 ao_light_affect = 1.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_s65k4"]
+size = Vector3(676.67926, 0.001, 485.8316)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8cgwd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xtdt0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xxye7"]
+
 [node name="Node3D" type="Node3D" unique_id=2062716588]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=176861643]
@@ -337,12 +351,14 @@ light_volumetric_fog_energy = 1.717
 script = ExtResource("7_yfwe1")
 
 [node name="Area3D" type="Area3D" parent="OmniLight3D" unique_id=1913751714]
+transform = Transform3D(8.963165, 0, 0, 0, 5.5351653, 0, 0, 0, 5.3232923, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="OmniLight3D/Area3D" unique_id=904326723]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18154907, -0.7583008, -0.04525757)
 shape = SubResource("BoxShape3D_x2odi")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="OmniLight3D/Area3D" unique_id=1754489505]
+transform = Transform3D(0.118341886, 0, 0, 0, 0.24412705, 0, 0, 0, 0.2647456, 0, 0, 0)
 transparency = 0.9
 cast_shadow = 0
 
@@ -355,10 +371,6 @@ light_specular = 0.0
 
 [node name="spaceship" parent="." unique_id=1501371199 instance=ExtResource("6_x2odi")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.17344141, 11.123454, 13.644275)
-
-[node name="Floor" type="CSGBox3D" parent="." unique_id=1545791739]
-transform = Transform3D(78.40155, 0, 0, 0, 1, 0, 0, 0, 1867.9094, 0.018107653, 0.031472683, 0.034884453)
-use_collision = true
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=1750457244]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.616802, -54.05444)
@@ -454,20 +466,2287 @@ mesh = SubResource("BoxMesh_mpwkm")
 material = SubResource("StandardMaterial3D_wy08v")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1645194920]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.3311043, 1.6720562, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.349052, 1.6720562, 0)
 freeze = true
 freeze_mode = 1
 
 [node name="CSGPolygon3D" type="CSGPolygon3D" parent="RigidBody3D" unique_id=777311124]
-transform = Transform3D(1, 0, 0, 0, -0.039922517, 0.9992028, 0, -0.9992028, -0.039922517, 0.94288635, 0.0810647, 1.8512776)
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487999, 0, 42.112144)
 use_collision = true
-polygon = PackedVector2Array(0, 0, -1.167408, 3.612733, 5.0239754, 4.6093655, 4.0190506, -0.106827736)
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="floor" type="Node3D" parent="." unique_id=177817192]
+transform = Transform3D(-0.041526932, 0, 0.9991374, 0, 1, 0, -0.9991374, 0, -0.041526932, 10.352692, -1.9428968, 144.52428)
+script = ExtResource("11_mpwkm")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="floor" unique_id=1233971001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.83292, 3.5186653, 20.388153)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D" unique_id=1094425983]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="floor" unique_id=270496437]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 106.40076, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D2" unique_id=389809977]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="floor" unique_id=678795281]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 104.73045, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D3" unique_id=1551656745]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="floor" unique_id=992982925]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 103.86687, 3.5186653, 14.383052)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D4" unique_id=306768011]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="floor" unique_id=1647795125]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.14711, 3.5186653, 20.388153)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D5" unique_id=1261273969]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D6" type="RigidBody3D" parent="floor" unique_id=189229426]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 130.71497, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D6" unique_id=747843004]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D7" type="RigidBody3D" parent="floor" unique_id=1769518084]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 129.04465, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D7" unique_id=1294637987]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D8" type="RigidBody3D" parent="floor" unique_id=1325444373]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 128.18106, 3.5186653, 14.383052)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D8" unique_id=134379088]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D9" type="RigidBody3D" parent="floor" unique_id=872574604]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.12861, 3.5186653, 20.388153)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D9" unique_id=1727092265]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D10" type="RigidBody3D" parent="floor" unique_id=1885514843]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 152.69644, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D10" unique_id=1076020645]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D11" type="RigidBody3D" parent="floor" unique_id=1627765431]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 151.02615, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D11" unique_id=1112322906]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D12" type="RigidBody3D" parent="floor" unique_id=586185486]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 150.16257, 3.5186653, 14.383052)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D12" unique_id=709684915]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D13" type="RigidBody3D" parent="floor" unique_id=1857249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.26105, 3.5186653, 20.388153)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D13" unique_id=1180506609]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D14" type="RigidBody3D" parent="floor" unique_id=55147514]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 175.82889, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D14" unique_id=223233307]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D15" type="RigidBody3D" parent="floor" unique_id=1357363755]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 174.1586, 3.5186653, 32.06125)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D15" unique_id=219609271]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D16" type="RigidBody3D" parent="floor" unique_id=1313367679]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 173.29501, 3.5186653, 14.383052)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D16" unique_id=48801581]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D17" type="RigidBody3D" parent="floor" unique_id=1399664630]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.83292, 3.5186653, 3.793375)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D17" unique_id=585899112]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D18" type="RigidBody3D" parent="floor" unique_id=1975078862]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 106.40076, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D18" unique_id=1997865545]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D19" type="RigidBody3D" parent="floor" unique_id=1324992018]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 104.73045, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D19" unique_id=1796199680]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D20" type="RigidBody3D" parent="floor" unique_id=363459941]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 103.86687, 3.5186653, -2.2117262)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D20" unique_id=1239765587]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D21" type="RigidBody3D" parent="floor" unique_id=1612862576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.14711, 3.5186653, 3.793375)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D21" unique_id=1843768041]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D22" type="RigidBody3D" parent="floor" unique_id=1062481758]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 130.71497, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D22" unique_id=1629142489]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D23" type="RigidBody3D" parent="floor" unique_id=1016935099]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 129.04465, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D23" unique_id=93388836]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D24" type="RigidBody3D" parent="floor" unique_id=169319498]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 128.18106, 3.5186653, -2.2117262)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D24" unique_id=1420164427]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D25" type="RigidBody3D" parent="floor" unique_id=1020270049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.12861, 3.5186653, 3.793375)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D25" unique_id=1242418319]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D26" type="RigidBody3D" parent="floor" unique_id=233165521]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 152.69644, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D26" unique_id=1771078041]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D27" type="RigidBody3D" parent="floor" unique_id=1205733767]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 151.02615, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D27" unique_id=1538468836]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D28" type="RigidBody3D" parent="floor" unique_id=1800727992]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 150.16257, 3.5186653, -2.2117262)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D28" unique_id=861001503]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D29" type="RigidBody3D" parent="floor" unique_id=1927108667]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.26105, 3.5186653, 3.793375)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D29" unique_id=849295676]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D30" type="RigidBody3D" parent="floor" unique_id=995946180]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 175.82889, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D30" unique_id=1988559645]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D31" type="RigidBody3D" parent="floor" unique_id=1928885152]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 174.1586, 3.5186653, 15.466471)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D31" unique_id=1171434378]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D32" type="RigidBody3D" parent="floor" unique_id=2092678956]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 173.29501, 3.5186653, -2.2117262)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D32" unique_id=1802910328]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D33" type="RigidBody3D" parent="floor" unique_id=1839354614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.83292, 3.5186653, -9.901604)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D33" unique_id=928866773]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D34" type="RigidBody3D" parent="floor" unique_id=118805556]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 106.40076, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D34" unique_id=782115142]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D35" type="RigidBody3D" parent="floor" unique_id=233663136]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 104.73045, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D35" unique_id=876136204]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D36" type="RigidBody3D" parent="floor" unique_id=215369312]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 103.86687, 3.5186653, -15.906705)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D36" unique_id=1001827046]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D37" type="RigidBody3D" parent="floor" unique_id=440615614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.14711, 3.5186653, -9.901604)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D37" unique_id=1177696047]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D38" type="RigidBody3D" parent="floor" unique_id=516559891]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 130.71497, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D38" unique_id=259971554]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D39" type="RigidBody3D" parent="floor" unique_id=2059510684]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 129.04465, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D39" unique_id=472387785]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D40" type="RigidBody3D" parent="floor" unique_id=1159447920]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 128.18106, 3.5186653, -15.906705)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D40" unique_id=807059674]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D41" type="RigidBody3D" parent="floor" unique_id=1523496710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.12861, 3.5186653, -9.901604)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D41" unique_id=1018138400]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D42" type="RigidBody3D" parent="floor" unique_id=165653028]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 152.69644, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D42" unique_id=212041002]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D43" type="RigidBody3D" parent="floor" unique_id=1045330511]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 151.02615, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D43" unique_id=595805016]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D44" type="RigidBody3D" parent="floor" unique_id=79366578]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 150.16257, 3.5186653, -15.906705)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D44" unique_id=1450399290]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D45" type="RigidBody3D" parent="floor" unique_id=2136891698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.26105, 3.5186653, -9.901604)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D45" unique_id=1747880917]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D46" type="RigidBody3D" parent="floor" unique_id=877530593]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 175.82889, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D46" unique_id=1519989168]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D47" type="RigidBody3D" parent="floor" unique_id=1083789587]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 174.1586, 3.5186653, 1.771492)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D47" unique_id=1732598570]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D48" type="RigidBody3D" parent="floor" unique_id=1906467986]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 173.29501, 3.5186653, -15.906705)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D48" unique_id=1368338033]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D49" type="RigidBody3D" parent="floor" unique_id=671703292]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 76.83292, 3.5186653, -26.496382)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D49" unique_id=685703325]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D50" type="RigidBody3D" parent="floor" unique_id=1981256775]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 106.40076, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D50" unique_id=662894532]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D51" type="RigidBody3D" parent="floor" unique_id=700951803]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 104.73045, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D51" unique_id=1279647734]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D52" type="RigidBody3D" parent="floor" unique_id=888868748]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 103.86687, 3.5186653, -32.501484)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D52" unique_id=1560841767]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D53" type="RigidBody3D" parent="floor" unique_id=1360822163]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 101.14711, 3.5186653, -26.496382)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D53" unique_id=1193821644]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D54" type="RigidBody3D" parent="floor" unique_id=952943458]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 130.71497, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D54" unique_id=1046280743]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D55" type="RigidBody3D" parent="floor" unique_id=1142578722]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 129.04465, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D55" unique_id=600883610]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D56" type="RigidBody3D" parent="floor" unique_id=1816556541]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 128.18106, 3.5186653, -32.501484)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D56" unique_id=387960612]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D57" type="RigidBody3D" parent="floor" unique_id=764157723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 123.12861, 3.5186653, -26.496382)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D57" unique_id=83563478]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D58" type="RigidBody3D" parent="floor" unique_id=1284114738]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 152.69644, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D58" unique_id=1684811427]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D59" type="RigidBody3D" parent="floor" unique_id=100495614]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 151.02615, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D59" unique_id=1007050231]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D60" type="RigidBody3D" parent="floor" unique_id=992470627]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 150.16257, 3.5186653, -32.501484)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D60" unique_id=515455502]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D61" type="RigidBody3D" parent="floor" unique_id=1814944981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 146.26105, 3.5186653, -26.496382)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D61" unique_id=801750086]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D62" type="RigidBody3D" parent="floor" unique_id=508099113]
+transform = Transform3D(0.47873783, 0, 0.87795794, 0, 1, 0, -0.87795794, 0, 0.47873783, 175.82889, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D62" unique_id=1201245861]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D63" type="RigidBody3D" parent="floor" unique_id=1704568099]
+transform = Transform3D(0.9971628, 0, -0.07527462, 0, 1, 0, 0.07527462, 0, 0.9971628, 174.1586, 3.5186653, -14.823286)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D63" unique_id=1817908120]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D64" type="RigidBody3D" parent="floor" unique_id=633037483]
+transform = Transform3D(0.5613181, 0, -0.8276003, 0, 1, 0, 0.8276003, 0, 0.5613181, 173.29501, 3.5186653, -32.501484)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D64" unique_id=614339047]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D65" type="RigidBody3D" parent="floor" unique_id=1372236046]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 162.24571, 3.5082116, 20.660267)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D65" unique_id=293779539]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D66" type="RigidBody3D" parent="floor" unique_id=713583820]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 191.7917, 3.5082116, 32.388565)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D66" unique_id=736680445]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D67" type="RigidBody3D" parent="floor" unique_id=1597922692]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 190.1214, 3.5082116, 32.385452)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D67" unique_id=1127587991]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D68" type="RigidBody3D" parent="floor" unique_id=1926268645]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 189.29083, 3.5082116, 14.705666)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D68" unique_id=56041672]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D69" type="RigidBody3D" parent="floor" unique_id=919098092]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 186.55988, 3.5082116, 20.705673)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D69" unique_id=920249910]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D70" type="RigidBody3D" parent="floor" unique_id=1797232254]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 216.10587, 3.5082116, 32.433968)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D70" unique_id=116086432]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D71" type="RigidBody3D" parent="floor" unique_id=69573057]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 214.43555, 3.5082116, 32.430862)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D71" unique_id=1195152692]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D72" type="RigidBody3D" parent="floor" unique_id=1531958057]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 213.605, 3.5082116, 14.751072)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D72" unique_id=1762681126]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D73" type="RigidBody3D" parent="floor" unique_id=1844340786]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 208.54132, 3.5082116, 20.746735)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D73" unique_id=1895984456]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D74" type="RigidBody3D" parent="floor" unique_id=1386405242]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 238.08731, 3.5082116, 32.475037)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D74" unique_id=1740866162]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D75" type="RigidBody3D" parent="floor" unique_id=765547281]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 236.41702, 3.5082116, 32.47191)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D76" type="RigidBody3D" parent="floor" unique_id=671990281]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 235.58646, 3.5082116, 14.792128)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D77" type="RigidBody3D" parent="floor" unique_id=1298622331]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 231.67374, 3.5082116, 20.789925)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D78" type="RigidBody3D" parent="floor" unique_id=1501930482]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 261.21973, 3.5082116, 32.51822)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D79" type="RigidBody3D" parent="floor" unique_id=1560749627]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 259.54944, 3.5082116, 32.5151)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D80" type="RigidBody3D" parent="floor" unique_id=1779392721]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 258.71887, 3.5082116, 14.835325)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D81" type="RigidBody3D" parent="floor" unique_id=993552178]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 162.2767, 3.5082116, 4.0655184)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D81" unique_id=1332273062]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D82" type="RigidBody3D" parent="floor" unique_id=1894127639]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 191.8227, 3.5082116, 15.793816)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D82" unique_id=382086270]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D83" type="RigidBody3D" parent="floor" unique_id=180161511]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 190.15239, 3.5082116, 15.790697)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D83" unique_id=356966450]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D84" type="RigidBody3D" parent="floor" unique_id=1809964384]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 189.32182, 3.5082116, -1.8890803)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D84" unique_id=1875795404]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D85" type="RigidBody3D" parent="floor" unique_id=1684363515]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 186.59085, 3.5082116, 4.1109324)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D85" unique_id=861450250]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D86" type="RigidBody3D" parent="floor" unique_id=1813814715]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 216.13687, 3.5082116, 15.839224)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D86" unique_id=1893942683]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D87" type="RigidBody3D" parent="floor" unique_id=1463656286]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 214.46655, 3.5082116, 15.836103)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D87" unique_id=1608858113]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D88" type="RigidBody3D" parent="floor" unique_id=2042344977]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 213.63599, 3.5082116, -1.843674)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D88" unique_id=445768697]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D89" type="RigidBody3D" parent="floor" unique_id=824920456]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 208.57233, 3.5082116, 4.1519794)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D89" unique_id=1692659636]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D90" type="RigidBody3D" parent="floor" unique_id=876966906]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 238.11832, 3.5082116, 15.880278)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D90" unique_id=1121796407]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D91" type="RigidBody3D" parent="floor" unique_id=958244521]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 236.44803, 3.5082116, 15.87715)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D92" type="RigidBody3D" parent="floor" unique_id=1446620496]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 235.61745, 3.5082116, -1.8026261)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D93" type="RigidBody3D" parent="floor" unique_id=1794269291]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 231.70473, 3.5082116, 4.1951847)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D94" type="RigidBody3D" parent="floor" unique_id=165734946]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 261.2507, 3.5082116, 15.923475)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D95" type="RigidBody3D" parent="floor" unique_id=929326524]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 259.58044, 3.5082116, 15.920357)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D96" type="RigidBody3D" parent="floor" unique_id=1251960717]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 258.74985, 3.5082116, -1.7594213)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D97" type="RigidBody3D" parent="floor" unique_id=841423492]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 162.30228, 3.5082116, -9.629429)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D97" unique_id=1350353392]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D98" type="RigidBody3D" parent="floor" unique_id=835702943]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 191.84827, 3.5082116, 2.0988603)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D98" unique_id=1905441502]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D99" type="RigidBody3D" parent="floor" unique_id=1279183144]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 190.17796, 3.5082116, 2.0957417)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D99" unique_id=663259160]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D100" type="RigidBody3D" parent="floor" unique_id=689564580]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 189.3474, 3.5082116, -15.584036)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D100" unique_id=17424144]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D101" type="RigidBody3D" parent="floor" unique_id=1092968677]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 186.61642, 3.5082116, -9.5840225)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D101" unique_id=551917506]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D102" type="RigidBody3D" parent="floor" unique_id=949604492]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 216.16245, 3.5082116, 2.144268)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D102" unique_id=1803816846]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D103" type="RigidBody3D" parent="floor" unique_id=2028974104]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 214.49213, 3.5082116, 2.141148)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D103" unique_id=1171079616]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D104" type="RigidBody3D" parent="floor" unique_id=1490404507]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 213.66156, 3.5082116, -15.53863)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D104" unique_id=1155159333]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D105" type="RigidBody3D" parent="floor" unique_id=1715458597]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 208.5979, 3.5082116, -9.542976)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D105" unique_id=1264144149]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D106" type="RigidBody3D" parent="floor" unique_id=1436024674]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 238.14388, 3.5082116, 2.1853213)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D106" unique_id=480605401]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D107" type="RigidBody3D" parent="floor" unique_id=1666066621]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 236.47359, 3.5082116, 2.1822023)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D108" type="RigidBody3D" parent="floor" unique_id=1083808466]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 235.64304, 3.5082116, -15.497582)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D109" type="RigidBody3D" parent="floor" unique_id=629639722]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 231.73029, 3.5082116, -9.499771)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D110" type="RigidBody3D" parent="floor" unique_id=2056531196]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 261.2763, 3.5082116, 2.2285194)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D111" type="RigidBody3D" parent="floor" unique_id=1748710392]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 259.60602, 3.5082116, 2.225401)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D112" type="RigidBody3D" parent="floor" unique_id=1418030285]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 258.77542, 3.5082116, -15.454377)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D113" type="RigidBody3D" parent="floor" unique_id=1313817947]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 162.33327, 3.5082116, -26.224176)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D113" unique_id=1031901607]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D114" type="RigidBody3D" parent="floor" unique_id=1340711589]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 191.87926, 3.5082116, -14.495887)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D114" unique_id=1778514642]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D115" type="RigidBody3D" parent="floor" unique_id=1676933162]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 190.20895, 3.5082116, -14.499013)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D115" unique_id=248599547]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D116" type="RigidBody3D" parent="floor" unique_id=2038382084]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 189.37839, 3.5082116, -32.178783)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D116" unique_id=1838494150]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D117" type="RigidBody3D" parent="floor" unique_id=1131205795]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 186.64742, 3.5082116, -26.17877)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D117" unique_id=4410856]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D118" type="RigidBody3D" parent="floor" unique_id=906327918]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 216.19342, 3.5082116, -14.450479)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D118" unique_id=646492858]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D119" type="RigidBody3D" parent="floor" unique_id=1212801728]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 214.52312, 3.5082116, -14.453599)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D119" unique_id=1172131098]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D120" type="RigidBody3D" parent="floor" unique_id=1467296591]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 213.69254, 3.5082116, -32.133377)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D120" unique_id=2013649138]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D121" type="RigidBody3D" parent="floor" unique_id=474386446]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 208.62888, 3.5082116, -26.137722)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D121" unique_id=1278160859]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D122" type="RigidBody3D" parent="floor" unique_id=913134730]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 238.17487, 3.5082116, -14.409433)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D122" unique_id=67511005]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D123" type="RigidBody3D" parent="floor" unique_id=1165512939]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 236.50458, 3.5082116, -14.412552)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D124" type="RigidBody3D" parent="floor" unique_id=1945537981]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 235.67401, 3.5082116, -32.09233)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D125" type="RigidBody3D" parent="floor" unique_id=2113597636]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 231.76129, 3.5082116, -26.094517)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D126" type="RigidBody3D" parent="floor" unique_id=1070194160]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 261.30728, 3.5082116, -14.366228)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D127" type="RigidBody3D" parent="floor" unique_id=86369608]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 259.637, 3.5082116, -14.369354)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D128" type="RigidBody3D" parent="floor" unique_id=720925804]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 258.80643, 3.5082116, -32.049126)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D129" type="RigidBody3D" parent="floor" unique_id=1281527643]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 217.1495, 3.3988724, 28.71874)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D129" unique_id=714096684]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D130" type="RigidBody3D" parent="floor" unique_id=665271460]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 246.6955, 3.3988724, 40.447037)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D130" unique_id=2080039991]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D131" type="RigidBody3D" parent="floor" unique_id=1528167120]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 245.0252, 3.3988724, 40.443924)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D131" unique_id=1684190386]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D132" type="RigidBody3D" parent="floor" unique_id=1597367448]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 244.19464, 3.3988724, 22.764143)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D132" unique_id=1204653116]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D133" type="RigidBody3D" parent="floor" unique_id=1995630847]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 241.46367, 3.3988724, 28.764147)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D133" unique_id=1670202554]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D134" type="RigidBody3D" parent="floor" unique_id=1892759741]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 271.00967, 3.3988724, 40.492447)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D134" unique_id=1174242254]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D135" type="RigidBody3D" parent="floor" unique_id=701439867]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 269.33936, 3.3988724, 40.489334)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D135" unique_id=1670686437]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D136" type="RigidBody3D" parent="floor" unique_id=1987773360]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 268.5088, 3.3988724, 22.80955)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D136" unique_id=489741106]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D137" type="RigidBody3D" parent="floor" unique_id=1653967648]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 263.44513, 3.3988724, 28.805212)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D137" unique_id=1743054679]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D138" type="RigidBody3D" parent="floor" unique_id=1707682004]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 292.99112, 3.3988724, 40.53351)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D138" unique_id=1321871809]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D139" type="RigidBody3D" parent="floor" unique_id=30862525]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 291.3208, 3.3988724, 40.53038)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D140" type="RigidBody3D" parent="floor" unique_id=582088581]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 290.49023, 3.3988724, 22.850603)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D141" type="RigidBody3D" parent="floor" unique_id=1613029524]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 286.5775, 3.3988724, 28.848398)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D142" type="RigidBody3D" parent="floor" unique_id=1683037711]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 316.12347, 3.3988724, 40.5767)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D143" type="RigidBody3D" parent="floor" unique_id=55230392]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 314.45322, 3.3988724, 40.57357)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D144" type="RigidBody3D" parent="floor" unique_id=1463300795]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 313.62265, 3.3988724, 22.8938)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D145" type="RigidBody3D" parent="floor" unique_id=2029074301]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 217.18051, 3.3988724, 12.123995)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D145" unique_id=1024032489]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D146" type="RigidBody3D" parent="floor" unique_id=2106100608]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 246.7265, 3.3988724, 23.852293)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D146" unique_id=1291474054]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D147" type="RigidBody3D" parent="floor" unique_id=1292929910]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 245.0562, 3.3988724, 23.849173)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D147" unique_id=1298871346]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D148" type="RigidBody3D" parent="floor" unique_id=1498455509]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 244.22562, 3.3988724, 6.1693954)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D148" unique_id=1131711627]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D149" type="RigidBody3D" parent="floor" unique_id=1549046824]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 241.49466, 3.3988724, 12.169409)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D149" unique_id=90878601]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D150" type="RigidBody3D" parent="floor" unique_id=1904281387]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 271.04065, 3.3988724, 23.8977)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D150" unique_id=258783970]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D151" type="RigidBody3D" parent="floor" unique_id=1202427197]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 269.37036, 3.3988724, 23.894579)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D151" unique_id=833266243]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D152" type="RigidBody3D" parent="floor" unique_id=385264088]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 268.5398, 3.3988724, 6.214802)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D152" unique_id=1316991420]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D153" type="RigidBody3D" parent="floor" unique_id=304740683]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 263.4761, 3.3988724, 12.210455)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D153" unique_id=1884720565]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D154" type="RigidBody3D" parent="floor" unique_id=807808901]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 293.0221, 3.3988724, 23.938753)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D154" unique_id=89349741]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D155" type="RigidBody3D" parent="floor" unique_id=1756816011]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 291.3518, 3.3988724, 23.935625)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D156" type="RigidBody3D" parent="floor" unique_id=1237057223]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 290.52124, 3.3988724, 6.25585)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D157" type="RigidBody3D" parent="floor" unique_id=1410026393]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 286.60852, 3.3988724, 12.25366)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D158" type="RigidBody3D" parent="floor" unique_id=1629559787]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 316.15454, 3.3988724, 23.98195)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D159" type="RigidBody3D" parent="floor" unique_id=915616478]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 314.48422, 3.3988724, 23.978832)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D160" type="RigidBody3D" parent="floor" unique_id=352988605]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 313.65363, 3.3988724, 6.299053)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D161" type="RigidBody3D" parent="floor" unique_id=927065528]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 217.20609, 3.3988724, -1.5709536)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D161" unique_id=1484657759]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D162" type="RigidBody3D" parent="floor" unique_id=1567500125]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 246.75208, 3.3988724, 10.157336)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D162" unique_id=147961628]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D163" type="RigidBody3D" parent="floor" unique_id=1048251307]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 245.08176, 3.3988724, 10.154217)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D163" unique_id=968342809]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D164" type="RigidBody3D" parent="floor" unique_id=1668053956]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 244.25119, 3.3988724, -7.5255604)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D164" unique_id=311404863]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D165" type="RigidBody3D" parent="floor" unique_id=1140500677]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 241.52023, 3.3988724, -1.5255475)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D165" unique_id=218187328]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D166" type="RigidBody3D" parent="floor" unique_id=1053677524]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 271.06622, 3.3988724, 10.202744)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D166" unique_id=2002807388]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D167" type="RigidBody3D" parent="floor" unique_id=575498547]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 269.39594, 3.3988724, 10.199623)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D167" unique_id=236862714]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D168" type="RigidBody3D" parent="floor" unique_id=414699037]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 268.56537, 3.3988724, -7.4801536)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D168" unique_id=901063626]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D169" type="RigidBody3D" parent="floor" unique_id=854932091]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 263.5017, 3.3988724, -1.4845004)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D169" unique_id=740524020]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D170" type="RigidBody3D" parent="floor" unique_id=1481309671]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 293.04767, 3.3988724, 10.243797)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D170" unique_id=1646847992]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D171" type="RigidBody3D" parent="floor" unique_id=2063002028]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 291.37738, 3.3988724, 10.240679)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D172" type="RigidBody3D" parent="floor" unique_id=1181327942]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 290.54684, 3.3988724, -7.439106)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D173" type="RigidBody3D" parent="floor" unique_id=1191374160]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 286.6341, 3.3988724, -1.4412954)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D174" type="RigidBody3D" parent="floor" unique_id=603597958]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 316.18008, 3.3988724, 10.286995)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D175" type="RigidBody3D" parent="floor" unique_id=1977962106]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 314.50983, 3.3988724, 10.283876)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D176" type="RigidBody3D" parent="floor" unique_id=820460772]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 313.6792, 3.3988724, -7.3959017)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D177" type="RigidBody3D" parent="floor" unique_id=661585936]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 217.23706, 3.3988724, -18.1657)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D177" unique_id=1758741462]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D178" type="RigidBody3D" parent="floor" unique_id=1440995440]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 246.78307, 3.3988724, -6.4374104)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D178" unique_id=1251040920]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D179" type="RigidBody3D" parent="floor" unique_id=1656121327]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 245.11276, 3.3988724, -6.4405375)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D179" unique_id=239419654]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D180" type="RigidBody3D" parent="floor" unique_id=1090370528]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 244.2822, 3.3988724, -24.120306)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D180" unique_id=696294712]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D181" type="RigidBody3D" parent="floor" unique_id=101793465]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 241.55121, 3.3988724, -18.120295)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D181" unique_id=460706863]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D182" type="RigidBody3D" parent="floor" unique_id=944287718]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 271.09723, 3.3988724, -6.3920035)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D182" unique_id=1979688371]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D183" type="RigidBody3D" parent="floor" unique_id=1941277722]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 269.4269, 3.3988724, -6.395123)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D183" unique_id=643167129]
+transform = Transform3D(2.7874765, 1.1090463, 4.8477947e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090463, -2.7874758, -1.2184444e-07, -4.629307, -1.1013005, -6.4436817)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D184" type="RigidBody3D" parent="floor" unique_id=1737347011]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 268.59634, 3.3988724, -24.0749)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D184" unique_id=967071022]
+transform = Transform3D(2.7874763, 1.1090462, 4.847795e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.109046, -2.7874758, -1.2184441e-07, -8.062408, -1.1013005, 1.482605)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D185" type="RigidBody3D" parent="floor" unique_id=1305805224]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 263.53268, 3.3988724, -18.079247)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D185" unique_id=794432372]
+transform = Transform3D(3, 0, 0, 0, -1.3113416e-07, 2.9999998, 0, -2.9999998, -1.3113416e-07, 10.487984, -1.1013005, 0)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D186" type="RigidBody3D" parent="floor" unique_id=1373970425]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 293.07867, 3.3988724, -6.3509574)
+freeze = true
+freeze_mode = 1
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="floor/RigidBody3D186" unique_id=1719134359]
+transform = Transform3D(2.7874763, 1.1090462, 4.8477943e-08, -1.0587904e-22, -1.3113413e-07, 2.9999995, 1.1090462, -2.7874756, -1.2184441e-07, -3.1413193, -1.1013005, -7.6247864)
+use_collision = true
+polygon = PackedVector2Array(0, 0, 0, 5, 7.248575, 3.0633893)
+smooth_faces = true
+
+[node name="RigidBody3D187" type="RigidBody3D" parent="floor" unique_id=1337879709]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 291.4084, 3.3988724, -6.354076)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D188" type="RigidBody3D" parent="floor" unique_id=986797038]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 290.57782, 3.3988724, -24.033854)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D189" type="RigidBody3D" parent="floor" unique_id=1234222621]
+transform = Transform3D(0.9999983, 0, -0.0018675327, 0, 1, 0, 0.0018675327, 0, 0.9999983, 286.6651, 3.3988724, -18.036043)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D190" type="RigidBody3D" parent="floor" unique_id=1204117435]
+transform = Transform3D(0.4803766, 0, 0.8770624, 0, 1, 0, -0.8770624, 0, 0.4803766, 316.2111, 3.3988724, -6.3077517)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D191" type="RigidBody3D" parent="floor" unique_id=935361619]
+transform = Transform3D(0.99702066, 0, -0.07713674, 0, 1, 0, 0.07713674, 0, 0.99702066, 314.54077, 3.3988724, -6.310878)
+freeze = true
+freeze_mode = 1
+
+[node name="RigidBody3D192" type="RigidBody3D" parent="floor" unique_id=458813629]
+transform = Transform3D(0.5597716, 0, -0.8286472, 0, 1, 0, 0.8286472, 0, 0.5597716, 313.7102, 3.3988724, -23.990648)
+freeze = true
+freeze_mode = 1
+
+[node name="KILLBOX2" type="Area3D" parent="." unique_id=1478000882]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -19.26075)
+script = ExtResource("12_vueak")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2" unique_id=264736584]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.96324, -37.653305, -5.1942368)
+shape = SubResource("BoxShape3D_s65k4")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLBOX2" unique_id=875208975]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=255439350]
+transform = Transform3D(1, 0, 0, 0, 1.569901, 0, 0, 0, 1, 0.124546885, 24.947327, 32.646614)
+visible = false
+mesh = SubResource("BoxMesh_8cgwd")
+
+[node name="CardPickup8" type="Area3D" parent="KILLBOX2" unique_id=1879198993]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.540659, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup8" unique_id=912719109]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup8" unique_id=787814963]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup9" type="Area3D" parent="KILLBOX2" unique_id=1253687468]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.648481, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup9" unique_id=1109266012]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup9" unique_id=290651999]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup10" type="Area3D" parent="KILLBOX2" unique_id=2133448147]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.257298, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup10" unique_id=1987306547]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup10" unique_id=1596219684]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup11" type="Area3D" parent="KILLBOX2" unique_id=254456509]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.10321, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup11" unique_id=1296447275]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup11" unique_id=497012121]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup12" type="Area3D" parent="KILLBOX2" unique_id=1661557255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.944557, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup12" unique_id=1777591101]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup12" unique_id=999471177]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup13" type="Area3D" parent="KILLBOX2" unique_id=505232650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -49.58837, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup13" unique_id=2047799708]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup13" unique_id=139694227]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup14" type="Area3D" parent="KILLBOX2" unique_id=681926985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.109282, 12.2917, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup14" unique_id=35622202]
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup14" unique_id=131397445]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup15" type="Area3D" parent="KILLBOX2" unique_id=762487909]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.654903, 17.514381, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup15" unique_id=1510707603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.007526, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup15" unique_id=1210336192]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.105907, 0, -0.012368679)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup16" type="Area3D" parent="KILLBOX2" unique_id=16024465]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.425346, 17.705639, 21.010696)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup16" unique_id=1379866593]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup16" unique_id=1133913364]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup17" type="Area3D" parent="KILLBOX2" unique_id=790769769]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.25735, 10.919286, 19.32706)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup17" unique_id=2056979276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup17" unique_id=238288871]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup19" type="Area3D" parent="KILLBOX2" unique_id=638076262]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.73556, 12.898745, 19.32706)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup19" unique_id=1202781661]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup19" unique_id=2018712697]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("15_wy08v")
+
+[node name="CardPickup20" type="Area3D" parent="KILLBOX2" unique_id=570421575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.565186, 12.210241, 19.32706)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup20" unique_id=663396007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup20" unique_id=2071383877]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.11983919, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup21" type="Area3D" parent="KILLBOX2" unique_id=1046594243]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -103.885925, 14.405283, 19.32706)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup21" unique_id=555854386]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup21" unique_id=649672072]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.031485796, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup22" type="Area3D" parent="KILLBOX2" unique_id=2036796231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -92.975876, 12.512484, 19.32706)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup22" unique_id=928886171]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup22" unique_id=1653570038]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup23" type="Area3D" parent="KILLBOX2" unique_id=227140666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -102.94211, 14.405283, 19.32706)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup23" unique_id=436991364]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup23" unique_id=2878585]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.031485796, 0)
+billboard = 1
+texture = ExtResource("15_wy08v")
+
+[node name="CardPickup24" type="Area3D" parent="KILLBOX2" unique_id=1677444083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.556564, 21.162365, 20.585463)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup24" unique_id=1494278354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup24" unique_id=1509377557]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.031485796, 0)
+billboard = 1
+texture = ExtResource("15_wy08v")
+
+[node name="CardPickup25" type="Area3D" parent="KILLBOX2" unique_id=1336704198]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114.768715, 20.4432, 20.414051)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup25" unique_id=593842652]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup25" unique_id=1487874427]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, -0.031485796, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup18" type="Area3D" parent="KILLBOX2" unique_id=881336506]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -149.45013, 19.381472, 21.99302)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup18" unique_id=569634672]
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup18" unique_id=43341447]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup28" type="Area3D" parent="KILLBOX2" unique_id=337088393]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -151.44958, 19.381472, 22.039818)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup28" unique_id=1750994972]
+transform = Transform3D(1, 0, -1.1175871e-08, 0, 1, 0, 1.1175871e-08, 0, 1, -0.059052944, -0.27515554, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup28" unique_id=398111401]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup27" type="Area3D" parent="KILLBOX2" unique_id=2045532747]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -159.22144, 21.481789, 21.99302)
+script = ExtResource("13_48tf0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup27" unique_id=991114123]
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup27" unique_id=1915799641]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup30" type="Area3D" parent="KILLBOX2" unique_id=211883192]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -161.22089, 21.481789, 22.039818)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup30" unique_id=2089184594]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup30" unique_id=420132063]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup32" type="Area3D" parent="KILLBOX2" unique_id=1183266169]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -168.14879, 21.481789, 22.039818)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup32" unique_id=1855537009]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup32" unique_id=275399449]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup33" type="Area3D" parent="KILLBOX2" unique_id=733452994]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.1918, 17.8749, 11.032847)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup33" unique_id=291858903]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup33" unique_id=601693622]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup34" type="Area3D" parent="KILLBOX2" unique_id=343165957]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.31877, 17.8749, 6.01451)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup34" unique_id=1365462922]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup34" unique_id=1676693884]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup35" type="Area3D" parent="KILLBOX2" unique_id=1185251705]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.31877, 17.8749, 0.17346954)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup35" unique_id=862379985]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup35" unique_id=95093968]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup36" type="Area3D" parent="KILLBOX2" unique_id=140696930]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.31877, 17.8749, -8.112499)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup36" unique_id=756080510]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup36" unique_id=1407302682]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup37" type="Area3D" parent="KILLBOX2" unique_id=621538799]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.31877, 17.8749, -18.187027)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup37" unique_id=1877182902]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup37" unique_id=1480586242]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CardPickup38" type="Area3D" parent="KILLBOX2" unique_id=1607751819]
+transform = Transform3D(-0.023402747, 0, 0.9997262, 0, 1, 0, -0.9997262, 0, -0.023402747, -169.31877, 17.8749, -25.828728)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup38" unique_id=1626653272]
+transform = Transform3D(1, 0, -1.3038516e-08, 0, 1, 0, 1.3038516e-08, 0, 1, -0.059053183, 0.0118460655, 1.0015869)
+shape = SubResource("BoxShape3D_xxye7")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup38" unique_id=1392853510]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 1.0307922)
+billboard = 1
+texture = ExtResource("14_hdi8k")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=396684934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.513176, -0.37329483, -239.15942)
+size = Vector3(68.39259, 1, 226.84229)
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="OmniLight3D/Area3D" to="OmniLight3D" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="OmniLight3D/Area3D" to="floor" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OmniLight3D3/Area3D" to="OmniLight3D3" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OmniLight3D4/Area3D" to="OmniLight3D4" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OmniLight3D5/Area3D" to="OmniLight3D5" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="OmniLight3D6/Area3D" to="OmniLight3D6" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="floor" method="_on_killbox_2_body_entered"]
+[connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup8" to="KILLBOX2/CardPickup8" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup9" to="KILLBOX2/CardPickup9" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup10" to="KILLBOX2/CardPickup10" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup11" to="KILLBOX2/CardPickup11" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup12" to="KILLBOX2/CardPickup12" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup13" to="KILLBOX2/CardPickup13" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup14" to="KILLBOX2/CardPickup14" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup15" to="KILLBOX2/CardPickup15" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup16" to="KILLBOX2/CardPickup16" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup17" to="KILLBOX2/CardPickup17" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup19" to="KILLBOX2/CardPickup19" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup20" to="KILLBOX2/CardPickup20" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup21" to="KILLBOX2/CardPickup21" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup22" to="KILLBOX2/CardPickup22" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup23" to="KILLBOX2/CardPickup23" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup24" to="KILLBOX2/CardPickup24" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup25" to="KILLBOX2/CardPickup25" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup18" to="KILLBOX2/CardPickup18" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup28" to="KILLBOX2/CardPickup28" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup27" to="KILLBOX2/CardPickup27" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup30" to="KILLBOX2/CardPickup30" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup32" to="KILLBOX2/CardPickup32" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup33" to="KILLBOX2/CardPickup33" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup34" to="KILLBOX2/CardPickup34" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup35" to="KILLBOX2/CardPickup35" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup36" to="KILLBOX2/CardPickup36" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup37" to="KILLBOX2/CardPickup37" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup38" to="KILLBOX2/CardPickup38" method="_on_body_entered"]
