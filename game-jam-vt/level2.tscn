@@ -1651,6 +1651,12 @@ horizontal_alignment = 1
 transform = Transform3D(0.3464102, 0, 0.19999994, 0, 0.4, 0, -0.19999994, 0, 0.3464102, 12.099155, -12.640529, 29.328594)
 script = ExtResource("26_ggudo")
 
+[node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=1116115046]
+transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
+billboard = 1
+text = "It’s been a long time, grandson. Good luck on your journey!"
+font_size = 60
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
