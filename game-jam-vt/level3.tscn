@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://cv7nrgydqg4cm" path="res://models/arrow.blend" id="14_siwpi"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="15_i6w5t"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="16_l2pgs"]
+[ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="16_o421a"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="17_2272n"]
 [ext_resource type="PackedScene" uid="uid://foay84bmsljq" path="res://models/schooldesk.blend" id="18_itrrf"]
 [ext_resource type="AudioStream" uid="uid://dpmi1tbvmtdam" path="res://audio/Level3BGM.ogg" id="18_l2pgs"]
@@ -428,7 +429,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup4" unique_id=1699898433]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup8" type="Area3D" parent="KILLLBOX1" unique_id=486925293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 6.0054016, -56.824123)
@@ -441,7 +442,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup8" unique_id=1349696894]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup6" type="Area3D" parent="KILLLBOX1" unique_id=659921701]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9384694, 7.216566, -14.331394)
@@ -536,7 +537,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup9" unique_id=1681143812]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup10" type="Area3D" parent="KILLLBOX2" unique_id=1586708231]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.752434, 5.5028954, 5.5488815)
@@ -549,7 +550,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup10" unique_id=104478886]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup11" type="Area3D" parent="KILLLBOX2" unique_id=1702311629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 9.449947, -5.955658)
@@ -562,7 +563,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup11" unique_id=1541341593]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup12" type="Area3D" parent="KILLLBOX2" unique_id=355498058]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.471821, -15.955658)
@@ -575,7 +576,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup12" unique_id=1507568489]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup13" type="Area3D" parent="KILLLBOX2" unique_id=1007861016]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.471821, -17.955658)
@@ -601,7 +602,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup14" unique_id=820478959]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup15" type="Area3D" parent="KILLLBOX2" unique_id=569407555]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 15.471821, -27.955658)
@@ -627,7 +628,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup16" unique_id=1097030263]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup17" type="Area3D" parent="KILLLBOX2" unique_id=630776706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 17.47182, -37.955658)
@@ -653,7 +654,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup18" unique_id=1244315001]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup19" type="Area3D" parent="KILLLBOX2" unique_id=1353061435]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.47182, -47.955658)
@@ -679,7 +680,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup20" unique_id=1293442298]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup21" type="Area3D" parent="KILLLBOX2" unique_id=1291507242]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 21.47182, -57.955658)
@@ -705,7 +706,7 @@ shape = SubResource("BoxShape3D_gaofk")
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup22" unique_id=1962463020]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
-texture = ExtResource("17_2272n")
+texture = ExtResource("16_o421a")
 
 [node name="CardPickup23" type="Area3D" parent="KILLLBOX2" unique_id=1534234403]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 23.47182, -68.95566)
