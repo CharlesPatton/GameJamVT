@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://c4vwu1jhwqdq6"]
+[gd_scene format=4 uid="uid://cke5nffstt6ea"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_qmr0j"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_x2odi"]
@@ -6,11 +6,11 @@
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_87x5k"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="5_yfwe1"]
 [ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="6_x2odi"]
-[ext_resource type="Script" uid="uid://bukwffxsdt8qc" path="res://lightEffect.gd" id="7_yfwe1"]
+[ext_resource type="Script" path="res://lightEffect.gd" id="7_yfwe1"]
 [ext_resource type="PackedScene" uid="uid://bjfbn3lvaftul" path="res://models/treehouse.blend" id="8_87x5k"]
 [ext_resource type="PackedScene" uid="uid://c0vtdw8xkrydi" path="res://models/grandpashouse.blend" id="9_p3j2p"]
 [ext_resource type="PackedScene" uid="uid://ykfsrhmy7yby" path="res://models/school.blend" id="10_mpwkm"]
-[ext_resource type="Script" uid="uid://csv4x3wl0i26k" path="res://floor.gd" id="11_mpwkm"]
+[ext_resource type="Script" path="res://floor.gd" id="11_mpwkm"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="12_vueak"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="13_48tf0"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="14_hdi8k"]
@@ -261,7 +261,7 @@ size = Vector3(676.67926, 0.001, 485.8316)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xxye7"]
 
-[node name="Node3D" type="Node3D" unique_id=2062716588]
+[node name="Node3D2" type="Node3D" unique_id=2062716588]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=176861643]
 environment = SubResource("Environment_mpwkm")

@@ -5,6 +5,7 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	
 	if body.name == "Basic FPS Player":	
+		#$death_sound_effect.play() #DELETE/COMMENT OUT FOR SOUND
 		$"../Basic FPS Player".dashCards = 0
 		$"../Basic FPS Player".jumpCards = 0
 		if ($"../Basic FPS Player/Control/CardContainer".get_child_count() != 0):

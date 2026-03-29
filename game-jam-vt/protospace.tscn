@@ -12,6 +12,8 @@
 [ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="7_k2rm6"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="7_tgct4"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="8_o1wlx"]
+[ext_resource type="AudioStream" uid="uid://ch4c1ckl46l8l" path="res://linhmitto-bubblepop-254773.mp3" id="12_bjmnb"]
+[ext_resource type="AudioStream" uid="uid://dts8qrmoyckau" path="res://stu9-shrt-bass-357133.mp3" id="13_uawf2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_o1wlx"]
 
@@ -93,6 +95,7 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == \"Basic FPS Player\":
 		body.velocity.y = UPSPEED
+		#$bounce_sound_effect.play() #DELETE/COMMENT OUT FOR SOUND
 "
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_j5ndx"]
@@ -172,9 +175,11 @@ pivot_offset = Vector2(586, 323)
 
 [node name="jump_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=413636830]
 stream = ExtResource("6_k2rm6")
+volume_db = -15.0
 
 [node name="dash_sound_effect" type="AudioStreamPlayer" parent="Basic FPS Player" unique_id=1594686085]
 stream = ExtResource("7_k2rm6")
+volume_db = -15.0
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1911522718]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2813568, -1.8223894, 0.7925415)
@@ -241,6 +246,9 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("6_tgct4")
 
+[node name="pickup_sound_effect" type="AudioStreamPlayer" parent="KILLBOX/CardPickup" unique_id=2012334458]
+stream = ExtResource("12_bjmnb")
+
 [node name="level_display" type="CanvasLayer" parent="." unique_id=955038945]
 script = SubResource("GDScript_j5ndx")
 LEVEL_TEXT = "Protospace"
@@ -261,6 +269,9 @@ script = SubResource("GDScript_0fv44")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="bounce_pad" unique_id=1499019851]
 shape = SubResource("SphereShape3D_j5ndx")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="bounce_pad" unique_id=673858472]
+stream = ExtResource("13_uawf2")
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]

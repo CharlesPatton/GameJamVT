@@ -7,6 +7,7 @@ extends Area3D
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.name == "Basic FPS Player":
+		#$pickup_sound_effect.play() #DELETE/COMMENT OUT FOR SOUND
 		self.get_child(0).set_deferred("disabled", true)
 		self.get_child(1).visible = false
 		body.jumpCards += jump_cards
