@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://bsxs7qd7df8yi"]
 
-[ext_resource type="Script" uid="uid://c8h3ioh6043pc" path="res://title_screen.gd" id="1_v6p8y"]
+[ext_resource type="Script" path="res://title_screen.gd" id="1_v6p8y"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="2_ak2if"]
 [ext_resource type="Texture2D" uid="uid://cdtelrp4tjh6h" path="res://imgs/gradient.png" id="2_ig5kc"]
 [ext_resource type="Texture2D" uid="uid://cuqkkg8hnyi2w" path="res://imgs/falsehope_logo_white.png" id="3_ig5kc"]
+[ext_resource type="AudioStream" uid="uid://cuckseeqskpfj" path="res://audio/titlescreen.ogg" id="5_hafda"]
 
 [node name="title_screen" type="Node2D" unique_id=707791826]
 script = ExtResource("1_v6p8y")
@@ -11,10 +12,12 @@ script = ExtResource("1_v6p8y")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=41307801]
 
 [node name="gradient_background" type="Sprite2D" parent="CanvasLayer" unique_id=345453676]
-position = Vector2(576, 324)
+position = Vector2(570.99994, 314.00003)
+scale = Vector2(1.146605, 1.1466049)
 texture = ExtResource("2_ig5kc")
 
 [node name="FalsehopeLogo" type="Sprite2D" parent="CanvasLayer" unique_id=655034805]
+modulate = Color(1, 1, 1, 0.7411765)
 position = Vector2(576, 224)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("3_ig5kc")
@@ -26,15 +29,23 @@ offset_right = 694.5
 offset_bottom = 487.0
 theme_override_fonts/font = ExtResource("2_ak2if")
 theme_override_font_sizes/font_size = 40
-text = "Start Game!"
+text = "- Play -"
+flat = true
 
 [node name="authors" type="Label" parent="CanvasLayer" unique_id=1293012994]
-offset_left = 185.5
-offset_top = 524.0
-offset_right = 966.5
-offset_bottom = 587.0
+modulate = Color(1, 1, 1, 0.73333335)
+offset_left = 189.0
+offset_top = 615.0
+offset_right = 970.0
+offset_bottom = 658.0
 theme_override_fonts/font = ExtResource("2_ak2if")
-theme_override_font_sizes/font_size = 40
+theme_override_font_sizes/font_size = 23
 text = "Made By: Logan, Charles, Thomas, and Will"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=702713111]
+stream = ExtResource("5_hafda")
+autoplay = true
+parameters/looping = true
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
