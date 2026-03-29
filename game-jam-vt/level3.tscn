@@ -14,6 +14,14 @@
 [ext_resource type="PackedScene" uid="uid://cuj3mrt1kyvrh" path="res://models/tree1.blend" id="10_ymh28"]
 [ext_resource type="PackedScene" uid="uid://dwfrko1t4ih2o" path="res://models/lvl3slide.blend" id="13_7oc4e"]
 [ext_resource type="PackedScene" uid="uid://cv7nrgydqg4cm" path="res://models/arrow.blend" id="14_siwpi"]
+[ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="15_i6w5t"]
+[ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="16_l2pgs"]
+[ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="17_2272n"]
+[ext_resource type="AudioStream" uid="uid://dpmi1tbvmtdam" path="res://audio/Level3BGM.ogg" id="18_l2pgs"]
+[ext_resource type="PackedScene" uid="uid://dyh45tky7gf0i" path="res://models/lvl3holedterrain.blend" id="19_2272n"]
+[ext_resource type="PackedScene" uid="uid://c1vu3jweqaldk" path="res://models/lvl3flatterrain.blend" id="20_bs5pn"]
+[ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="21_gaofk"]
+[ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="22_itrrf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_siwpi"]
 
@@ -101,13 +109,22 @@ func _on_body_entered(body):
 [sub_resource type="SphereShape3D" id="SphereShape3D_0m7xm"]
 radius = 2.8968813
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_bs5pn"]
+size = Vector3(89.55772, 1.0478723, 93.14119)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utqry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gaofk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l2pgs"]
+size = Vector3(11.35325, 1.4672852, 3.7576904)
+
 [node name="Node3D" type="Node3D" unique_id=896552784]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1672809803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6592252, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.120885, 0.075881004, -39.49945)
 floor_max_angle = 0.27401668
 script = ExtResource("1_bmsap")
-SPEED = 5.0
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
 
 [node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_rqrji")]
@@ -1134,7 +1151,7 @@ transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819
 transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
 
 [node name="flower1" parent="." unique_id=1646822433 instance=ExtResource("9_8x87a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -10.265927, -57.886345)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -10.265927, -63.667492)
 
 [node name="bounce_pad" type="Area3D" parent="flower1" unique_id=322546344]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
@@ -1143,24 +1160,318 @@ script = SubResource("GDScript_siwpi")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="flower1/bounce_pad" unique_id=160465291]
 shape = SubResource("SphereShape3D_0m7xm")
 
-[node name="flower2" parent="." unique_id=2050789196 instance=ExtResource("9_8x87a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -13.628726, -78.45732)
+[node name="flower2" parent="." unique_id=1300266452 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -13.393295, -94.68559)
 
-[node name="bounce_pad" type="Area3D" parent="flower2" unique_id=1303603420]
+[node name="bounce_pad" type="Area3D" parent="flower2" unique_id=523548598]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
 script = SubResource("GDScript_siwpi")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="flower2/bounce_pad" unique_id=2028921187]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower2/bounce_pad" unique_id=326397150]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="flower3" parent="." unique_id=995989564 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -15.393295, -120.85124)
+
+[node name="bounce_pad" type="Area3D" parent="flower3" unique_id=1530288649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower3/bounce_pad" unique_id=399676000]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="flower4" parent="." unique_id=1446736535 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.880083, -11.3394985, -134.11359)
+
+[node name="bounce_pad" type="Area3D" parent="flower4" unique_id=808527268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower4/bounce_pad" unique_id=2104833181]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="flower5" parent="." unique_id=615568449 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6738214, -6.3924465, -144.37569)
+
+[node name="bounce_pad" type="Area3D" parent="flower5" unique_id=2061530033]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower5/bounce_pad" unique_id=452946500]
 shape = SubResource("SphereShape3D_0m7xm")
 
 [node name="lvl3slide" parent="." unique_id=360477348 instance=ExtResource("13_7oc4e")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -7.9686985, -5.6908665, -44.712635)
 
 [node name="lvl3slide2" parent="." unique_id=928956847 instance=ExtResource("13_7oc4e")]
-transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.11881968, 0, -0.25, 0, -1.0927847e-08, -7.9687, -11.106224, -65.00762)
+transform = Transform3D(-1.08726255e-08, 0, 0.24873668, 0, 0.11821925, 0, -0.24873668, 0, -1.08726255e-08, -7.9726405, -9.245941, -74.11542)
 
 [node name="arrow" parent="." unique_id=523160543 instance=ExtResource("14_siwpi")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.003624, 3.123023, -47.16827)
+
+[node name="KILLLBOX1" type="Area3D" parent="." unique_id=181087261]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
+script = ExtResource("15_i6w5t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=532388847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -17.845226)
+shape = SubResource("BoxShape3D_bs5pn")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLLBOX1" unique_id=1717635274]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=1435458708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.931001, 12.24607, -1.830473)
+mesh = SubResource("BoxMesh_utqry")
+
+[node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=1114916778]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 9.446488, -25.437466)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup4" unique_id=320467445]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup4" unique_id=1699898433]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup8" type="Area3D" parent="KILLLBOX1" unique_id=486925293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 6.0054016, -56.824123)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup8" unique_id=997894398]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup8" unique_id=1349696894]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup6" type="Area3D" parent="KILLLBOX1" unique_id=659921701]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9384694, 7.216566, -14.331394)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup6" unique_id=126415702]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup6" unique_id=1396525074]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup7" type="Area3D" parent="KILLLBOX1" unique_id=1238516467]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9384694, 3.2461748, -46.13889)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup7" unique_id=1928225670]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup7" unique_id=859880272]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="KILLLBOX2" type="Area3D" parent="." unique_id=1397093833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -131.51044)
+script = ExtResource("15_i6w5t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2" unique_id=1953900069]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -17.845226)
+shape = SubResource("BoxShape3D_bs5pn")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLLBOX2" unique_id=681144039]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX2" unique_id=1476991200]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6767793, 1.9828391, 23.93384)
+mesh = SubResource("BoxMesh_utqry")
+
+[node name="CardPickup9" type="Area3D" parent="KILLLBOX2" unique_id=440665865]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 3.5028954, 10.698349)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup9" unique_id=879099995]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup9" unique_id=1681143812]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup10" type="Area3D" parent="KILLLBOX2" unique_id=1586708231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.752434, 5.5028954, -2.4219055)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup10" unique_id=1291063964]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup10" unique_id=104478886]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup11" type="Area3D" parent="KILLLBOX2" unique_id=1702311629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 9.449947, -12.684006)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup11" unique_id=1112739277]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup11" unique_id=1541341593]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup12" type="Area3D" parent="KILLLBOX2" unique_id=244665690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.036556, -3.0372543)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup12" unique_id=2082290047]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup12" unique_id=434275139]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup13" type="Area3D" parent="KILLLBOX2" unique_id=1781415023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.036556, -4.0372543)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup13" unique_id=212514556]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup13" unique_id=1757956274]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup14" type="Area3D" parent="KILLLBOX2" unique_id=275597859]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.036556, -9.037254)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup14" unique_id=46507473]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup14" unique_id=1080105744]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup15" type="Area3D" parent="KILLLBOX2" unique_id=1140478603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.036556, -10.037254)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup15" unique_id=2092384172]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup15" unique_id=546015498]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup16" type="Area3D" parent="KILLLBOX2" unique_id=1499512499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.036556, -16.037254)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup16" unique_id=770377348]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup16" unique_id=556280657]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup17" type="Area3D" parent="KILLLBOX2" unique_id=1176224564]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.036556, -17.037254)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup17" unique_id=1728517414]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup17" unique_id=828323162]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup18" type="Area3D" parent="KILLLBOX2" unique_id=1958176899]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.036556, -26.037254)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup18" unique_id=411982824]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup18" unique_id=1828464306]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup19" type="Area3D" parent="KILLLBOX2" unique_id=57949686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.036556, -27.037254)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup19" unique_id=1178901093]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup19" unique_id=1077666769]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=765742668]
+stream = ExtResource("18_l2pgs")
+autoplay = true
+parameters/looping = true
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1364648930]
+transform = Transform3D(-0.0070347935, -0.041585818, 0.9991103, -0.5503576, 0.83435905, 0.030853296, -0.83489954, -0.5496509, -0.028756607, -7.6187468, -2.2395399, -43.66136)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1624154883]
+transform = Transform3D(1.0000002, 3.4868717e-06, 4.917383e-07, 2.3573637e-05, 1.0000002, -1.6577542e-07, -2.7008355e-07, -5.2154064e-08, 0.9999855, 7.2495804, 2.3014774, -0.022094727)
+shape = SubResource("BoxShape3D_l2pgs")
+
+[node name="Area3D2" type="Area3D" parent="." unique_id=1417376654]
+transform = Transform3D(-0.01755829, -0.038348075, 0.9991103, -0.3156566, 0.948372, 0.030853296, -0.94871116, -0.31483406, -0.028756607, -8.444175, -7.9346128, -78.34639)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2" unique_id=913290869]
+transform = Transform3D(0.9969, 3.1888485e-06, 2.2724271e-07, 1.630187e-05, 0.99689955, 1.44355e-07, -1.7508864e-07, 3.8184226e-07, 0.99689, 1.1204224, 0.42805862, -0.021630764)
+shape = SubResource("BoxShape3D_l2pgs")
+
+[node name="lvl3holedterrain" parent="." unique_id=729847985 instance=ExtResource("19_2272n")]
+transform = Transform3D(-3.1379235e-09, 0, -0.38246855, 0, 0.38246855, 0, 0.07178732, 0, -1.671823e-08, -7.8419003, -4.828985, -73.33886)
+
+[node name="lvl3flatterrain" parent="." unique_id=684985105 instance=ExtResource("20_bs5pn")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.9032307, -14.047964, -106.22854)
+
+[node name="hurricane" parent="." unique_id=598247397 instance=ExtResource("21_gaofk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.246809, -16.291393, -223.50754)
+script = ExtResource("22_itrrf")
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
@@ -1168,3 +1479,31 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8.0
 [connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
 [connection signal="body_entered" from="flower1/bounce_pad" to="flower1/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="flower2/bounce_pad" to="flower2/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower3/bounce_pad" to="flower3/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower4/bounce_pad" to="flower4/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower5/bounce_pad" to="flower5/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup8" to="KILLLBOX1/CardPickup8" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup6" to="KILLLBOX1/CardPickup6" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup7" to="KILLLBOX1/CardPickup7" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2" to="KILLLBOX2" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup9" to="KILLLBOX2/CardPickup9" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup10" to="KILLLBOX2/CardPickup10" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup11" to="KILLLBOX2/CardPickup11" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup12" to="KILLLBOX2/CardPickup12" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup13" to="KILLLBOX2/CardPickup13" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup14" to="KILLLBOX2/CardPickup14" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup15" to="KILLLBOX2/CardPickup15" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup16" to="KILLLBOX2/CardPickup16" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup17" to="KILLLBOX2/CardPickup17" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup18" to="KILLLBOX2/CardPickup18" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup19" to="KILLLBOX2/CardPickup19" method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
