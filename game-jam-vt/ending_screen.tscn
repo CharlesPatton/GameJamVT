@@ -38,4 +38,5 @@ theme_override_font_sizes/font_size = 80
 text = "Thank You For Playing"
 horizontal_alignment = 1
 
+[connection signal="tree_entered" from="CanvasLayer" to="." method="_on_canvas_layer_tree_entered"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

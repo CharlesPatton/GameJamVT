@@ -458,7 +458,7 @@ transform = Transform3D(-4.3711367e-08, 0, 0.9999995, 0, 1, 0, -0.9999995, 0, -4
 script = ExtResource("20_uda47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=662006916]
-transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -46.106834, 20.796846, -0.7098141)
+transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -38.371895, 20.796846, -0.7098141)
 shape = SubResource("BoxShape3D_ftohl")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
