@@ -10,8 +10,11 @@ func _on_body_entered(body: Node3D) -> void:
 	
 	if body.name == "Basic FPS Player":	
 		for i in range(3, self.get_child_count()):
-			self.get_child(i).get_child(0).set_deferred("disabled", false)
-			self.get_child(i).get_child(1).visible = true
+			var node = self.get_child(i)
+			if node.name.contains("log"):
+				node = node.get_child(2)
+			node.get_child(0).set_deferred("disabled", false)
+			node.get_child(1).visible = true
 		var deathTransition = body.get_node("DeathTransition")
 		deathTransition.visible = true
 		var tween = get_tree().create_tween()
