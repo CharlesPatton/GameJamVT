@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bl3iienggjmhq"]
+[gd_scene format=3 uid="uid://bqdetdtxxfatv"]
 
 [ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_g1tnb"]
 [ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_pklw6"]
@@ -6,11 +6,15 @@
 [ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_bvvno"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="4_sx4db"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="5_bvvno"]
+[ext_resource type="Shader" uid="uid://de1r06ioq2qfe" path="res://spacesky.gdshader" id="5_p2trt"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="6_b4lsh"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="7_yxclo"]
-[ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="8_b4lsh"]
-[ext_resource type="Script" uid="uid://b52fce0xxts1l" path="res://asertoid_2.gd" id="10_fx4lf"]
+[ext_resource type="Shader" path="res://Death.gdshader" id="8_b4lsh"]
+[ext_resource type="Script" path="res://asertoid_2.gd" id="10_fx4lf"]
 [ext_resource type="Script" uid="uid://crxgwohh4x6tt" path="res://models/asteroid.gd" id="10_sx4db"]
+[ext_resource type="PackedScene" uid="uid://cewe2fsefhdk0" path="res://models/planet.blend" id="12_7lf1v"]
+[ext_resource type="Script" uid="uid://bemo3ukr4pt40" path="res://models/planet.gd" id="13_dguho"]
+[ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="15_n01hv"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fx4lf"]
 size = Vector3(676.67926, 0.001, 485.8316)
@@ -42,12 +46,31 @@ func _on_body_entered(body):
 [sub_resource type="BoxShape3D" id="BoxShape3D_yxclo"]
 size = Vector3(2.7965088, 1, 4.126831)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n01hv"]
+shader = ExtResource("5_p2trt")
+shader_parameter/sky_color = Color(0.03, 0.05, 0.11, 1)
+shader_parameter/star_base_color = Color(0.90701437, 0.9137596, 0.92181665, 1)
+shader_parameter/star_hue_offset = 0.6
+shader_parameter/star_intensity = 0.070000003325
+shader_parameter/star_twinkle_speed = 1.0000000475
+shader_parameter/star_twinkle_intensity = 0.2
+shader_parameter/layer_scale = 24.858001180755
+shader_parameter/layer_scale_step = 14.37200068267
+shader_parameter/layers_count = 3
+
+[sub_resource type="Sky" id="Sky_7odde"]
+sky_material = SubResource("ShaderMaterial_n01hv")
+
 [sub_resource type="Environment" id="Environment_b4lsh"]
-ambient_light_color = Color(0, 0.36862746, 0, 0)
-ambient_light_energy = 8.5
-glow_enabled = true
-fog_enabled = true
-volumetric_fog_enabled = true
+background_mode = 2
+background_color = Color(0.004021064, 0.02803665, 0.11311876, 1)
+background_canvas_max_layer = 1
+sky = SubResource("Sky_7odde")
+ambient_light_color = Color(0.99382347, 1, 0.9931106, 1)
+ambient_light_energy = 2.39
+ssao_enabled = true
+volumetric_fog_density = 0.0189
+volumetric_fog_albedo = Color(0.6530437, 0.70352185, 0.9824839, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sx4db"]
 
@@ -503,6 +526,10 @@ shape = SubResource("BoxShape3D_yxclo")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1123652848]
 environment = SubResource("Environment_b4lsh")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment" unique_id=398258830]
+transform = Transform3D(0.9990665, 0, -0.043201, 0.00804247, 0.9825188, 0.18599015, 0.04244563, -0.18616393, 0.98160124, -6.037196e-08, 3.7813683, -0.7164794)
+light_color = Color(0.75059825, 0.74943703, 0.8342309, 1)
+
 [node name="CSGBox3D4" type="CSGBox3D" parent="." unique_id=46687184]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -90.92262, 1.1626337, 2.0680404)
 use_collision = true
@@ -612,7 +639,7 @@ pivot_offset = Vector2(586, 323)
 
 [node name="_Node3D_379906" parent="Basic FPS Player" unique_id=1984822119 instance=ExtResource("2_pklw6")]
 
-[node name="@Node3D@343556" type="Node3D" parent="Basic FPS Player" unique_id=2123544831 instance=ExtResource("2_pklw6")]
+[node name="@Node3D@343556" parent="Basic FPS Player" unique_id=2123544831 instance=ExtResource("2_pklw6")]
 
 [node name="CSGBox3D6" type="CSGBox3D" parent="." unique_id=563408710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.73364, 1.597985, 2.0680404)
@@ -628,9 +655,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.043273926, 0, 0.013122559)
 shape = SubResource("BoxShape3D_yxclo")
 
 [node name="CSGBox3D8" type="CSGBox3D" parent="." unique_id=842774971]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.44255, 3.7612774, -5.740839)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -168.37292, 3.7612774, -60.81919)
 use_collision = true
-size = Vector3(5.7661133, 1, 3.8284912)
+size = Vector3(31.10278, 1, 23.985199)
+
+[node name="planet" parent="." unique_id=1729836681 instance=ExtResource("12_7lf1v")]
+transform = Transform3D(38.152245, 12.0169115, 0, -11.95093, 37.942757, -4.185997, -1.2575687, 3.9926295, 39.780357, -70.03101, 0, -94.56091)
+script = ExtResource("13_dguho")
+
+[node name="spaceship" parent="." unique_id=1501371199 instance=ExtResource("15_n01hv")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, -167.80223, 14.602006, -61.05158)
 
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup8" to="KILLBOX2/CardPickup8" method="_on_body_entered"]
