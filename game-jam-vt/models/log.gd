@@ -2,7 +2,9 @@ extends Node3D
 
 const EDGE = 22
 const RESET = -17
-const SPEED = 2.5
+const SPEED = 1.5
+
+var ON_LOG = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,3 +16,15 @@ func _process(delta):
 	self.position.x += SPEED * delta
 	if self.position.x >= EDGE:
 		self.position.x = RESET
+
+
+func _on_area_3d_body_entered(body):
+	if body.name == "Basic FPS Player":
+		ON_LOG = true
+		while ON_LOG:
+			body.position.x += 0.1
+			await get_tree().create_timer(0.1).timeout
+
+
+func _on_area_3d_body_exited(body):
+	ON_LOG = false

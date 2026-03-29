@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://sr7jh21wts80" path="res://models/lvl2platform.blend" id="16_lwvnx"]
 [ext_resource type="PackedScene" uid="uid://c4uy8wrt4ahor" path="res://models/lvl2geyser.blend" id="17_4ou0f"]
 [ext_resource type="AudioStream" uid="uid://bmsh0yhxvu0ca" path="res://audio/Level2BGM.ogg" id="18_4k5bj"]
-[ext_resource type="Script" path="res://models/lvl_2_geyser.gd" id="18_hp87d"]
+[ext_resource type="Script" uid="uid://cwo6diiijj7t4" path="res://models/lvl_2_geyser.gd" id="18_hp87d"]
 [ext_resource type="Shader" uid="uid://b15qmrj5w5s1v" path="res://Death.gdshader" id="20_2x2vu"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="20_gxpff"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="22_7mylh"]
@@ -65,6 +65,9 @@ volumetric_fog_emission = Color(0.083943136, 0.002922776, 0.26032847, 1)
 volumetric_fog_emission_energy = 0.4
 volumetric_fog_gi_inject = 1.02
 volumetric_fog_sky_affect = 0.76
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_idpoe"]
+size = Vector3(1.8464355, 0.8330078, 7.567993)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_7mylh"]
 
@@ -118,9 +121,6 @@ size = Vector3(165.47136, 5.0489936, 25.330887)
 [sub_resource type="BoxMesh" id="BoxMesh_f8ci1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3k4dh"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_idpoe"]
-size = Vector3(170.73099, 7.026428, 53.375305)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f8ci1"]
 size = Vector3(165.58385, 5.0489936, 44.422665)
@@ -590,7 +590,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.01334, 0, -5.268691e-07)
 script = ExtResource("4_jifot")
 
 [node name="log" parent="logs" unique_id=604647931 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 15.56032, -15.610395, 60.141018)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 24.06408, -15.610395, 60.141018)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log" unique_id=427925121]
@@ -598,17 +598,23 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07952881, 0.19329834, 0.000
 use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
-[node name="log2" parent="logs" unique_id=460592398 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 6.0019007, -15.61, 64.025)
+[node name="Area3D" type="Area3D" parent="logs/log" unique_id=1356212306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="logs/log/Area3D" unique_id=1281116127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15930176, 0.65403366, -0.008483887)
+shape = SubResource("BoxShape3D_idpoe")
+
+[node name="log2" parent="logs" unique_id=1755862236 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 12.871674, -15.61, 64.025)
 script = ExtResource("5_3opl0")
 
-[node name="CSGBox3D" type="CSGBox3D" parent="logs/log2" unique_id=251782376]
+[node name="CSGBox3D" type="CSGBox3D" parent="logs/log2" unique_id=2015968347]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07952881, 0.19329834, 0.00037002563)
 use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log3" parent="logs" unique_id=1734169425 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 10.7233715, -15.61, 68.227)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 19.790182, -15.61, 68.227)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log3" unique_id=228397570]
@@ -626,7 +632,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log5" parent="logs" unique_id=15035796 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -2.3905106, -15.610395, 87.6723)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -5.0456705, -15.610395, 87.6723)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log5" unique_id=430756356]
@@ -635,7 +641,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log6" parent="logs" unique_id=1613445673 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-0.0007576228, 0.005422917, -0.999985, 0.00022907498, 0.9999853, 0.005422745, 0.9999997, -0.00022496222, -0.00075885415, 3.8231404, -15.610395, 91.86369)
+transform = Transform3D(-0.0007576228, 0.005422917, -0.999985, 0.00022907498, 0.9999853, 0.005422745, 0.9999997, -0.00022496222, -0.00075885415, 7.842206, -15.610395, 91.86369)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log6" unique_id=1006747048]
@@ -644,7 +650,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log7" parent="logs" unique_id=1032592354 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -4.9786267, -15.610395, 95.71923)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 15.55223, -15.610395, 95.71923)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log7" unique_id=435723965]
@@ -662,7 +668,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log9" parent="logs" unique_id=1355175053 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -13.451071, -15.610395, 99.20731)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 2.325256, -15.610395, 99.20731)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log9" unique_id=375485049]
@@ -671,7 +677,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log10" parent="logs" unique_id=576344017 instance=ExtResource("9_qulpo")]
-transform = Transform3D(0.0009445521, 0.00064605486, 0.99999934, 0.001247291, 0.9999989, -0.0006472307, -0.9999988, 0.0012479005, 0.00094374677, 20.737566, -15.610395, 108.43708)
+transform = Transform3D(0.0009445521, 0.00064605486, 0.99999934, 0.001247291, 0.9999989, -0.0006472307, -0.9999988, 0.0012479005, 0.00094374677, 9.593674, -15.610395, 108.43708)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log10" unique_id=1287561169]
@@ -680,7 +686,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log11" parent="logs" unique_id=496001947 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 13.849223, -15.610395, 112.52344)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, -7.2599, -15.610395, 112.52344)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log11" unique_id=1572682267]
@@ -689,7 +695,7 @@ use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
 [node name="log12" parent="logs" unique_id=12356199 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 6.172185, -15.610395, 121.414505)
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 14.413443, -15.610395, 121.414505)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log12" unique_id=1687645460]
@@ -697,8 +703,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.07952881, 0.19329834, 0.000
 use_collision = true
 size = Vector3(1.6190186, 1.3865967, 7.2404785)
 
-[node name="log13" parent="logs" unique_id=1755862236 instance=ExtResource("9_qulpo")]
-transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 11.298792, -16.009342, 116.93781)
+[node name="log13" parent="logs" unique_id=585015781 instance=ExtResource("9_qulpo")]
+transform = Transform3D(-4.3711395e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711395e-08, 3.8191671, -16.009342, 116.93781)
 script = ExtResource("5_3opl0")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="logs/log13" unique_id=1653402655]
@@ -774,7 +780,7 @@ offset_right = 1064.8
 offset_bottom = 583.6
 pivot_offset = Vector2(586, 323)
 
-[node name="@Node3D@304475" type="Node3D" parent="Basic FPS Player" unique_id=1633619344 instance=ExtResource("2_21xmu")]
+[node name="@Node3D@304475" parent="Basic FPS Player" unique_id=1633619344 instance=ExtResource("2_21xmu")]
 
 [node name="lvl2mushroom1" parent="." unique_id=2092099977 instance=ExtResource("12_mw4xc")]
 transform = Transform3D(-0.8660253, 0, 0.50000024, 0, 1, 0, -0.50000024, 0, -0.8660253, 15.442663, -13.659517, 37.29423)
@@ -1069,7 +1075,7 @@ mesh = SubResource("BoxMesh_f8ci1")
 [node name="CardPickup1" type="Area3D" parent="KILLLBOX1" unique_id=1296605750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 8.250502)
 script = ExtResource("11_3opl0")
-jump_cards = 4
+jump_cards = 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup1" unique_id=175573960]
 shape = SubResource("BoxShape3D_3k4dh")
@@ -1079,9 +1085,44 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("22_7mylh")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1182239623]
-transform = Transform3D(0.99994403, 0, -1.2022383e-11, 0, 1, 0, 1.2022383e-11, 0, 0.99994403, -0.21246825, -4.9529667, 33.236725)
-shape = SubResource("BoxShape3D_idpoe")
+[node name="CardPickup2" type="Area3D" parent="KILLLBOX1" unique_id=683950345]
+transform = Transform3D(0.99999946, 0, -1.1368684e-13, 0, 1, 0, 1.1368684e-13, 0, 0.99999946, 1.0184996, 2.9451256, 8.2505)
+script = ExtResource("11_3opl0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup2" unique_id=82791185]
+shape = SubResource("BoxShape3D_3k4dh")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup2" unique_id=97172579]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("22_7mylh")
+
+[node name="CardPickup3" type="Area3D" parent="KILLLBOX1" unique_id=1719489498]
+transform = Transform3D(0.9999988, 0, -2.5579538e-13, 0, 1, 0, 2.5579538e-13, 0, 0.9999988, 2.017764, 2.9451256, 8.2505)
+script = ExtResource("11_3opl0")
+jump_cards = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup3" unique_id=406484923]
+shape = SubResource("BoxShape3D_3k4dh")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup3" unique_id=254645517]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("22_7mylh")
+
+[node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=52365887]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 3.0146582, 2.9451256, 8.2505)
+script = ExtResource("11_3opl0")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup4" unique_id=152551171]
+shape = SubResource("BoxShape3D_3k4dh")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup4" unique_id=1422808832]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("22_7mylh")
 
 [node name="KILLLBOX2" type="Area3D" parent="." unique_id=1506407482]
 transform = Transform3D(-0.99999994, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -0.99999994, -1.784063e-05, -16.932669, 102.036514)
@@ -1149,6 +1190,39 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("22_7mylh")
 
+[node name="KILLLBOX4" type="Area3D" parent="." unique_id=748976462]
+transform = Transform3D(0.99999964, 0, 1.748455e-07, 0, 1, 0, -1.748455e-07, 0, 0.99999964, -1.4321258e-05, -38.443707, 3.0517576e-05)
+script = ExtResource("20_gxpff")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX4" unique_id=1320628717]
+transform = Transform3D(0.9998909, 0, -1.9895197e-11, 0, 1, 0, 1.9895197e-11, 0, 0.9998909, 0.30004364, 16.591341, 17.201242)
+shape = SubResource("BoxShape3D_iakae")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLLBOX4" unique_id=458853726]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX4" unique_id=522959572]
+transform = Transform3D(0.9999997, 0, -1.7053026e-13, 0, 1, 0, 1.7053026e-13, 0, 0.9999997, -2.31089, 24.462471, 27.020308)
+mesh = SubResource("BoxMesh_7mylh")
+
+[node name="CardPickup4" type="Area3D" parent="KILLLBOX4" unique_id=901428604]
+transform = Transform3D(1, 0, -3.496912e-07, 0, 1, 0, 3.496912e-07, 0, 1, 7.832252e-06, 24.07591, 1.6235403)
+script = ExtResource("11_3opl0")
+jump_cards = 100
+dash_cards = 100
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX4/CardPickup4" unique_id=1567873262]
+shape = SubResource("BoxShape3D_3k4dh")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX4/CardPickup4" unique_id=1291202514]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("22_7mylh")
+
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1342913256]
 transform = Transform3D(-0.9999995, 0, -8.742268e-08, 0, 1, 0, 8.742268e-08, 0, -0.9999995, 2.3108783, 3.5742397, 170.25502)
 script = ExtResource("22_f8ci1")
@@ -1164,20 +1238,6 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="CardPickup4" type="Area3D" parent="." unique_id=901428604]
-transform = Transform3D(0.9999997, 0, -1.7484555e-07, 0, 1, 0, 1.7484555e-07, 0, 0.9999997, -6.2051404e-06, -14.367796, 1.6235702)
-script = ExtResource("11_3opl0")
-jump_cards = 100
-dash_cards = 100
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CardPickup4" unique_id=1567873262]
-shape = SubResource("BoxShape3D_3k4dh")
-
-[node name="Sprite3D" type="Sprite3D" parent="CardPickup4" unique_id=1291202514]
-transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
-billboard = 1
-texture = ExtResource("22_7mylh")
-
 [node name="level_display" type="CanvasLayer" parent="." unique_id=130084952]
 script = SubResource("GDScript_iakae")
 LEVEL_TEXT = "Caverns"
@@ -1192,16 +1252,22 @@ offset_bottom = 346.0
 label_settings = SubResource("LabelSettings_7mylh")
 horizontal_alignment = 1
 
+[connection signal="body_entered" from="logs/log/Area3D" to="logs/log" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="logs/log/Area3D" to="logs/log" method="_on_area_3d_body_exited"]
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="lvl2geyser/bounce_pad" to="lvl2geyser/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1/CardPickup1" to="KILLLBOX1/CardPickup1" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup2" to="KILLLBOX1/CardPickup2" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup3" to="KILLLBOX1/CardPickup3" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2" to="KILLLBOX2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup2" to="KILLLBOX2/CardPickup2" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX3" to="KILLLBOX3" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX3/CardPickup3" to="KILLLBOX3/CardPickup3" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX4" to="KILLLBOX4" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX4/CardPickup4" to="KILLLBOX4/CardPickup4" method="_on_body_entered"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
-[connection signal="body_entered" from="CardPickup4" to="CardPickup4" method="_on_body_entered"]
 [connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
