@@ -1,0 +1,135 @@
+[gd_scene format=3 uid="uid://cke5nffstt6ea"]
+
+[ext_resource type="Script" uid="uid://huc3y4vt8p0e" path="res://addons/Basic FPS Player/Src/basic_player_startup.gd" id="1_qmr0j"]
+[ext_resource type="PackedScene" uid="uid://kmyakts4l64t" path="res://addons/Basic FPS Player/Src/basic_player_head.tscn" id="2_x2odi"]
+[ext_resource type="Shader" uid="uid://c1x0xliqid65h" path="res://animespeed.gdshader" id="3_8at3q"]
+[ext_resource type="Script" uid="uid://bpcsgqcgrgwgq" path="res://cardHandle.gd" id="4_87x5k"]
+[ext_resource type="Shader" path="res://Death.gdshader" id="5_yfwe1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p3j2p"]
+albedo_color = Color(0.17681256, 0.24563095, 0.33739948, 1)
+metallic = 0.36
+
+[sub_resource type="Environment" id="Environment_mpwkm"]
+background_mode = 1
+background_color = Color(0.7539839, 0.75398386, 0.75398386, 1)
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1226
+volumetric_fog_albedo = Color(0.19068938, 0.18257621, 0.19006944, 1)
+volumetric_fog_emission_energy = 6.31
+volumetric_fog_ambient_inject = 0.55
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rlwt4"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5qaqf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3seiu"]
+shader = ExtResource("3_8at3q")
+shader_parameter/speedScale = 10.64
+shader_parameter/clipPosition = 0.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vueak"]
+shader = ExtResource("5_yfwe1")
+shader_parameter/AspectRatio = 1.5
+shader_parameter/Diamonds = 7.33
+shader_parameter/pixel_size = 0.08
+shader_parameter/height = -1.0
+shader_parameter/disable_pixel = true
+
+[node name="Node3D" type="Node3D" unique_id=2062716588]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1705383596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.04925537, -10.111084, -6.202942)
+use_collision = true
+size = Vector3(10.02356, 21.222168, 19.526001)
+material = SubResource("StandardMaterial3D_p3j2p")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=176861643]
+environment = SubResource("Environment_mpwkm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1073113044]
+transform = Transform3D(1, 0, 0, 0, 0.91747713, 0.39778844, 0, -0.39778844, 0.91747713, 0, 2.490923, 1.2351453)
+light_color = Color(0.21181759, 0.40507552, 0.5903785, 1)
+light_volumetric_fog_energy = 14.452
+
+[node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=908899172]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1208849, 1.6579187, 0.429924)
+floor_max_angle = 0.27401668
+script = ExtResource("1_qmr0j")
+metadata/_custom_type_script = "uid://huc3y4vt8p0e"
+
+[node name="Head" parent="Basic FPS Player" unique_id=922161478 instance=ExtResource("2_x2odi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.50675344, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Basic FPS Player" unique_id=452801907]
+mesh = SubResource("CapsuleMesh_rlwt4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Basic FPS Player" unique_id=1565162104]
+shape = SubResource("CapsuleShape3D_5qaqf")
+
+[node name="DashEndTimer" type="Timer" parent="Basic FPS Player" unique_id=743096627]
+wait_time = 0.5
+one_shot = true
+
+[node name="JumpEndTimer" type="Timer" parent="Basic FPS Player" unique_id=746572352]
+wait_time = 0.5
+one_shot = true
+
+[node name="SpeedLines" type="CanvasLayer" parent="Basic FPS Player" unique_id=1945797868]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/SpeedLines" unique_id=1366228210]
+modulate = Color(1, 1, 1, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_3seiu")
+offset_right = 1172.0
+offset_bottom = 646.0
+
+[node name="Control" type="Control" parent="Basic FPS Player" unique_id=1316600904]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 324)
+size_flags_vertical = 8
+script = ExtResource("4_87x5k")
+
+[node name="CardContainer" type="HBoxContainer" parent="Basic FPS Player/Control" unique_id=1056367702]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 491.0
+offset_right = 1068.0
+offset_bottom = 624.0
+
+[node name="_Node3D_447656" parent="Basic FPS Player" unique_id=1062599072 instance=ExtResource("2_x2odi")]
+
+[node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=1085607072]
+scale = Vector2(1.25, 1.25)
+transform = Transform2D(1.25, 0, 0, 1.25, 0, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Basic FPS Player/DeathTransition" unique_id=643287054]
+modulate = Color(0, 0, 0, 0.4627451)
+self_modulate = Color(1, 1, 1, 0.42745098)
+material = SubResource("ShaderMaterial_vueak")
+offset_left = -107.2
+offset_top = -62.399998
+offset_right = 1064.8
+offset_bottom = 583.6
+pivot_offset = Vector2(586, 323)
+
+[node name="_Node3D_144066" parent="Basic FPS Player" unique_id=613965501 instance=ExtResource("2_x2odi")]
+
+[node name="@Node3D@76810" type="Node3D" parent="Basic FPS Player" unique_id=1378958260 instance=ExtResource("2_x2odi")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=719381126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6768112, -9.07148)
+light_color = Color(0.9795992, 0.70549834, 0.536933, 1)
+light_energy = 10.631
+light_volumetric_fog_energy = 1.717
+
+[connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
+[connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
+[connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]

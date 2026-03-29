@@ -119,10 +119,13 @@ size = Vector3(89.55772, 1.0478723, 93.14119)
 [sub_resource type="BoxShape3D" id="BoxShape3D_l2pgs"]
 size = Vector3(11.35325, 1.4672852, 3.7576904)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gaofk"]
+albedo_color = Color(0, 0, 0, 1)
+
 [node name="Node3D" type="Node3D" unique_id=896552784]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1672809803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.120885, 0.075881004, -39.49945)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1208849, 0.616025, 0.429924)
 floor_max_angle = 0.27401668
 script = ExtResource("1_bmsap")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -1051,6 +1054,204 @@ transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819
 [node name="cloud8" parent="clouds22" unique_id=641152152 instance=ExtResource("7_7oc4e")]
 transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
 
+[node name="clouds26" type="Node3D" parent="." unique_id=1855157748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -9.256651, -181.92787)
+
+[node name="cloud1" parent="clouds26" unique_id=138419139 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds26" unique_id=508783513 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds26" unique_id=2059025034 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds26" unique_id=1252873288 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds26" unique_id=565948380 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds26" unique_id=863353491 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds26" unique_id=1705305967 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds26" unique_id=1345855690 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds26" unique_id=1899172184 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds26" unique_id=1533810304 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds27" type="Node3D" parent="." unique_id=1188573166]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -9.256651, -207.92787)
+
+[node name="cloud1" parent="clouds27" unique_id=217489639 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds27" unique_id=540357623 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds27" unique_id=1052971563 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds27" unique_id=1371433740 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds27" unique_id=1472980977 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds27" unique_id=568686670 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds27" unique_id=1404433172 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds27" unique_id=1650106993 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds27" unique_id=1755205335 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds27" unique_id=429568372 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds28" type="Node3D" parent="." unique_id=1048942600]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -9.256651, -230.92787)
+
+[node name="cloud1" parent="clouds28" unique_id=1909088087 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds28" unique_id=444077283 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds28" unique_id=1875741464 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds28" unique_id=301799847 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds28" unique_id=2006428053 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds28" unique_id=1392485036 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds28" unique_id=2070624178 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds28" unique_id=590482506 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds28" unique_id=964292470 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds28" unique_id=2137487261 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds29" type="Node3D" parent="." unique_id=110494215]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62, -9.256651, -230.92787)
+
+[node name="cloud1" parent="clouds29" unique_id=416295022 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds29" unique_id=584521836 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds29" unique_id=2097931830 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds29" unique_id=1628993309 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds29" unique_id=2128362393 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds29" unique_id=726269165 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds29" unique_id=598174502 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds29" unique_id=944696354 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds29" unique_id=562397898 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds29" unique_id=71806934 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds30" type="Node3D" parent="." unique_id=1941639438]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -9.256651, -204.92787)
+
+[node name="cloud1" parent="clouds30" unique_id=978693642 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds30" unique_id=1897459662 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds30" unique_id=1142434022 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds30" unique_id=1599778320 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds30" unique_id=1889494029 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds30" unique_id=588205687 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds30" unique_id=114709194 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds30" unique_id=261340551 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds30" unique_id=936110116 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds30" unique_id=1732145380 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds31" type="Node3D" parent="." unique_id=1426775644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57, -9.256651, -182.92787)
+
+[node name="cloud1" parent="clouds31" unique_id=1851458004 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds31" unique_id=170067273 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds31" unique_id=131059320 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds31" unique_id=1715060228 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds31" unique_id=66231203 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds31" unique_id=1122777224 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds31" unique_id=468414791 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds31" unique_id=508156455 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds31" unique_id=657821160 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds31" unique_id=1609217916 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
 [node name="clouds23" type="Node3D" parent="." unique_id=2024795833]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.256651, -269.92786)
 
@@ -1150,6 +1351,204 @@ transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819
 [node name="cloud8" parent="clouds25" unique_id=156213749 instance=ExtResource("7_7oc4e")]
 transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
 
+[node name="clouds32" type="Node3D" parent="." unique_id=848619505]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.256651, 14.072144)
+
+[node name="cloud1" parent="clouds32" unique_id=664178190 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds32" unique_id=1328578260 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds32" unique_id=1304597729 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds32" unique_id=2068963487 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds32" unique_id=428132227 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds32" unique_id=285197842 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds32" unique_id=168757212 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds32" unique_id=745115334 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds32" unique_id=400246699 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds32" unique_id=2096910412 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds33" type="Node3D" parent="." unique_id=361376800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -9.256651, 27.072144)
+
+[node name="cloud1" parent="clouds33" unique_id=1658168147 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds33" unique_id=701968324 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds33" unique_id=1453083744 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds33" unique_id=1608731591 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds33" unique_id=1069983124 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds33" unique_id=275006865 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds33" unique_id=824654189 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds33" unique_id=1496227297 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds33" unique_id=1140971541 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds33" unique_id=1742335548 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds34" type="Node3D" parent="." unique_id=733376259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -9.256651, 31.072128)
+
+[node name="cloud1" parent="clouds34" unique_id=1108270181 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds34" unique_id=1656153692 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds34" unique_id=87574193 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds34" unique_id=1822492075 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds34" unique_id=1013930569 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds34" unique_id=1852544564 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds34" unique_id=2099127916 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds34" unique_id=670543015 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds34" unique_id=240861382 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds34" unique_id=80643141 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds35" type="Node3D" parent="." unique_id=1453591487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -9.256651, 44.072144)
+
+[node name="cloud1" parent="clouds35" unique_id=2085479413 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds35" unique_id=1815386939 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds35" unique_id=1330274046 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds35" unique_id=274751063 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds35" unique_id=801464287 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds35" unique_id=143585592 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds35" unique_id=1897202326 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds35" unique_id=990394370 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds35" unique_id=1733231454 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds35" unique_id=1594383421 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds36" type="Node3D" parent="." unique_id=1332797083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, -9.256651, 27.072144)
+
+[node name="cloud1" parent="clouds36" unique_id=983571076 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds36" unique_id=17527460 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds36" unique_id=1155891536 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds36" unique_id=1443597209 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds36" unique_id=583785492 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds36" unique_id=1981037846 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds36" unique_id=809024645 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds36" unique_id=724648746 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds36" unique_id=407452974 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds36" unique_id=1511624261 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
+[node name="clouds37" type="Node3D" parent="." unique_id=1131617545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55, -9.256651, 31.072128)
+
+[node name="cloud1" parent="clouds37" unique_id=1634196279 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 9.341029, -11.309335, 9.178764)
+
+[node name="cloud2" parent="clouds37" unique_id=992783939 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -8.562917, -11.309335, 9.178764)
+
+[node name="cloud4" parent="clouds37" unique_id=763847145 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, 0.4370844, -11.309335, 0.17876434)
+
+[node name="cloud5" parent="clouds37" unique_id=1487781276 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -17.562914, -11.309335, 0.17876434)
+
+[node name="cloud9" parent="clouds37" unique_id=1319644036 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -34.562916, -11.309335, 0.17876434)
+
+[node name="cloud10" parent="clouds37" unique_id=531335654 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 17.437086, -11.309335, 0.17877197)
+
+[node name="cloud3" parent="clouds37" unique_id=1607342412 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -26.562914, -11.309335, 9.178764)
+
+[node name="cloud6" parent="clouds37" unique_id=656341861 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, 9.34103, -11.309335, -8.821228)
+
+[node name="cloud7" parent="clouds37" unique_id=1775902235 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(0.258819, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, 0.258819, -8.562916, -11.309335, -8.821228)
+
+[node name="cloud8" parent="clouds37" unique_id=2048422848 instance=ExtResource("7_7oc4e")]
+transform = Transform3D(-0.25881907, 0, -0.9659258, 0, 1, 0, 0.9659258, 0, -0.25881907, -26.562914, -11.309335, -8.821228)
+
 [node name="flower1" parent="." unique_id=1646822433 instance=ExtResource("9_8x87a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -10.265927, -63.667492)
 
@@ -1171,7 +1570,7 @@ script = SubResource("GDScript_siwpi")
 shape = SubResource("SphereShape3D_0m7xm")
 
 [node name="flower3" parent="." unique_id=995989564 instance=ExtResource("9_8x87a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -15.393295, -120.85124)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.7941456, -15.393295, -115.690025)
 
 [node name="bounce_pad" type="Area3D" parent="flower3" unique_id=1530288649]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
@@ -1181,7 +1580,7 @@ script = SubResource("GDScript_siwpi")
 shape = SubResource("SphereShape3D_0m7xm")
 
 [node name="flower4" parent="." unique_id=1446736535 instance=ExtResource("9_8x87a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.880083, -11.3394985, -134.11359)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.880083, -11.3394985, -125.93361)
 
 [node name="bounce_pad" type="Area3D" parent="flower4" unique_id=808527268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
@@ -1191,7 +1590,7 @@ script = SubResource("GDScript_siwpi")
 shape = SubResource("SphereShape3D_0m7xm")
 
 [node name="flower5" parent="." unique_id=615568449 instance=ExtResource("9_8x87a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6738214, -6.3924465, -144.37569)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6738214, -6.3924465, -137.20073)
 
 [node name="bounce_pad" type="Area3D" parent="flower5" unique_id=2061530033]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
@@ -1214,7 +1613,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
 script = ExtResource("15_i6w5t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=532388847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -17.845226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -21.226048)
 shape = SubResource("BoxShape3D_bs5pn")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -1286,7 +1685,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -131.51044)
 script = ExtResource("15_i6w5t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2" unique_id=1953900069]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -17.845226)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -21.025787)
 shape = SubResource("BoxShape3D_bs5pn")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
@@ -1298,11 +1697,11 @@ offset_bottom = 40.0
 metadata/_edit_use_anchors_ = true
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX2" unique_id=1476991200]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6767793, 1.9828391, 23.93384)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6767793, 1.9828391, 21.303202)
 mesh = SubResource("BoxMesh_utqry")
 
 [node name="CardPickup9" type="Area3D" parent="KILLLBOX2" unique_id=440665865]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 3.5028954, 10.698349)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 3.5028954, 15.583633)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1315,7 +1714,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup10" type="Area3D" parent="KILLLBOX2" unique_id=1586708231]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.752434, 5.5028954, -2.4219055)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.752434, 5.5028954, 5.5488815)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1328,7 +1727,7 @@ billboard = 1
 texture = ExtResource("17_2272n")
 
 [node name="CardPickup11" type="Area3D" parent="KILLLBOX2" unique_id=1702311629]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 9.449947, -12.684006)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 9.449947, -5.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
@@ -1340,106 +1739,158 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup12" type="Area3D" parent="KILLLBOX2" unique_id=244665690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.036556, -3.0372543)
+[node name="CardPickup12" type="Area3D" parent="KILLLBOX2" unique_id=355498058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.379116, -15.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup12" unique_id=2082290047]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup12" unique_id=254270508]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup12" unique_id=434275139]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup12" unique_id=1507568489]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup13" type="Area3D" parent="KILLLBOX2" unique_id=1781415023]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 13.036556, -4.0372543)
+[node name="CardPickup13" type="Area3D" parent="KILLLBOX2" unique_id=1007861016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.379116, -17.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup13" unique_id=212514556]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup13" unique_id=78603827]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup13" unique_id=1757956274]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup13" unique_id=339872641]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup14" type="Area3D" parent="KILLLBOX2" unique_id=275597859]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.036556, -9.037254)
+[node name="CardPickup14" type="Area3D" parent="KILLLBOX2" unique_id=1305599439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.379116, -25.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup14" unique_id=46507473]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup14" unique_id=315106007]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup14" unique_id=1080105744]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup14" unique_id=820478959]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup15" type="Area3D" parent="KILLLBOX2" unique_id=1140478603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 14.036556, -10.037254)
+[node name="CardPickup15" type="Area3D" parent="KILLLBOX2" unique_id=569407555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.379116, -27.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup15" unique_id=2092384172]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup15" unique_id=1107693847]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup15" unique_id=546015498]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup15" unique_id=1084161154]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup16" type="Area3D" parent="KILLLBOX2" unique_id=1499512499]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.036556, -16.037254)
+[node name="CardPickup16" type="Area3D" parent="KILLLBOX2" unique_id=1050447550]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 18.379116, -35.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup16" unique_id=770377348]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup16" unique_id=650029123]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup16" unique_id=556280657]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup16" unique_id=1097030263]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup17" type="Area3D" parent="KILLLBOX2" unique_id=1176224564]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 16.036556, -17.037254)
+[node name="CardPickup17" type="Area3D" parent="KILLLBOX2" unique_id=630776706]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 18.379116, -37.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup17" unique_id=1728517414]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup17" unique_id=2020359495]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup17" unique_id=828323162]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup17" unique_id=542269413]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup18" type="Area3D" parent="KILLLBOX2" unique_id=1958176899]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.036556, -26.037254)
+[node name="CardPickup18" type="Area3D" parent="KILLLBOX2" unique_id=1961248359]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 20.379116, -45.955658)
 script = ExtResource("16_l2pgs")
 dash_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup18" unique_id=411982824]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup18" unique_id=1116710744]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup18" unique_id=1828464306]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup18" unique_id=1244315001]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
 
-[node name="CardPickup19" type="Area3D" parent="KILLLBOX2" unique_id=57949686]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 19.036556, -27.037254)
+[node name="CardPickup19" type="Area3D" parent="KILLLBOX2" unique_id=1353061435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 20.379116, -47.955658)
 script = ExtResource("16_l2pgs")
 jump_cards = 1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup19" unique_id=1178901093]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup19" unique_id=2098155234]
 shape = SubResource("BoxShape3D_gaofk")
 
-[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup19" unique_id=1077666769]
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup19" unique_id=328106432]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup20" type="Area3D" parent="KILLLBOX2" unique_id=300639217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 22.379116, -55.955658)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup20" unique_id=430409340]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup20" unique_id=1293442298]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup21" type="Area3D" parent="KILLLBOX2" unique_id=1291507242]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 22.379116, -57.955658)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup21" unique_id=547547975]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup21" unique_id=750434870]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup22" type="Area3D" parent="KILLLBOX2" unique_id=645208989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 24.379116, -66.95566)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup22" unique_id=446693878]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup22" unique_id=1962463020]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("17_2272n")
+
+[node name="CardPickup23" type="Area3D" parent="KILLLBOX2" unique_id=1534234403]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.546172, 24.379116, -68.95566)
+script = ExtResource("16_l2pgs")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup23" unique_id=2080614517]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup23" unique_id=1745324798]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("17_2272n")
@@ -1464,14 +1915,19 @@ transform = Transform3D(0.9969, 3.1888485e-06, 2.2724271e-07, 1.630187e-05, 0.99
 shape = SubResource("BoxShape3D_l2pgs")
 
 [node name="lvl3holedterrain" parent="." unique_id=729847985 instance=ExtResource("19_2272n")]
-transform = Transform3D(-3.1379235e-09, 0, -0.38246855, 0, 0.38246855, 0, 0.07178732, 0, -1.671823e-08, -7.8419003, -4.828985, -73.33886)
+transform = Transform3D(-3.1379235e-09, 0, -0.38246855, 0, 0.38246855, 0, 0.07178732, 0, -1.671823e-08, -7.8419003, -3.8534374, -73.33886)
 
 [node name="lvl3flatterrain" parent="." unique_id=684985105 instance=ExtResource("20_bs5pn")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.9032307, -14.047964, -106.22854)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -7.9032307, -14.047964, -108.069984)
 
 [node name="hurricane" parent="." unique_id=598247397 instance=ExtResource("21_gaofk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.246809, -16.291393, -223.50754)
 script = ExtResource("22_itrrf")
+
+[node name="CSGBox3D21" type="CSGBox3D" parent="." unique_id=183003489]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4665527, -20.022709, -223.73721)
+size = Vector3(30.03955, 1, 36.60852)
+material = SubResource("StandardMaterial3D_gaofk")
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
@@ -1499,6 +1955,10 @@ script = ExtResource("22_itrrf")
 [connection signal="body_entered" from="KILLLBOX2/CardPickup17" to="KILLLBOX2/CardPickup17" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup18" to="KILLLBOX2/CardPickup18" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup19" to="KILLLBOX2/CardPickup19" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup20" to="KILLLBOX2/CardPickup20" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup21" to="KILLLBOX2/CardPickup21" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup22" to="KILLLBOX2/CardPickup22" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup23" to="KILLLBOX2/CardPickup23" method="_on_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
