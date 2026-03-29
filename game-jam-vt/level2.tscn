@@ -29,6 +29,7 @@
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="24_3k4dh"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="25_idpoe"]
 [ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="26_ggudo"]
+[ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="30_cfvhu"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -190,6 +191,13 @@ func _on_timer_timeout():
 [sub_resource type="LabelSettings" id="LabelSettings_7mylh"]
 font = ExtResource("24_3k4dh")
 font_size = 100
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_sl2u6"]
+size = Vector3(22.997421, 14.421958, 28.22802)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fug78"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lh3ue"]
 
 [node name="level2" type="Node3D" unique_id=2034603938]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
@@ -616,7 +624,7 @@ transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.965
 transform = Transform3D(0.9659258, 0, 0.25881904, 0, 1, 0, -0.25881904, 0, 0.9659258, 17.200724, -14.643384, 53.62318)
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1703423547]
-transform = Transform3D(-0.9991309, 0, 0.04168384, 0, 1, 0, -0.04168384, 0, -0.9991309, 0.6586539, -13.464005, 27.80999)
+transform = Transform3D(-0.9991309, 0, 0.04168384, 0, 1, 0, -0.04168384, 0, -0.9991309, 13.502687, -13.464005, 17.94873)
 floor_max_angle = 0.27401668
 script = ExtResource("1_r6vdu")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -1618,7 +1626,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX4" unique_id=522959572]
-transform = Transform3D(0.9999997, 0, -1.7053026e-13, 0, 1, 0, 1.7053026e-13, 0, 0.9999997, -2.31089, 24.462471, 27.020308)
+transform = Transform3D(0.9999997, 0, -2.2737368e-13, 0, 1, 0, 2.2737368e-13, 0, 0.9999997, 13.415192, 24.462471, 17.98897)
 mesh = SubResource("BoxMesh_7mylh")
 
 [node name="CardPickup4" type="Area3D" parent="KILLLBOX4" unique_id=901428604]
@@ -1673,6 +1681,39 @@ transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1
 billboard = 1
 text = "It’s been a long time, grandson. Good luck on your journey!"
 font_size = 60
+
+[node name="intrsuctions3" type="Area3D" parent="." unique_id=1359312981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
+script = ExtResource("30_cfvhu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="intrsuctions3" unique_id=755628746]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.137444, 3.5305882, 98.767136)
+shape = SubResource("BoxShape3D_sl2u6")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="intrsuctions3" unique_id=1526662949]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="intrsuctions3/Control" unique_id=1674001837]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 544.0
+offset_right = 780.0
+offset_bottom = 572.0
+text = "A cave wow!
+I always wanted to go into one
+and isn't that grandpa!"
+label_settings = SubResource("LabelSettings_fug78")
+horizontal_alignment = 1
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions3" unique_id=393568757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+mesh = SubResource("BoxMesh_lh3ue")
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
@@ -1740,3 +1781,5 @@ font_size = 60
 [connection signal="body_entered" from="KILLLBOX4/CardPickup4" to="KILLLBOX4/CardPickup4" method="_on_body_entered"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
 [connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
+[connection signal="body_entered" from="intrsuctions3" to="intrsuctions3" method="_on_body_entered"]
+[connection signal="body_exited" from="intrsuctions3" to="intrsuctions3" method="_on_body_exited"]
