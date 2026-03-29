@@ -2,13 +2,14 @@ extends Area3D
 signal show_cards()
 
 func _on_body_entered(body: Node3D) -> void:			
-	$"../Basic FPS Player".dashCards = 0
-	$"../Basic FPS Player".jumpCards = 0
-	if ($"../Basic FPS Player/Control/CardContainer".get_child_count() != 0):
-		for i in range(0, $"../Basic FPS Player/Control/CardContainer".get_child_count()):
-			$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
+	
 	
 	if body.name == "Basic FPS Player":	
+		$"../Basic FPS Player".dashCards = 0
+		$"../Basic FPS Player".jumpCards = 0
+		if ($"../Basic FPS Player/Control/CardContainer".get_child_count() != 0):
+			for i in range(0, $"../Basic FPS Player/Control/CardContainer".get_child_count()):
+				$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
 		for i in range(3, self.get_child_count()):
 			var node = self.get_child(i)
 			if node.name.contains("log"):

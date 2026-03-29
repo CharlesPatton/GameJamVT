@@ -2458,7 +2458,7 @@ billboard = 1
 texture = ExtResource("14_hdi8k")
 
 [node name="CardPickup19" type="Area3D" parent="KILLBOX2" unique_id=638076262]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.73556, 12.898745, 19.32706)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.365881, 13.926151, -22.646883)
 script = ExtResource("13_48tf0")
 dash_cards = 1
 
@@ -2707,8 +2707,37 @@ transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -0.024130344, 0, 
 billboard = 1
 texture = ExtResource("14_hdi8k")
 
+[node name="CardPickup26" type="Area3D" parent="KILLBOX2" unique_id=1658478300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.111063, 13.926151, -51.87331)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup26" unique_id=721018629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup26" unique_id=1135959191]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("15_wy08v")
+
+[node name="CardPickup29" type="Area3D" parent="KILLBOX2" unique_id=2119779901]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.111063, 13.926151, -96.764206)
+script = ExtResource("13_48tf0")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLBOX2/CardPickup29" unique_id=424186713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.00753, 0, 0)
+shape = SubResource("BoxShape3D_xtdt0")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLBOX2/CardPickup29" unique_id=597912507]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, -15.00753, 0, 0)
+billboard = 1
+texture = ExtResource("15_wy08v")
+
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=396684934]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.513176, -0.37329483, -239.15942)
+use_collision = true
 size = Vector3(68.39259, 1, 226.84229)
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
@@ -2750,3 +2779,5 @@ size = Vector3(68.39259, 1, 226.84229)
 [connection signal="body_entered" from="KILLBOX2/CardPickup36" to="KILLBOX2/CardPickup36" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup37" to="KILLBOX2/CardPickup37" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLBOX2/CardPickup38" to="KILLBOX2/CardPickup38" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup26" to="KILLBOX2/CardPickup26" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLBOX2/CardPickup29" to="KILLBOX2/CardPickup29" method="_on_body_entered"]
