@@ -1679,7 +1679,7 @@ script = ExtResource("26_ggudo")
 [node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=1116115046]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
 billboard = 1
-text = "It’s been a long time, grandson. Good luck on your journey!"
+text = "oh what a pleasure it is seeing you again boy, but I didn't expect to see you so soon."
 font_size = 60
 
 [node name="intrsuctions3" type="Area3D" parent="." unique_id=1359312981]
@@ -1704,8 +1704,8 @@ offset_top = 544.0
 offset_right = 780.0
 offset_bottom = 572.0
 text = "A cave wow!
-I always wanted to go into one
-and isn't that grandpa!"
+I always wanted to go into one!
+Wait, isn't that grandpa!"
 label_settings = SubResource("LabelSettings_fug78")
 horizontal_alignment = 1
 visible_characters = 0
