@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://b05wa6wvgwe41" path="res://models/teddybear.blend" id="16_m3i2x"]
 [ext_resource type="AudioStream" uid="uid://bok82u7k5jitk" path="res://audio/ThefinalMemory.ogg" id="17_cpcf4"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="18_q7k67"]
-[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
+[ext_resource type="Script" uid="uid://d4cr4vgbceu77" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_uda47"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_foswp"]
@@ -139,6 +139,15 @@ offset_left = 68.0
 offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
+
+[node name="fade" type="ColorRect" parent="Basic FPS Player/Control" unique_id=869923052]
+z_index = 99
+layout_mode = 0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
 
 [node name="_Node3D_447656" parent="Basic FPS Player" unique_id=257812201 instance=ExtResource("3_tx4la")]
 
@@ -440,17 +449,8 @@ script = ExtResource("19_uda47")
 [node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=783668118]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
 billboard = 1
-text = "It’s been a long time, grandson. Good luck on your journey!"
-font_size = 60
-
-[node name="grandpa_rocking_chair2" parent="." unique_id=1340750449 instance=ExtResource("18_q7k67")]
-transform = Transform3D(-0.38637036, 0, 0.10352765, 0, 0.4, 0, -0.10352765, 0, -0.38637036, -3.0931818, 2.4196632, -2.9606605)
-script = ExtResource("19_uda47")
-
-[node name="Label3D" type="Label3D" parent="grandpa_rocking_chair2" unique_id=689839555]
-transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
-billboard = 1
-text = "It’s been a long time, grandson. Good luck on your journey!"
+text = "Don't be afraid. It will be okay.
+We'll go together."
 font_size = 60
 
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1595652887]
@@ -458,7 +458,7 @@ transform = Transform3D(-4.3711367e-08, 0, 0.9999995, 0, 1, 0, -0.9999995, 0, -4
 script = ExtResource("20_uda47")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="SwitchScreens" unique_id=662006916]
-transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -38.371895, 20.796846, -0.7098141)
+transform = Transform3D(4.371139e-08, 1, -8.742277e-08, 1, -4.371139e-08, 0, -3.8213714e-15, -8.742277e-08, -1, -38.559727, 20.796846, -0.7098141)
 shape = SubResource("BoxShape3D_ftohl")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 

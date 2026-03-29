@@ -10,7 +10,7 @@ func _on_body_entered(body: Node3D) -> void:
 		if ($"../Basic FPS Player/Control/CardContainer".get_child_count() != 0):
 			for i in range(0, $"../Basic FPS Player/Control/CardContainer".get_child_count()):
 				$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
-		for i in range(4, self.get_child_count()):
+		for i in range(3, self.get_child_count()):
 			var node = self.get_child(i)
 			if node.name.contains("log"):
 				node = node.get_child(2)

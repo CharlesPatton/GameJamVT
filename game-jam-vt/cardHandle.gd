@@ -10,7 +10,8 @@ var jumpCardAmount: int = 0
 var numCards = dashCardAmount + jumpCardAmount
 
 func _ready() -> void:
-	pass
+	var tween = get_tree().create_tween()
+	tween.tween_property($fade, "modulate", Color(0,0,0,0), 2)
 
 func cardPickedUp() -> void:
 	print("TESTING")

@@ -24,12 +24,10 @@
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="20_gxpff"]
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="22_3k4dh"]
 [ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="22_7mylh"]
-[ext_resource type="AudioStream" uid="uid://dr4qkijpfdn6" path="res://dragon-studio-thud-sound-effect-405470.mp3" id="22_545ku"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="22_f8ci1"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="24_3k4dh"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="25_idpoe"]
-[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="26_ggudo"]
-[ext_resource type="Script" uid="uid://b45ulviemo4w7" path="res://intrsuctions_1.gd" id="30_cfvhu"]
+[ext_resource type="Script" uid="uid://d4cr4vgbceu77" path="res://models/grandpa_rocking_chair.gd" id="26_ggudo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ocsrq"]
 albedo_color = Color(0.23490319, 0.6907602, 0.98996, 1)
@@ -191,13 +189,6 @@ func _on_timer_timeout():
 [sub_resource type="LabelSettings" id="LabelSettings_7mylh"]
 font = ExtResource("24_3k4dh")
 font_size = 100
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sl2u6"]
-size = Vector3(22.997421, 14.421958, 28.22802)
-
-[sub_resource type="LabelSettings" id="LabelSettings_fug78"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_lh3ue"]
 
 [node name="level2" type="Node3D" unique_id=2034603938]
 transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 0, 0)
@@ -675,6 +666,16 @@ offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
+[node name="fade" type="ColorRect" parent="Basic FPS Player/Control" unique_id=647980866]
+z_index = 99
+layout_mode = 0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
 [node name="_Node3D_447656" parent="Basic FPS Player" unique_id=637230529 instance=ExtResource("2_21xmu")]
 
 [node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=742632209]
@@ -1085,10 +1086,8 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=1115888000]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
+visible = false
 mesh = SubResource("BoxMesh_f8ci1")
-
-[node name="death_sound_effect" type="AudioStreamPlayer" parent="KILLLBOX1" unique_id=1626867145]
-stream = ExtResource("22_545ku")
 
 [node name="CardPickup1" type="Area3D" parent="KILLLBOX1" unique_id=1296605750]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9451256, 8.250502)
@@ -1174,6 +1173,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX2" unique_id=612732012]
 transform = Transform3D(0.9999998, 0, -2.842171e-14, 0, 1, 0, 2.842171e-14, 0, 0.9999998, -2.3108895, 3.3560715, 22.959656)
+visible = false
 mesh = SubResource("BoxMesh_2x2vu")
 
 [node name="CardPickup1" type="Area3D" parent="KILLLBOX2" unique_id=1292169712]
@@ -1465,6 +1465,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX3" unique_id=1763118572]
 transform = Transform3D(0.9999997, 0, -5.684342e-14, 0, 1, 0, 5.684342e-14, 0, 0.9999997, -2.310892, 5.4504795, 33.150604)
+visible = false
 mesh = SubResource("BoxMesh_7mylh")
 
 [node name="CardPickup1" type="Area3D" parent="KILLLBOX3" unique_id=661706653]
@@ -1627,6 +1628,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX4" unique_id=522959572]
 transform = Transform3D(0.9999997, 0, -2.2737368e-13, 0, 1, 0, 2.2737368e-13, 0, 0.9999997, 13.415192, 24.462471, 17.98897)
+visible = false
 mesh = SubResource("BoxMesh_7mylh")
 
 [node name="CardPickup4" type="Area3D" parent="KILLLBOX4" unique_id=901428604]
@@ -1679,41 +1681,8 @@ script = ExtResource("26_ggudo")
 [node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=1116115046]
 transform = Transform3D(-1, 0, -8.940697e-08, 0, 1, 0, 8.940697e-08, 0, -1, 0, 1.4057026, 0)
 billboard = 1
-text = "oh what a pleasure it is seeing you again boy, but I didn't expect to see you so soon."
+text = "Oh, I didn't expect to see you here...well make yourself at home."
 font_size = 60
-
-[node name="intrsuctions3" type="Area3D" parent="." unique_id=1359312981]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -88.2793)
-script = ExtResource("30_cfvhu")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="intrsuctions3" unique_id=755628746]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.137444, 3.5305882, 98.767136)
-shape = SubResource("BoxShape3D_sl2u6")
-debug_color = Color(3.071447, 0.6399989, 0, 1)
-
-[node name="Control" type="Control" parent="intrsuctions3" unique_id=1526662949]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Label" type="Label" parent="intrsuctions3/Control" unique_id=1674001837]
-layout_mode = 0
-offset_left = 376.0
-offset_top = 544.0
-offset_right = 780.0
-offset_bottom = 572.0
-text = "A cave wow!
-I always wanted to go into one!
-Wait, isn't that grandpa!"
-label_settings = SubResource("LabelSettings_fug78")
-horizontal_alignment = 1
-visible_characters = 0
-visible_ratio = 0.0
-
-[node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions3" unique_id=393568757]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
-mesh = SubResource("BoxMesh_lh3ue")
 
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
@@ -1781,5 +1750,3 @@ mesh = SubResource("BoxMesh_lh3ue")
 [connection signal="body_entered" from="KILLLBOX4/CardPickup4" to="KILLLBOX4/CardPickup4" method="_on_body_entered"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
 [connection signal="timeout" from="level_display/Timer" to="level_display" method="_on_timer_timeout"]
-[connection signal="body_entered" from="intrsuctions3" to="intrsuctions3" method="_on_body_entered"]
-[connection signal="body_exited" from="intrsuctions3" to="intrsuctions3" method="_on_body_exited"]

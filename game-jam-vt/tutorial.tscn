@@ -291,6 +291,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1612380767]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [node name="CardPickup1" type="Area3D" parent="KILLBOX2" unique_id=587871262]
@@ -336,6 +337,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=289855443]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [node name="CardPickup1" type="Area3D" parent="KILLLBOX1" unique_id=782976827]
@@ -420,6 +422,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX3" unique_id=879914398]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 13.265686)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [node name="CardPickup1" type="Area3D" parent="KILLBOX3" unique_id=2114325953]
@@ -478,6 +481,7 @@ offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX4" unique_id=306827081]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 3.6322174)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [node name="CardPickup1" type="Area3D" parent="KILLBOX4" unique_id=4552639]
@@ -3040,6 +3044,16 @@ offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
+[node name="fade" type="ColorRect" parent="Basic FPS Player/Control" unique_id=1765105048]
+z_index = 99
+layout_mode = 0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
 [node name="@Node3D@447656" parent="Basic FPS Player" unique_id=1003997293 instance=ExtResource("3_4t6hg")]
 
 [node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=1552787576]
@@ -3092,6 +3106,7 @@ visible_ratio = 0.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions1" unique_id=1118217953]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1506271647]
@@ -3188,6 +3203,7 @@ visible_ratio = 0.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions2" unique_id=1984722886]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+visible = false
 mesh = SubResource("BoxMesh_53tq2")
 
 [node name="level_display" type="CanvasLayer" parent="." unique_id=2033520517]
@@ -3224,9 +3240,7 @@ offset_left = 376.0
 offset_top = 544.0
 offset_right = 780.0
 offset_bottom = 572.0
-text = "What? 
-Where am I?
- Wait isn't this my treehouse how did I get here"
+text = "How did I get to my treehouse?"
 label_settings = SubResource("LabelSettings_ns12n")
 horizontal_alignment = 1
 visible_characters = 0
@@ -3234,6 +3248,7 @@ visible_ratio = 0.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions3" unique_id=27033336]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
 [connection signal="body_entered" from="KILLBOX2" to="KILLBOX2" method="_on_body_entered"]

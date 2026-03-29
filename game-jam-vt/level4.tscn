@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="4_sx4db"]
 [ext_resource type="PackedScene" uid="uid://dx7mkn470j365" path="res://models/specialbouncepad.blend" id="5_7odde"]
 [ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="5_bvvno"]
-[ext_resource type="Shader" path="res://spacesky.gdshader" id="5_p2trt"]
+[ext_resource type="Shader" uid="uid://de1r06ioq2qfe" path="res://spacesky.gdshader" id="5_p2trt"]
 [ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="6_b4lsh"]
 [ext_resource type="PackedScene" uid="uid://cp5owiiu7uewa" path="res://models/asteroid_decoration.blend" id="6_d0b6t"]
 [ext_resource type="AudioStream" uid="uid://dts8qrmoyckau" path="res://stu9-shrt-bass-357133.mp3" id="6_vc8vp"]
@@ -17,16 +17,17 @@
 [ext_resource type="Script" uid="uid://b52fce0xxts1l" path="res://asertoid_2.gd" id="10_fx4lf"]
 [ext_resource type="Script" uid="uid://crxgwohh4x6tt" path="res://models/asteroid.gd" id="10_sx4db"]
 [ext_resource type="PackedScene" uid="uid://cewe2fsefhdk0" path="res://models/planet.blend" id="12_7lf1v"]
-[ext_resource type="Script" path="res://models/planet.gd" id="13_dguho"]
+[ext_resource type="Script" uid="uid://bemo3ukr4pt40" path="res://models/planet.gd" id="13_dguho"]
 [ext_resource type="PackedScene" uid="uid://ccaykqvmktha1" path="res://models/spaceship.blend" id="15_n01hv"]
 [ext_resource type="AudioStream" uid="uid://dm7lp0qhmowld" path="res://freesound_community-sfx_jump_07-80241.mp3" id="16_r0a5s"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="17_0buyf"]
 [ext_resource type="AudioStream" uid="uid://b7ooyomc8m1lt" path="res://dragon-studio-whoosh-effect-382717.mp3" id="17_2byqe"]
-[ext_resource type="Script" path="res://models/hurricane.gd" id="18_d0b6t"]
+[ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="18_d0b6t"]
 [ext_resource type="PackedScene" uid="uid://bwb2y2s4a36my" path="res://models/space_platform.blend" id="21_x8n7k"]
 [ext_resource type="AudioStream" uid="uid://7o6rvoqley0r" path="res://audio/level4BGM.ogg" id="22_pbbpa"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="23_vy5se"]
 [ext_resource type="PackedScene" uid="uid://dp01wiu4miseo" path="res://models/sparkthehedgehog.blend" id="24_r0a5s"]
+[ext_resource type="Script" uid="uid://dhsgf0f40laom" path="res://models/sparkthehedgehog.gd" id="28_0fpet"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="28_vc8vp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fx4lf"]
@@ -172,7 +173,8 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1343394280]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 12.48517, 12.8164015)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 12.48517, 20.816402)
+visible = false
 mesh = SubResource("BoxMesh_sx4db")
 
 [node name="CardPickup8" type="Area3D" parent="KILLBOX2" unique_id=447314846]
@@ -762,6 +764,16 @@ offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
 
+[node name="fade" type="ColorRect" parent="Basic FPS Player/Control" unique_id=1732502259]
+z_index = 99
+layout_mode = 0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
 [node name="_Node3D_447656" parent="Basic FPS Player" unique_id=256063035 instance=ExtResource("2_pklw6")]
 
 [node name="DeathTransition" type="CanvasLayer" parent="Basic FPS Player" unique_id=583219149]
@@ -829,8 +841,9 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="sparkthehedgehog" parent="." unique_id=2060792132 instance=ExtResource("24_r0a5s")]
-transform = Transform3D(-0.228937, 0, -0.44450855, 0, 0.5, 0, 0.44450855, 0, -0.228937, -7.79858, 1.5469172, -5.546676)
+[node name="sparkthehedgehog" parent="." unique_id=978527614 instance=ExtResource("24_r0a5s")]
+transform = Transform3D(-0.42051953, 0, -0.2704872, 0, 0.5, 0, 0.2704872, 0, -0.42051953, -7.79858, 1.3779695, -5.546676)
+script = ExtResource("28_0fpet")
 
 [node name="Label3D" type="Label3D" parent="sparkthehedgehog" unique_id=1747673694]
 transform = Transform3D(-0.7996781, 0, 0.02270022, 0, 0.7999999, 0, -0.02270022, 0, -0.7996781, 0, 1.9368954, 0)

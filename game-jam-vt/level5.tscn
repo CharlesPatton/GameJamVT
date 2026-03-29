@@ -550,7 +550,7 @@ transform = Transform3D(10.4618635, 0, 0, 0, 0.06503698, 13.320115, 0, -5.076507
 mesh = SubResource("TorusMesh_p3j2p")
 
 [node name="CSGMesh3D2" type="CSGMesh3D" parent="." unique_id=1744775339]
-transform = Transform3D(13.040406, 0, 0, 0, 17.732851, 0, 0, 0, 1, 2.7778997, 0, -194.23216)
+transform = Transform3D(14.378714, 0, 0, 0, 17.732851, 0, 0, 0, 15.842886, 2.7778997, 0, -201.15071)
 mesh = SubResource("BoxMesh_mpwkm")
 material = SubResource("StandardMaterial3D_wy08v")
 
@@ -2570,11 +2570,11 @@ size = Vector3(68.39259, 1, 226.84229)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.495804, 12.05851, -158.67947)
 shape = SubResource("BoxShape3D_vueak")
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=568453444]
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer" parent="." unique_id=1732079818]
 stream = SubResource("AudioStreamOggVorbis_vueak")
 volume_db = 0.575
 
-[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="." unique_id=120822839]
+[node name="AudioStreamPlayer3D2" type="AudioStreamPlayer" parent="." unique_id=498182064]
 stream = SubResource("AudioStreamOggVorbis_48tf0")
 
 [node name="level_display" type="CanvasLayer" parent="." unique_id=2029584673]

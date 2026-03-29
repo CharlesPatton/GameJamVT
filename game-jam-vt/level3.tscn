@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dyh45tky7gf0i" path="res://models/lvl3holedterrain.blend" id="19_2272n"]
 [ext_resource type="PackedScene" uid="uid://c1vu3jweqaldk" path="res://models/lvl3flatterrain.blend" id="20_bs5pn"]
 [ext_resource type="PackedScene" uid="uid://ch36bipubj6jw" path="res://models/hurricane.blend" id="21_gaofk"]
-[ext_resource type="Script" path="res://models/hurricane.gd" id="22_itrrf"]
+[ext_resource type="Script" uid="uid://dijwvhffbvdh7" path="res://models/hurricane.gd" id="22_itrrf"]
 [ext_resource type="PackedScene" uid="uid://cfm73wgc8xdf7" path="res://models/teacher'sdesk.blend" id="24_mr4ff"]
 [ext_resource type="PackedScene" uid="uid://ow1wp00mgaa3" path="res://models/tree3.blend" id="26_7s766"]
 [ext_resource type="PackedScene" uid="uid://barsdar1vexti" path="res://models/grass1.blend" id="27_dev55"]
@@ -193,6 +193,16 @@ offset_left = 68.0
 offset_top = 491.0
 offset_right = 1068.0
 offset_bottom = 624.0
+
+[node name="fade" type="ColorRect" parent="Basic FPS Player/Control" unique_id=458816259]
+z_index = 99
+layout_mode = 0
+offset_left = -48.0
+offset_top = -52.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
 
 [node name="_Node3D_447656" parent="Basic FPS Player" unique_id=1057316962 instance=ExtResource("2_rqrji")]
 
@@ -446,6 +456,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=1435458708]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.931001, 12.24607, -1.830473)
+visible = false
 mesh = SubResource("BoxMesh_utqry")
 
 [node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=1114916778]
@@ -554,6 +565,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX2" unique_id=1476991200]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6767793, 1.9828391, 21.303202)
+visible = false
 mesh = SubResource("BoxMesh_utqry")
 
 [node name="CardPickup9" type="Area3D" parent="KILLLBOX2" unique_id=440665865]
@@ -7472,12 +7484,12 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLLBOX2/CardPickup21" to="KILLLBOX2/CardPickup21" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup22" to="KILLLBOX2/CardPickup22" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup23" to="KILLLBOX2/CardPickup23" method="_on_body_entered"]
-[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
-[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
-[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
-[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
+[connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]

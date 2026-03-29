@@ -1,25 +1,38 @@
-[gd_scene format=3 uid="uid://cy8o6d53r7uut"]
+[gd_scene format=3 uid="uid://dptfq7qmbtmrp"]
 
-[ext_resource type="Script" uid="uid://dwnghwxukkmb5" path="res://ending_screen.gd" id="1_6ywx6"]
-[ext_resource type="Texture2D" uid="uid://fh3yptrcdu8n" path="res://imgs/gradient_end.png" id="1_ua8nl"]
+[ext_resource type="Script" path="res://ending_screen.gd" id="1_6ywx6"]
+[ext_resource type="Script" uid="uid://cmx2s3j3crhi2" path="res://canvas_layer.gd" id="2_vwu8u"]
 [ext_resource type="Texture2D" uid="uid://cuqkkg8hnyi2w" path="res://imgs/falsehope_logo_white.png" id="2_xdao8"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="3_vwu8u"]
 
 [node name="ending_screen" type="Node2D" unique_id=54886286]
 script = ExtResource("1_6ywx6")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=794988460]
+[node name="Control" type="Control" parent="." unique_id=1004465615]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(576, 0)
 
-[node name="gradient_background" type="Sprite2D" parent="CanvasLayer" unique_id=1265032410]
-position = Vector2(576, 324)
-texture = ExtResource("1_ua8nl")
+[node name="CanvasLayer" type="CanvasLayer" parent="Control" unique_id=794988460]
+script = ExtResource("2_vwu8u")
 
-[node name="FalsehopeLogo" type="Sprite2D" parent="CanvasLayer" unique_id=678848014]
+[node name="FalsehopeLogo" type="Sprite2D" parent="Control/CanvasLayer" unique_id=678848014]
+modulate = Color(1, 1, 1, 0.76862746)
 position = Vector2(576, 290)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_xdao8")
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=512876704]
+[node name="Button" type="Button" parent="Control/CanvasLayer" unique_id=512876704]
 offset_left = 453.5
 offset_top = 507.0
 offset_right = 702.5
@@ -27,16 +40,36 @@ offset_bottom = 570.0
 theme_override_fonts/font = ExtResource("3_vwu8u")
 theme_override_font_sizes/font_size = 40
 text = "Back To Title"
+flat = true
 
-[node name="thanks" type="Label" parent="CanvasLayer" unique_id=1315717421]
+[node name="thanks" type="Label" parent="Control/CanvasLayer" unique_id=1315717421]
 offset_left = 150.0
 offset_top = 50.0
 offset_right = 1006.0
 offset_bottom = 159.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.75686276)
 theme_override_fonts/font = ExtResource("3_vwu8u")
 theme_override_font_sizes/font_size = 80
 text = "Thank You For Playing"
 horizontal_alignment = 1
 
-[connection signal="tree_entered" from="CanvasLayer" to="." method="_on_canvas_layer_tree_entered"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+[node name="ColorRect" type="ColorRect" parent="Control/CanvasLayer" unique_id=170551298]
+z_index = -99
+offset_left = -55.0
+offset_top = -140.0
+offset_right = 1204.0
+offset_bottom = 654.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="fade" type="ColorRect" parent="Control/CanvasLayer" unique_id=57572804]
+z_index = 99
+offset_left = -48.0
+offset_top = -73.0
+offset_right = 1213.0
+offset_bottom = 674.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="tree_entered" from="Control/CanvasLayer" to="." method="_on_canvas_layer_tree_entered"]
+[connection signal="pressed" from="Control/CanvasLayer/Button" to="." method="_on_button_pressed"]

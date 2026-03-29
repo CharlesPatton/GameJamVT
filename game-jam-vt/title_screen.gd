@@ -12,4 +12,7 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	var tween = get_tree().create_tween()
+	tween.tween_property($Control/CanvasLayer/fade, "modulate", Color(0,0,0,1), 2)
+	await get_tree().create_timer(2).timeout
 	get_tree().change_scene_to_file("res://tutorial.tscn")
