@@ -143,7 +143,7 @@ size = Vector3(28.295761, 0.83231676, 34.7658)
 [node name="level3" type="Node3D" unique_id=896552784]
 
 [node name="Basic FPS Player" type="CharacterBody3D" parent="." unique_id=1672809803]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35007858, -0.36441898, 0.1967454)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.044084, -10.589627, -108.67743)
 floor_max_angle = 0.27401668
 script = ExtResource("1_bmsap")
 metadata/_custom_type_script = "uid://huc3y4vt8p0e"
@@ -429,6 +429,97 @@ shape = SubResource("SphereShape3D_0m7xm")
 [node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower5/bounce_pad" unique_id=412085974]
 stream = ExtResource("14_qbfqj")
 
+[node name="flower6" parent="." unique_id=1096824900 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.007062, -1.3744955, -148.62112)
+
+[node name="bounce_pad" type="Area3D" parent="flower6" unique_id=1722935513]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower6/bounce_pad" unique_id=773027373]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower6/bounce_pad" unique_id=1060396431]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower7" parent="." unique_id=1879974309 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0351057, -1.3744955, -158.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower7" unique_id=1832129596]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower7/bounce_pad" unique_id=568866373]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower7/bounce_pad" unique_id=109464313]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower8" parent="." unique_id=1255465853 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.964894, -1.3744955, -167.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower8" unique_id=120644844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower8/bounce_pad" unique_id=956034327]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower8/bounce_pad" unique_id=987612128]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower9" parent="." unique_id=181180611 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0351057, -1.3744955, -178.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower9" unique_id=445884917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower9/bounce_pad" unique_id=787307750]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower9/bounce_pad" unique_id=1399700204]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower11" parent="." unique_id=344316838 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0351057, -1.3744955, -197.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower11" unique_id=514510257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower11/bounce_pad" unique_id=1772440576]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower11/bounce_pad" unique_id=2033408363]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower12" parent="." unique_id=692279586 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.964894, -1.3744955, -208.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower12" unique_id=1374512045]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower12/bounce_pad" unique_id=1738300575]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower12/bounce_pad" unique_id=1694280379]
+stream = ExtResource("14_qbfqj")
+
+[node name="flower10" parent="." unique_id=1473502593 instance=ExtResource("9_8x87a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.964894, -1.3744955, -187.32625)
+
+[node name="bounce_pad" type="Area3D" parent="flower10" unique_id=559789698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10418701, -1.8820486, 0.09288025)
+script = SubResource("GDScript_siwpi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="flower10/bounce_pad" unique_id=598592330]
+shape = SubResource("SphereShape3D_0m7xm")
+
+[node name="bounce_sound_effect" type="AudioStreamPlayer" parent="flower10/bounce_pad" unique_id=2132562535]
+stream = ExtResource("14_qbfqj")
+
 [node name="lvl3slide" parent="." unique_id=360477348 instance=ExtResource("13_7oc4e")]
 transform = Transform3D(-1.0927847e-08, 0, 0.25, 0, 0.25, 0, -0.25, 0, -1.0927847e-08, -7.9686985, -5.6908665, -44.712635)
 
@@ -603,6 +694,97 @@ dash_cards = 1
 shape = SubResource("BoxShape3D_gaofk")
 
 [node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup11" unique_id=1541341593]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup24" type="Area3D" parent="KILLLBOX2" unique_id=381029885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.879413, 14.449947, -17.376053)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup24" unique_id=502243627]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup24" unique_id=667375987]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup25" type="Area3D" parent="KILLLBOX2" unique_id=832630681]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0987644, 15.449947, -27.081177)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup25" unique_id=338581462]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup25" unique_id=1937139061]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup26" type="Area3D" parent="KILLLBOX2" unique_id=146604965]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.837245, 15.449947, -36.081177)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup26" unique_id=111523140]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup26" unique_id=2020152983]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup27" type="Area3D" parent="KILLLBOX2" unique_id=2081087636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0987644, 15.449947, -47.081177)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup27" unique_id=1324783085]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup27" unique_id=732485515]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup29" type="Area3D" parent="KILLLBOX2" unique_id=2042979721]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0987644, 15.449947, -66.08118)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup29" unique_id=999396459]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup29" unique_id=535339284]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup30" type="Area3D" parent="KILLLBOX2" unique_id=813876693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.901236, 15.449947, -77.08118)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup30" unique_id=2049893934]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup30" unique_id=198474608]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("16_o421a")
+
+[node name="CardPickup28" type="Area3D" parent="KILLLBOX2" unique_id=911242283]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.837245, 15.449947, -56.081177)
+script = ExtResource("16_l2pgs")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX2/CardPickup28" unique_id=1889775308]
+shape = SubResource("BoxShape3D_gaofk")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX2/CardPickup28" unique_id=1719490582]
 transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
 billboard = 1
 texture = ExtResource("16_o421a")
@@ -7463,6 +7645,13 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="flower3/bounce_pad" to="flower3/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="flower4/bounce_pad" to="flower4/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="flower5/bounce_pad" to="flower5/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower6/bounce_pad" to="flower6/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower7/bounce_pad" to="flower7/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower8/bounce_pad" to="flower8/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower9/bounce_pad" to="flower9/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower11/bounce_pad" to="flower11/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower12/bounce_pad" to="flower12/bounce_pad" method="_on_body_entered"]
+[connection signal="body_entered" from="flower10/bounce_pad" to="flower10/bounce_pad" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX1/CardPickup8" to="KILLLBOX1/CardPickup8" method="_on_body_entered"]
@@ -7472,6 +7661,13 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLLBOX2/CardPickup9" to="KILLLBOX2/CardPickup9" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup10" to="KILLLBOX2/CardPickup10" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup11" to="KILLLBOX2/CardPickup11" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup24" to="KILLLBOX2/CardPickup24" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup25" to="KILLLBOX2/CardPickup25" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup26" to="KILLLBOX2/CardPickup26" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup27" to="KILLLBOX2/CardPickup27" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup29" to="KILLLBOX2/CardPickup29" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup30" to="KILLLBOX2/CardPickup30" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX2/CardPickup28" to="KILLLBOX2/CardPickup28" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup12" to="KILLLBOX2/CardPickup12" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup13" to="KILLLBOX2/CardPickup13" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup14" to="KILLLBOX2/CardPickup14" method="_on_body_entered"]
@@ -7484,12 +7680,12 @@ offset_bottom = 40.0
 [connection signal="body_entered" from="KILLLBOX2/CardPickup21" to="KILLLBOX2/CardPickup21" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup22" to="KILLLBOX2/CardPickup22" method="_on_body_entered"]
 [connection signal="body_entered" from="KILLLBOX2/CardPickup23" to="KILLLBOX2/CardPickup23" method="_on_body_entered"]
-[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_slide_area_body_exited"]
 [connection signal="body_exited" from="Area3D" to="Basic FPS Player" method="_on_area_3d_body_exited"]
-[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_entered"]
 [connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_slide_area_body_exited"]
 [connection signal="body_exited" from="Area3D2" to="Basic FPS Player" method="_on_area_3d_body_exited"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
