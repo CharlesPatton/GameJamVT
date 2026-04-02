@@ -96,6 +96,9 @@ shader_parameter/disable_pixel = true
 
 [sub_resource type="LabelSettings" id="LabelSettings_5gpbq"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_nghrg"]
+size = Vector3(22.997421, 5.0489936, 9.234001)
+
 [sub_resource type="BoxMesh" id="BoxMesh_53tq2"]
 
 [sub_resource type="GDScript" id="GDScript_4ods2"]
@@ -3109,6 +3112,37 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203
 visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
+[node name="intrsuctions4" type="Area3D" parent="." unique_id=1757728254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -106.30904)
+script = ExtResource("21_5gpbq")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="intrsuctions4" unique_id=1765816886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.93769836, 4.4691763, 65.37564)
+shape = SubResource("BoxShape3D_nghrg")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="intrsuctions4" unique_id=897172183]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="intrsuctions4/Control" unique_id=1766954397]
+layout_mode = 0
+offset_left = 356.0
+offset_top = 44.0
+offset_right = 760.0
+offset_bottom = 72.0
+text = "Some jumps may require you to use two cards at once!"
+label_settings = SubResource("LabelSettings_5gpbq")
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="intrsuctions4" unique_id=1150302543]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 35.203117)
+visible = false
+mesh = SubResource("BoxMesh_g52lx")
+
 [node name="SwitchScreens" type="Area3D" parent="." unique_id=1506271647]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -128.9032)
 script = ExtResource("20_dudfa")
@@ -3275,6 +3309,8 @@ mesh = SubResource("BoxMesh_g52lx")
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="intrsuctions1" to="intrsuctions1" method="_on_body_entered"]
 [connection signal="body_exited" from="intrsuctions1" to="intrsuctions1" method="_on_body_exited"]
+[connection signal="body_entered" from="intrsuctions4" to="intrsuctions4" method="_on_body_entered"]
+[connection signal="body_exited" from="intrsuctions4" to="intrsuctions4" method="_on_body_exited"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
 [connection signal="body_entered" from="intrsuctions2" to="intrsuctions2" method="_on_body_entered"]
 [connection signal="body_exited" from="intrsuctions2" to="intrsuctions2" method="_on_body_exited"]
