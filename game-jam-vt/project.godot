@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="GameJamVT"
+config/name="False Hope"
 run/main_scene="uid://bsxs7qd7df8yi"
 config/features=PackedStringArray("4.6", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://cuqkkg8hnyi2w"
 
 [autoload]
 
@@ -87,3 +87,4 @@ escape={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/vram_compression/import_etc2_astc=true
