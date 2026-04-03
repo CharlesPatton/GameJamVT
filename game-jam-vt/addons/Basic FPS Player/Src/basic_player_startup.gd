@@ -12,6 +12,8 @@ var isSliding = false
 var dashCards = 0;
 var jumpCards = 0;
 
+var can_look = true
+
 func _enter_tree():
 	
 	if find_child("Head"):
@@ -86,7 +88,7 @@ func _ready():
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 	head_start_pos = $Head.position
-
+	
 func _physics_process(delta):
 	if Engine.is_editor_hint():
 		return
@@ -116,6 +118,9 @@ func _process(delta):
 		rotate_player(delta)
 
 func _input(event):
+	if not can_look:
+		return
+		
 	if Engine.is_editor_hint():
 		return
 		

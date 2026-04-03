@@ -18,8 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://b05wa6wvgwe41" path="res://models/teddybear.blend" id="16_m3i2x"]
 [ext_resource type="AudioStream" uid="uid://bok82u7k5jitk" path="res://audio/ThefinalMemory.ogg" id="17_cpcf4"]
 [ext_resource type="PackedScene" uid="uid://cx4c4p12qfjfo" path="res://models/grandpa_rocking_chair.blend" id="18_q7k67"]
-[ext_resource type="Script" uid="uid://d4cr4vgbceu77" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
+[ext_resource type="Script" path="res://models/grandpa_rocking_chair.gd" id="19_uda47"]
 [ext_resource type="Script" uid="uid://2eldi8sg2orq" path="res://SwitchScreens.gd" id="20_uda47"]
+[ext_resource type="Script" uid="uid://btw57e6qj652o" path="res://KillBox.gd" id="21_d8354"]
+[ext_resource type="Script" uid="uid://nwhyvtimihua" path="res://card_pickup.gd" id="22_mwc8w"]
+[ext_resource type="Texture2D" uid="uid://dn0v7wc16qlqx" path="res://imgs/dashcard.png" id="23_xlcos"]
+[ext_resource type="Texture2D" uid="uid://itejyapvp22i" path="res://imgs/jumpcard.png" id="24_46bjg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_foswp"]
 
@@ -80,6 +84,13 @@ height = 0.1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ftohl"]
 size = Vector3(28.295761, 0.83231676, 34.7658)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ki37"]
+size = Vector3(89.55772, 1.0478723, 131.19351)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g8jen"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ql4p1"]
 
 [node name="finale" type="Node3D" unique_id=1071818278]
 
@@ -354,7 +365,7 @@ transform = Transform3D(-0.25980768, 0, -0.14999995, 0, 0.3, 0, 0.14999995, 0, -
 transform = Transform3D(-0.2598076, 0, 0.15000007, 0, 0.3, 0, -0.15000007, 0, -0.2598076, 16.849499, 1.1887903, -11.543444)
 
 [node name="grass1" parent="Node3D3" unique_id=1471432962 instance=ExtResource("12_b6alr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.298249, 1.2132972, 6.409416)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.51637, 1.2132972, 4.258548)
 
 [node name="grass2" parent="Node3D3" unique_id=1837664780 instance=ExtResource("12_b6alr")]
 transform = Transform3D(0.8660254, 0, -0.5, 0, 1, 0, 0.5, 0, 0.8660254, 1.8180652, 1.3648514, 3.9069452)
@@ -443,7 +454,7 @@ autoplay = true
 parameters/looping = true
 
 [node name="grandpa_rocking_chair" parent="." unique_id=1017823592 instance=ExtResource("18_q7k67")]
-transform = Transform3D(-0.40000004, 0, 4.4703484e-08, 0, 0.4, 0, -4.4703484e-08, 0, -0.40000004, 5.4920483, 2.4223855, -17.129791)
+transform = Transform3D(-0.25422117, 0, -0.30882293, 0, 0.4, 0, 0.30882293, 0, -0.25422117, 3.748579, 2.4223855, -17.129791)
 script = ExtResource("19_uda47")
 
 [node name="Label3D" type="Label3D" parent="grandpa_rocking_chair" unique_id=783668118]
@@ -468,7 +479,85 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="KILLLBOX1" type="Area3D" parent="." unique_id=729539317]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -5.6029434)
+script = ExtResource("21_d8354")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=1608457117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.1688833, -3.3915405, 8.669672)
+shape = SubResource("BoxShape3D_6ki37")
+debug_color = Color(3.071447, 0.6399989, 0, 1)
+
+[node name="Control" type="Control" parent="KILLLBOX1" unique_id=1105955833]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+metadata/_edit_use_anchors_ = true
+
+[node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=1969333461]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.931001, 12.24607, -1.830473)
+visible = false
+mesh = SubResource("BoxMesh_g8jen")
+
+[node name="CardPickup4" type="Area3D" parent="KILLLBOX1" unique_id=1701904787]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 7.6137857, -25.437466)
+script = ExtResource("22_mwc8w")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup4" unique_id=1589973096]
+shape = SubResource("BoxShape3D_ql4p1")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup4" unique_id=458925020]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("23_xlcos")
+
+[node name="CardPickup8" type="Area3D" parent="KILLLBOX1" unique_id=1056482896]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6664963, 6.0054016, -56.824123)
+script = ExtResource("22_mwc8w")
+dash_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup8" unique_id=1364819813]
+shape = SubResource("BoxShape3D_ql4p1")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup8" unique_id=1533839475]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("23_xlcos")
+
+[node name="CardPickup6" type="Area3D" parent="KILLLBOX1" unique_id=233063335]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9384694, 7.216566, -14.331394)
+script = ExtResource("22_mwc8w")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup6" unique_id=1035000434]
+shape = SubResource("BoxShape3D_ql4p1")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup6" unique_id=2038704114]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("24_46bjg")
+
+[node name="CardPickup7" type="Area3D" parent="KILLLBOX1" unique_id=649224520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.9384694, 3.2461748, -46.13889)
+script = ExtResource("22_mwc8w")
+jump_cards = 1
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1/CardPickup7" unique_id=216040552]
+shape = SubResource("BoxShape3D_ql4p1")
+
+[node name="Sprite3D" type="Sprite3D" parent="KILLLBOX1/CardPickup7" unique_id=1603678614]
+transform = Transform3D(-0.06, 0, 0, 0, -0.06, 0, 0, 0, -0.06, 0, 0, 0)
+billboard = 1
+texture = ExtResource("24_46bjg")
+
 [connection signal="KillCard" from="Basic FPS Player" to="Basic FPS Player/Control" method="_on_basic_fps_player_kill_card"]
 [connection signal="timeout" from="Basic FPS Player/DashEndTimer" to="Basic FPS Player" method="_on_dash_end_timer_timeout"]
 [connection signal="timeout" from="Basic FPS Player/JumpEndTimer" to="Basic FPS Player" method="_on_jump_end_timer_timeout"]
 [connection signal="body_entered" from="SwitchScreens" to="SwitchScreens" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1" to="KILLLBOX1" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup4" to="KILLLBOX1/CardPickup4" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup8" to="KILLLBOX1/CardPickup8" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup6" to="KILLLBOX1/CardPickup6" method="_on_body_entered"]
+[connection signal="body_entered" from="KILLLBOX1/CardPickup7" to="KILLLBOX1/CardPickup7" method="_on_body_entered"]

@@ -1,12 +1,12 @@
 extends Area3D
-signal show_cards()
 
 func _on_body_entered(body: Node3D) -> void:			
 	
 	
 	if body.name == "Basic FPS Player":	
-		$"../Basic FPS Player".dashCards = 0
-		$"../Basic FPS Player".jumpCards = 0
+		var player = $"../Basic FPS Player"
+		player.dashCards = 0
+		player.jumpCards = 0
 		if ($"../Basic FPS Player/Control/CardContainer".get_child_count() != 0):
 			for i in range(0, $"../Basic FPS Player/Control/CardContainer".get_child_count()):
 				$"../Basic FPS Player/Control/CardContainer".get_child(i).queue_free()
@@ -21,9 +21,18 @@ func _on_body_entered(body: Node3D) -> void:
 		var tween = get_tree().create_tween()
 		tween.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", 0.67, 0.5)
 		await get_tree().create_timer(0.75).timeout
-		$"../Basic FPS Player".position = $RespawnPoint.global_position
-		#RESET PLAYER AND HEAD ROTATION AFTER DEATH
-		$"../Basic FPS Player/Head".rotation = Vector3(0, 0, 0)
-		$"../Basic FPS Player".rotation = Vector3(0, 0, 0)
+		player.position = $RespawnPoint.global_position
 		var tween2 = get_tree().create_tween()
 		tween2.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", -1, 0.5)
+		
+		#RESET PLAYER AND HEAD ROTATION AFTER DEATH
+		#NOT FOR LEVEL 2 AND 4 SINCE ROTATION MESSED UP
+		player.can_look = false 
+		player.rotation_target_player = 0.0
+		player.rotation_target_head = 0.0
+		
+		player.quaternion = Quaternion(Vector3.UP, 0.0)
+		$"../Basic FPS Player/Head".quaternion = Quaternion(Vector3.RIGHT, 0.0)
+
+		Input.warp_mouse(get_viewport().get_visible_rect().size / 2)
+		player.can_look = true

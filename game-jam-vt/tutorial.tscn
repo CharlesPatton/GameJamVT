@@ -293,7 +293,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX2" unique_id=1612380767]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 6.0862246)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7278218, 3.0195665, 6.0862246)
 visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
@@ -339,7 +339,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLLBOX1" unique_id=289855443]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 9.798658)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.90689564, 3.0195665, 9.798658)
 visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
@@ -424,7 +424,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX3" unique_id=879914398]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 13.265686)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.35404134, 3.0195665, 14.077042)
 visible = false
 mesh = SubResource("BoxMesh_g52lx")
 
@@ -483,7 +483,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RespawnPoint" type="CSGMesh3D" parent="KILLBOX4" unique_id=306827081]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3108869, 3.0195665, 3.6322174)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7775738, 3.0195665, 3.6322174)
 visible = false
 mesh = SubResource("BoxMesh_g52lx")
 

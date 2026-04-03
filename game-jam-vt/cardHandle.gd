@@ -14,7 +14,6 @@ func _ready() -> void:
 	tween.tween_property($fade, "modulate", Color(0,0,0,0), 2)
 
 func cardPickedUp() -> void:
-	print("TESTING")
 	for i in range(0, dashCardAmount):
 		var card = TextureRect.new()
 		card.texture = dashCardTexture

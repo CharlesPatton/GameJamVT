@@ -125,7 +125,7 @@ func _on_body_entered(body):
 radius = 2.8968813
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_bs5pn"]
-size = Vector3(89.55772, 1.0478723, 93.14119)
+size = Vector3(89.55772, 1.0478723, 131.19351)
 
 [sub_resource type="BoxMesh" id="BoxMesh_utqry"]
 
@@ -534,7 +534,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.985807, -38.110508)
 script = ExtResource("15_i6w5t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="KILLLBOX1" unique_id=532388847]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -21.226048)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.331524, -3.3915405, -2.1998863)
 shape = SubResource("BoxShape3D_bs5pn")
 debug_color = Color(3.071447, 0.6399989, 0, 1)
 
