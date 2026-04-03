@@ -22,7 +22,8 @@ func _on_body_entered(body: Node3D) -> void:
 		tween.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", 0.67, 0.5)
 		await get_tree().create_timer(0.75).timeout
 		$"../Basic FPS Player".position = $RespawnPoint.global_position
+		#RESET PLAYER AND HEAD ROTATION AFTER DEATH
+		$"../Basic FPS Player/Head".rotation = Vector3(0, 0, 0)
+		$"../Basic FPS Player".rotation = Vector3(0, 0, 0)
 		var tween2 = get_tree().create_tween()
 		tween2.tween_property(deathTransition.get_node("ColorRect").material, "shader_parameter/height", -1, 0.5)
-
-	

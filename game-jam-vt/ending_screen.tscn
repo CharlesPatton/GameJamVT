@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dptfq7qmbtmrp"]
 
-[ext_resource type="Script" path="res://ending_screen.gd" id="1_6ywx6"]
-[ext_resource type="Script" uid="uid://cmx2s3j3crhi2" path="res://canvas_layer.gd" id="2_vwu8u"]
+[ext_resource type="Script" uid="uid://dwnghwxukkmb5" path="res://ending_screen.gd" id="1_6ywx6"]
+[ext_resource type="Script" path="res://canvas_layer.gd" id="2_vwu8u"]
 [ext_resource type="Texture2D" uid="uid://cuqkkg8hnyi2w" path="res://imgs/falsehope_logo_white.png" id="2_xdao8"]
 [ext_resource type="FontFile" uid="uid://frysdasoalfy" path="res://OptimusPrinceps.ttf" id="3_vwu8u"]
 

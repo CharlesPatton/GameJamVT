@@ -2,7 +2,7 @@ extends Node3D
 
 const EDGE = -17
 const RESET = 17
-const SPEED = 1.5
+const SPEED = 3
 
 const EDGEY = 17
 const RESETY = 17
